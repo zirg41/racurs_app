@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_complete_guide/widgets/comments.dart';
+import 'package:flutter_complete_guide/widgets/likes.dart';
 
 void main() => runApp(MyApp());
 
@@ -17,7 +19,9 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Flutter App'),
+          title: Center(
+            child: Text('Racurs app'),
+          ),
         ),
         body: Column(
           children: [
@@ -35,11 +39,15 @@ class MyHomePage extends StatelessWidget {
                           Container(
                             width: 30,
                             height: 30,
-                            color: Colors.blue,
                             margin: EdgeInsets.all(8),
+                            child: Icon(Icons.person),
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.grey,
+                            ),
                           ),
                           Text(
-                            "account name",
+                            "Faiz Galimov",
                             style: TextStyle(fontSize: 18),
                           )
                         ],
@@ -52,12 +60,8 @@ class MyHomePage extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        Container(
-                          margin: EdgeInsets.all(3),
-                          height: 25,
-                          width: 25,
-                          color: Colors.grey,
-                        ),
+                        Likes(likesCount: 16),
+                        Comments(commentsCount: 7)
                       ],
                     )
                   ],
