@@ -17,7 +17,7 @@ class Likes extends StatelessWidget {
             padding: const EdgeInsets.only(right: 3),
             child: Icon(
               Icons.favorite_rounded,
-              color: Colors.blue.shade700,
+              color: Colors.purple.shade800,
             ),
           ),
           Text(

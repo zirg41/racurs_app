@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_complete_guide/widgets/comments.dart';
 import 'package:flutter_complete_guide/widgets/likes.dart';
+import 'package:flutter_complete_guide/widgets/post.dart';
+import 'package:flutter_complete_guide/widgets/short_photo_statistic.dart';
+import 'package:flutter_complete_guide/widgets/user_info.dart';
 
 void main() => runApp(MyApp());
 
@@ -18,57 +21,34 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Center(
-            child: Text('Racurs app'),
-          ),
+      appBar: AppBar(
+        title: Center(
+          child: Text('Racurs app'),
         ),
-        body: Column(
-          children: [
-            Container(
-              width: double.infinity,
-              //color: Colors.grey,
-              child: Card(
-                margin: EdgeInsets.all(8),
-                elevation: 8,
-                child: Column(
-                  children: [
-                    Container(
-                      child: Row(
-                        children: [
-                          Container(
-                            width: 30,
-                            height: 30,
-                            margin: EdgeInsets.all(8),
-                            child: Icon(Icons.person),
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Colors.grey,
-                            ),
-                          ),
-                          Text(
-                            "Faiz Galimov",
-                            style: TextStyle(fontSize: 18),
-                          )
-                        ],
-                      ),
-                    ),
-                    Container(
-                      child: Image(
-                        image: AssetImage('lib/assets/newyork.jpg'),
-                      ),
-                    ),
-                    Row(
-                      children: [
-                        Likes(likesCount: 16),
-                        Comments(commentsCount: 7)
-                      ],
-                    )
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ));
+        backgroundColor: Colors.purple.shade800,
+      ),
+      body: ListView(
+        children: [
+          Post(
+            postNickName: "chilllax.x",
+            postImage: AssetImage('lib/assets/newyork.jpg'),
+            postLikesCount: 25,
+            postCommentsCount: 9,
+          ),
+          Post(
+            postNickName: "alina.glmv",
+            postImage: AssetImage('lib/assets/moscow.jpg'),
+            postLikesCount: 256,
+            postCommentsCount: 149,
+          ),
+          Post(
+            postNickName: "alina.glmv",
+            postImage: AssetImage('lib/assets/rome.jpg'),
+            postLikesCount: 647,
+            postCommentsCount: 12,
+          )
+        ],
+      ),
+    );
   }
 }

@@ -17,7 +17,7 @@ class Comments extends StatelessWidget {
             padding: const EdgeInsets.only(right: 3),
             child: Icon(
               Icons.comment_outlined,
-              color: Colors.blue.shade700,
+              color: Colors.purple.shade800,
             ),
           ),
           Text(
