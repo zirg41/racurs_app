@@ -30,11 +30,11 @@ class Post extends StatelessWidget {
               Row(
                 // Likes and comments counters
                 children: [
-                  ShortInfo(
+                  CounterWidg(
                     count: postLikesCount,
                     icon: Icons.favorite,
                   ),
-                  ShortInfo(
+                  CounterWidg(
                     count: postCommentsCount,
                     icon: Icons.comment_outlined,
                   ),

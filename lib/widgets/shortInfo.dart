@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class ShortInfo extends StatelessWidget {
+class CounterWidg extends StatelessWidget {
   final int count;
   final IconData icon;
   double fontSize;
 
-  ShortInfo({
+  CounterWidg({
     @required this.count,
     @required this.icon,
     this.fontSize = 16,
