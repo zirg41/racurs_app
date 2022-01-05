@@ -45,6 +45,35 @@ class MyHomePage extends StatelessWidget {
           )
         ],
       ),
+      bottomNavigationBar: Container(
+        height: 50,
+        width: double.infinity,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.home, size: 35),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.map, size: 35),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.add_a_photo, size: 35),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.message, size: 35),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.account_box, size: 35),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
