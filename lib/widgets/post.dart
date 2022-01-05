@@ -8,6 +8,7 @@ class Post extends StatelessWidget {
   final String postNickName;
   final int postLikesCount;
   final int postCommentsCount;
+
   Post({
     @required this.id,
     @required this.postNickName,

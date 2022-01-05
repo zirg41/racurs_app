@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_complete_guide/widgets/post.dart';
+import 'package:flutter_complete_guide/widgets/post_list.dart';
 
 void main() => runApp(MyApp());
 
@@ -56,9 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         backgroundColor: Theme.of(context).primaryColor,
       ),
-      body: ListView(
-        children: allPosts,
-      ),
+      body: PostList(allPosts, () {}),
       bottomNavigationBar: Container(
         height: 50,
         width: double.infinity,
