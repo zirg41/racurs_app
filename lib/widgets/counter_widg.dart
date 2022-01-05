@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class CounterWidg extends StatelessWidget {
   final int count;
   final IconData icon;
-  double fontSize;
+  final double fontSize;
 
   CounterWidg({
     @required this.count,

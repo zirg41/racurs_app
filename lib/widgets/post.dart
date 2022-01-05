@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../widgets/shortInfo.dart';
+import '../widgets/counter_widg.dart';
 import '../widgets/user_info.dart';
 
 class Post extends StatelessWidget {
