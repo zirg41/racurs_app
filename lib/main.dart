@@ -23,6 +23,27 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final List<Post> allPosts = [
+    Post(
+      postNickName: "chilllax.x",
+      postImage: AssetImage('lib/assets/newyork.jpg'),
+      postLikesCount: 27,
+      postCommentsCount: 9,
+    ),
+    Post(
+      postNickName: "alina.glmv",
+      postImage: AssetImage('lib/assets/moscow.jpg'),
+      postLikesCount: 256,
+      postCommentsCount: 149,
+    ),
+    Post(
+      postNickName: "alina.glmv",
+      postImage: AssetImage('lib/assets/rome.jpg'),
+      postLikesCount: 647,
+      postCommentsCount: 12,
+    )
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,26 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).primaryColor,
       ),
       body: ListView(
-        children: [
-          Post(
-            postNickName: "chilllax.x",
-            postImage: AssetImage('lib/assets/newyork.jpg'),
-            postLikesCount: 27,
-            postCommentsCount: 9,
-          ),
-          Post(
-            postNickName: "alina.glmv",
-            postImage: AssetImage('lib/assets/moscow.jpg'),
-            postLikesCount: 256,
-            postCommentsCount: 149,
-          ),
-          Post(
-            postNickName: "alina.glmv",
-            postImage: AssetImage('lib/assets/rome.jpg'),
-            postLikesCount: 647,
-            postCommentsCount: 12,
-          )
-        ],
+        children: allPosts,
       ),
       bottomNavigationBar: Container(
         height: 50,
