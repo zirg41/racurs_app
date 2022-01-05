@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_complete_guide/widgets/shortInfo.dart';
-import 'package:flutter_complete_guide/widgets/short_photo_statistic.dart';
-import 'package:flutter_complete_guide/widgets/user_info.dart';
+import '../widgets/shortInfo.dart';
+import '../widgets/user_info.dart';
 
 class Post extends StatelessWidget {
   final AssetImage postImage;
