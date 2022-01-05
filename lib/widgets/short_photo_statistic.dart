@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'comments.dart';
-import 'likes.dart';
+import 'shortInfo.dart';
 
 class ShortPhotoStatistic extends StatelessWidget {
   final int likesCount;
@@ -15,8 +14,8 @@ class ShortPhotoStatistic extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Likes(likesCount: likesCount),
-        Comments(commentsCount: commentsCount),
+        ShortInfo(count: likesCount, icon: Icons.favorite),
+        ShortInfo(count: commentsCount, icon: Icons.comment_outlined),
       ],
     );
   }
