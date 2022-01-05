@@ -3,11 +3,13 @@ import '../widgets/counter_widg.dart';
 import '../widgets/user_info.dart';
 
 class Post extends StatelessWidget {
+  final int id;
   final AssetImage postImage;
   final String postNickName;
   final int postLikesCount;
   final int postCommentsCount;
   Post({
+    @required this.id,
     @required this.postNickName,
     @required this.postImage,
     @required this.postLikesCount,

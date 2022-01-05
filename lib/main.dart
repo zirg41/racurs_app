@@ -25,18 +25,21 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   final List<Post> allPosts = [
     Post(
+      id: 1,
       postNickName: "chilllax.x",
       postImage: AssetImage('lib/assets/newyork.jpg'),
       postLikesCount: 27,
       postCommentsCount: 9,
     ),
     Post(
+      id: 2,
       postNickName: "alina.glmv",
       postImage: AssetImage('lib/assets/moscow.jpg'),
       postLikesCount: 256,
       postCommentsCount: 149,
     ),
     Post(
+      id: 3,
       postNickName: "alina.glmv",
       postImage: AssetImage('lib/assets/rome.jpg'),
       postLikesCount: 647,
