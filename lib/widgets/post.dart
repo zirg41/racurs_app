@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_complete_guide/widgets/shortInfo.dart';
 import 'package:flutter_complete_guide/widgets/short_photo_statistic.dart';
 import 'package:flutter_complete_guide/widgets/user_info.dart';
 
@@ -27,10 +28,19 @@ class Post extends StatelessWidget {
               Image(image: postImage
                   //image: AssetImage('lib/assets/newyork.jpg'),
                   ),
-              ShortPhotoStatistic(
-                likesCount: postLikesCount,
-                commentsCount: postCommentsCount,
-              )
+              Row(
+                // Likes and comments counters
+                children: [
+                  ShortInfo(
+                    count: postLikesCount,
+                    icon: Icons.favorite,
+                  ),
+                  ShortInfo(
+                    count: postCommentsCount,
+                    icon: Icons.comment_outlined,
+                  ),
+                ],
+              ),
             ],
           ),
         ),

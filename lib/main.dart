@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_complete_guide/widgets/comments.dart';
-import 'package:flutter_complete_guide/widgets/likes.dart';
 import 'package:flutter_complete_guide/widgets/post.dart';
-import 'package:flutter_complete_guide/widgets/short_photo_statistic.dart';
-import 'package:flutter_complete_guide/widgets/user_info.dart';
 
 void main() => runApp(MyApp());
 
@@ -32,7 +28,7 @@ class MyHomePage extends StatelessWidget {
           Post(
             postNickName: "chilllax.x",
             postImage: AssetImage('lib/assets/newyork.jpg'),
-            postLikesCount: 25,
+            postLikesCount: 27,
             postCommentsCount: 9,
           ),
           Post(
