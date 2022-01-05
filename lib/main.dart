@@ -10,8 +10,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter App',
       home: MyHomePage(),
       theme: ThemeData(
-        primaryColor: Colors.purple,
-        accentColor: Colors.yellowAccent,
+        primaryColor: const Color(0xff18435A),
+        accentColor: const Color(0xff2E294E),
       ),
     );
   }
@@ -25,7 +25,7 @@ class MyHomePage extends StatelessWidget {
         title: Center(
           child: Text('Racurs app'),
         ),
-        backgroundColor: Colors.purple.shade800,
+        backgroundColor: Theme.of(context).primaryColor,
       ),
       body: ListView(
         children: [
@@ -64,7 +64,7 @@ class MyHomePage extends StatelessWidget {
               ),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () => _openMap(context),
               icon: Icon(
                 Icons.map,
                 size: 35,
@@ -72,7 +72,7 @@ class MyHomePage extends StatelessWidget {
               ),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () => _addPhoto(context),
               icon: Icon(
                 Icons.add_a_photo,
                 size: 35,
@@ -99,5 +99,37 @@ class MyHomePage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _addPhoto(BuildContext ctx) {
+    showModalBottomSheet(
+        context: ctx,
+        builder: (_) {
+          return Container(
+            // TODO: here is hardcoded sheets
+            height: 600,
+            child: Center(
+                child: Text(
+              "Adding photo Widget",
+              style: TextStyle(fontSize: 35),
+            )),
+          );
+        });
+  }
+
+  void _openMap(BuildContext ctx) {
+    showModalBottomSheet(
+        context: ctx,
+        builder: (_) {
+          return Container(
+            // TODO: here is hardcoded sheets
+            height: 600,
+            child: Center(
+                child: Text(
+              "Map",
+              style: TextStyle(fontSize: 35),
+            )),
+          );
+        });
   }
 }

@@ -33,10 +33,12 @@ class Post extends StatelessWidget {
                   CounterWidg(
                     count: postLikesCount,
                     icon: Icons.favorite,
+                    onPressedFunc: () {},
                   ),
                   CounterWidg(
                     count: postCommentsCount,
                     icon: Icons.comment_outlined,
+                    onPressedFunc: () {},
                   ),
                 ],
               ),
