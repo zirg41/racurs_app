@@ -9,6 +9,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter App',
       home: MyHomePage(),
+      theme: ThemeData(
+        primaryColor: Colors.purple,
+        accentColor: Colors.yellowAccent,
+      ),
     );
   }
 }
@@ -53,23 +57,43 @@ class MyHomePage extends StatelessWidget {
           children: [
             IconButton(
               onPressed: () {},
-              icon: Icon(Icons.home, size: 35),
+              icon: Icon(
+                Icons.home,
+                size: 35,
+                color: Theme.of(context).primaryColor,
+              ),
             ),
             IconButton(
               onPressed: () {},
-              icon: Icon(Icons.map, size: 35),
+              icon: Icon(
+                Icons.map,
+                size: 35,
+                color: Theme.of(context).primaryColor,
+              ),
             ),
             IconButton(
               onPressed: () {},
-              icon: Icon(Icons.add_a_photo, size: 35),
+              icon: Icon(
+                Icons.add_a_photo,
+                size: 35,
+                color: Theme.of(context).primaryColor,
+              ),
             ),
             IconButton(
               onPressed: () {},
-              icon: Icon(Icons.message, size: 35),
+              icon: Icon(
+                Icons.message,
+                size: 35,
+                color: Theme.of(context).primaryColor,
+              ),
             ),
             IconButton(
               onPressed: () {},
-              icon: Icon(Icons.account_box, size: 35),
+              icon: Icon(
+                Icons.account_box,
+                size: 35,
+                color: Theme.of(context).primaryColor,
+              ),
             ),
           ],
         ),
