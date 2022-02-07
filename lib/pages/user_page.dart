@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class RecomendationsPage extends StatelessWidget {
-  static const routeName = "/recommendations";
-  const RecomendationsPage();
+class UserPage extends StatelessWidget {
+  static const routeName = "/feed";
+  const UserPage();
 
   @override
   Widget build(BuildContext context) {
-    final String _pageName = 'Recommendations';
+    final String _pageName = 'Your account';
     final _contextTheme = Theme.of(context);
 
     return SingleChildScrollView(

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import '/widgets/main_drawer.dart';
 
+import 'add_spot_page.dart';
+import 'feed_page.dart';
 import 'recomendations_page.dart';
+import 'search_page.dart';
+import 'user_page.dart';
 
 class NavigationPage extends StatefulWidget {
   const NavigationPage();
@@ -11,24 +14,27 @@ class NavigationPage extends StatefulWidget {
 }
 
 class _NavigationPageState extends State<NavigationPage> {
+  List<Map<String, Object>> _pages = [
+    {"page": RecomendationsPage(), "title": "not used yet"},
+    {"page": FeedPage(), "title": "not used yet"},
+    {"page": SearchPage(), "title": "not used yet"},
+    {"page": AddSpotPage(), "title": "not used yet"},
+    {"page": UserPage(), "title": "not used yet"},
+  ];
+
+  int _selectedPageIndex = 0;
+  double _iconSize = 31;
+
+  void _selectPage(int index) {
+    setState(() {
+      _selectedPageIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final _contextTheme = Theme.of(context);
     final _mediaQuery = MediaQuery.of(context);
-
-    List<Map<String, Object>> _pages = [
-      {"page": RecomendationsPage(), "title": "Recomendations"},
-      //{"page": FavoritesScreen(), "title": "Favorites"}
-    ];
-
-    int _selectedPageIndex = 0;
-    double _iconSize = 31;
-
-    void _selectPage(int index) {
-      setState(() {
-        _selectedPageIndex = index;
-      });
-    }
 
     var _appBar = AppBar(
       leading: Builder(
@@ -45,6 +51,7 @@ class _NavigationPageState extends State<NavigationPage> {
       backgroundColor: _contextTheme.canvasColor,
       elevation: 0,
     );
+
     var _bottomNavigationBar = BottomNavigationBar(
       onTap: _selectPage,
       backgroundColor: _contextTheme.canvasColor,
@@ -56,15 +63,14 @@ class _NavigationPageState extends State<NavigationPage> {
       type: BottomNavigationBarType.fixed,
       items: [
         BottomNavigationBarItem(
-          backgroundColor: Colors.black,
+          //backgroundColor: Colors.black,
           icon: Icon(
-            Icons.home_rounded,
+            Icons.home_outlined,
             size: _iconSize,
           ),
           label: 'home',
         ),
         BottomNavigationBarItem(
-          backgroundColor: Colors.black,
           icon: Icon(
             Icons.star_border_rounded,
             size: _iconSize,
@@ -72,7 +78,6 @@ class _NavigationPageState extends State<NavigationPage> {
           label: 'starred',
         ),
         BottomNavigationBarItem(
-          backgroundColor: Colors.black,
           icon: Icon(
             Icons.search_rounded,
             size: _iconSize,
@@ -80,7 +85,6 @@ class _NavigationPageState extends State<NavigationPage> {
           label: 'search',
         ),
         BottomNavigationBarItem(
-          backgroundColor: Colors.black,
           icon: Icon(
             Icons.add_location_alt_outlined,
             size: _iconSize,
@@ -88,7 +92,6 @@ class _NavigationPageState extends State<NavigationPage> {
           label: 'add',
         ),
         BottomNavigationBarItem(
-          backgroundColor: Colors.black,
           icon: Icon(
             Icons.account_circle_outlined,
             size: _iconSize,

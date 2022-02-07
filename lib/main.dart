@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_complete_guide/pages/feed_page.dart';
 import 'pages/navigation_page.dart';
 import 'pages/recomendations_page.dart';
 
@@ -22,6 +23,10 @@ class RacursApp extends StatelessWidget {
             ),
       ),
       home: NavigationPage(),
+      routes: {
+        RecomendationsPage.routeName: (ctx) => RecomendationsPage(),
+        FeedPage.routeName: (ctx) => FeedPage(),
+      },
     );
   }
 }
