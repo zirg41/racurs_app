@@ -1,27 +1,14 @@
 import 'package:flutter/material.dart';
+import 'pages/recomendations_page.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(RacursApp());
 
-class MyApp extends StatelessWidget {
+class RacursApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter App',
-      home: MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Flutter App'),
-      ),
-      body: Center(
-        child: Text('Widget Playground!'),
-      ),
+      title: 'Racurs App',
+      home: RecomendationsPage(),
     );
   }
 }
