@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '/widgets/head_line_text.dart';
 
 class RecomendationsPage extends StatelessWidget {
   static const routeName = "/recommendations";
@@ -12,13 +13,7 @@ class RecomendationsPage extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
-          Container(
-            padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-            child: Text(
-              _pageName,
-              style: _contextTheme.textTheme.headline1,
-            ),
-          )
+          HeadLineText(pageName: _pageName, contextTheme: _contextTheme)
         ],
       ),
     );

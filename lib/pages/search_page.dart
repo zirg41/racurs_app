@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '/widgets/head_line_text.dart';
 
 class SearchPage extends StatelessWidget {
   static const routeName = "/feed";
@@ -10,17 +11,7 @@ class SearchPage extends StatelessWidget {
     final _contextTheme = Theme.of(context);
 
     return SingleChildScrollView(
-      child: Column(
-        children: [
-          Container(
-            padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-            child: Text(
-              _pageName,
-              style: _contextTheme.textTheme.headline1,
-            ),
-          )
-        ],
-      ),
+      child: HeadLineText(pageName: _pageName, contextTheme: _contextTheme),
     );
   }
 }
