@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'pages/navigation_page.dart';
 import 'pages/recomendations_page.dart';
 
 void main() => runApp(RacursApp());
@@ -20,7 +21,7 @@ class RacursApp extends StatelessWidget {
               ),
             ),
       ),
-      home: RecomendationsPage(),
+      home: NavigationPage(),
     );
   }
 }

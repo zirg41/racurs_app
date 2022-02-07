@@ -9,7 +9,7 @@ class RecomendationsPage extends StatelessWidget {
 
     final appBar = AppBar(
       //TODO
-      leading: const IconButton(icon: Icon(Icons.menu)),
+      //leading: const IconButton(icon: Icon(Icons.menu)),
       backgroundColor: _contextTheme.canvasColor,
       elevation: 0,
     );
@@ -29,7 +29,7 @@ class RecomendationsPage extends StatelessWidget {
     );
 
     return Scaffold(
-      appBar: appBar,
+      //appBar: appBar,
       body: body,
     );
   }
