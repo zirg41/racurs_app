@@ -9,11 +9,16 @@ class PublicationWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onDoubleTap: () {},
-      child: Container(
-        width: double.infinity,
-        height: 500,
-        child: Text("The publication of $nickname!"),
+      onDoubleTap: () => print("Pub double tapped!"),
+      child: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15),
+        ),
+        elevation: 4,
+        margin: EdgeInsets.all(10),
+        child: Container(
+          child: Text("The publication of $nickname!"),
+        ),
       ),
     );
   }

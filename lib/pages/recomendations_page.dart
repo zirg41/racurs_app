@@ -19,7 +19,7 @@ class RecomendationsPage extends StatelessWidget {
         HeadLineText(pageName: _pageName, contextTheme: _contextTheme),
         Container(
           decoration: BoxDecoration(color: Color.fromRGBO(180, 180, 180, 1)),
-          height: 400,
+          height: 635,
           child: Consumer<PublicationsProvider>(
             builder: (ctx, pubs, child) {
               return ListView.builder(
