@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_complete_guide/models/publications_provider.dart';
+import 'package:provider/provider.dart';
 import 'package:flutter_complete_guide/pages/feed_page.dart';
 import 'pages/navigation_page.dart';
 import 'pages/recomendations_page.dart';
@@ -20,14 +22,17 @@ class RacursApp extends StatelessWidget {
             ),
           ),
     );
-    return MaterialApp(
-      title: 'Racurs App',
-      theme: themeData,
-      home: NavigationPage(),
-      routes: {
-        RecomendationsPage.routeName: (ctx) => RecomendationsPage(),
-        FeedPage.routeName: (ctx) => FeedPage(),
-      },
+    return ChangeNotifierProvider(
+      create: (context) => PublicationsProvider(),
+      child: MaterialApp(
+        title: 'Racurs App',
+        theme: themeData,
+        home: NavigationPage(),
+        routes: {
+          RecomendationsPage.routeName: (ctx) => RecomendationsPage(),
+          FeedPage.routeName: (ctx) => FeedPage(),
+        },
+      ),
     );
   }
 }

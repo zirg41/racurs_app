@@ -17,4 +17,8 @@ class PublicationsProvider with ChangeNotifier {
             "https://sun9-50.userapi.com/impf/c854128/v854128369/48f83/N6d2zN3wGqE.jpg?size=2048x1536&quality=96&sign=c424e268383d5c81d9d84728efb77241&type=album"),
         userComment: "Обема")
   ];
+
+  List<Publication> get publications {
+    return [..._pubs];
+  }
 }

@@ -13,7 +13,7 @@ class User {
   final int age;
   final String bio;
   final Image avatar;
-  final Category userCategory;
+  final AccountCategory userCategory;
   final UserContacts contacts;
   //final Map<String,String> contacts;
   List<Publication> userPublications;
@@ -59,7 +59,7 @@ enum Sex {
   MALE,
   FEMALE,
 }
-enum Category {
+enum AccountCategory {
   USER,
   PHOTOGRAPHER,
   VENDOR,
