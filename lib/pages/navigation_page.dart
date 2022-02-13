@@ -15,7 +15,7 @@ class NavigationPage extends StatefulWidget {
 
 class _NavigationPageState extends State<NavigationPage> {
   List<Map<String, Object>> _pages = [
-    {"page": RecomendationsPage(), "title": "not used yet"},
+    {"page": HomePage(), "title": "not used yet"},
     {"page": FeedPage(), "title": "not used yet"},
     {"page": SearchPage(), "title": "not used yet"},
     {"page": AddSpotPage(), "title": "not used yet"},

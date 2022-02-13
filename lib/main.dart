@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_complete_guide/models/publications_provider.dart';
+import 'package:flutter_complete_guide/providers/publications_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_complete_guide/pages/feed_page.dart';
 import 'pages/navigation_page.dart';
@@ -20,6 +20,12 @@ class RacursApp extends StatelessWidget {
               fontSize: 28,
               fontWeight: FontWeight.bold,
             ),
+            bodyText1: TextStyle(
+              color: Color.fromRGBO(20, 20, 20, 1),
+              fontFamily: "Montserrat",
+              fontSize: 16,
+              //fontWeight: FontWeight.bold,
+            ),
           ),
     );
     return ChangeNotifierProvider(
@@ -29,7 +35,7 @@ class RacursApp extends StatelessWidget {
         theme: themeData,
         home: NavigationPage(),
         routes: {
-          RecomendationsPage.routeName: (ctx) => RecomendationsPage(),
+          HomePage.routeName: (ctx) => HomePage(),
           FeedPage.routeName: (ctx) => FeedPage(),
         },
       ),
