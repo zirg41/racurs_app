@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_complete_guide/pages/publication_detail.dart';
 import 'package:flutter_complete_guide/providers/publications_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -16,7 +17,15 @@ class PublicationWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final _contextTheme = Theme.of(context);
     return InkWell(
-      onDoubleTap: () => print("Pub double tapped!"),
+      onDoubleTap: () => Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) {
+          return PublicationDetail(
+            imageUrl: imageUrl,
+            avatarUrl: avatarUrl,
+            nickname: nickname,
+          );
+        },
+      )),
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
@@ -43,7 +52,7 @@ class PublicationWidget extends StatelessWidget {
                   ),
                   Container(
                       child: Text(
-                    "The publication of $nickname!",
+                    "$nickname",
                     style: _contextTheme.textTheme.bodyText1,
                   )),
                 ],

@@ -15,7 +15,7 @@ class Users with ChangeNotifier {
     User(
       id: "id2",
       firstName: "Alina",
-      nickName: "lubemka",
+      nickName: "al.glmv",
       userCategory: AccountCategory.USER,
       avatarUrl:
           "https://sun9-2.userapi.com/impg/KmKAVoTQBa2GMOO_h6J39L85iQSwCiVFccyQ9A/wRBYmp_t7hQ.jpg?size=226x194&quality=96&sign=c2b18b723c39fb7148abc6a87c600de3&type=album",

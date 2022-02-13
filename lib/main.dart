@@ -26,6 +26,12 @@ class RacursApp extends StatelessWidget {
               fontSize: 16,
               //fontWeight: FontWeight.bold,
             ),
+            subtitle1: TextStyle(
+              color: Color.fromRGBO(20, 20, 20, 1),
+              fontFamily: "Arial",
+              fontSize: 17,
+              //fontWeight: FontWeight.bold,
+            ),
           ),
     );
     return ChangeNotifierProvider(
