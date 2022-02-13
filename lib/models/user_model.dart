@@ -12,11 +12,11 @@ class User {
   final Sex sex;
   final int age;
   final String bio;
-  final Image avatar;
+  final String avatarUrl;
   final AccountCategory userCategory;
   final UserContacts contacts;
   //final Map<String,String> contacts;
-  List<Publication> userPublications;
+  List<String> userPublications; // Publication's id
   List<String> userFavorites; // Publication's id
   List<String> subscriptions; // List of user's id
   List<String> subscribers; // List of user's id
@@ -30,7 +30,7 @@ class User {
     this.sex,
     this.age,
     this.bio,
-    this.avatar,
+    this.avatarUrl,
     @required this.userCategory,
     this.contacts,
     this.authorities,
