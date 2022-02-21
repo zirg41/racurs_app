@@ -34,8 +34,12 @@ class RacursApp extends StatelessWidget {
             ),
           ),
     );
-    return ChangeNotifierProvider(
-      create: (context) => PublicationsProvider(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => PublicationsProvider(),
+        ),
+      ],
       child: MaterialApp(
         title: 'Racurs App',
         theme: themeData,
