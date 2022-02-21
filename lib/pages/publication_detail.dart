@@ -54,10 +54,19 @@ class PublicationDetail extends StatelessWidget {
               child: Image.network(pub.imageUrl),
             ),
             Card(
+              // User comments
               elevation: 4,
               margin: EdgeInsets.all(10),
               child: Container(
-                child: Text(pub.userComment),
+                child: Row(
+                  children: [
+                    Avatar(
+                      user: users.getUserByID(pub.userID),
+                      height: 35,
+                    ),
+                    Text(pub.userComment),
+                  ],
+                ),
                 width: double.infinity,
                 height: 50,
               ),
@@ -119,14 +128,14 @@ class PublicationDetail extends StatelessWidget {
 }
 //https://sun9-12.userapi.com/impg/zWGMzxg_XLzhmpkUYZyb5JSfaQOTERfbNNuv8g/lCo3EwLwMNE.jpg?size=1125x346&quality=96&sign=71f3d1e0b9cf963ce33c710ccc7197fe&type=album
 // Consumer<PublicationsProvider>(builder: (ctx, pubs, child) {
-              //   return Row(
-              //     children: [
-              //       IconButton(
-              //           onPressed: () {}, icon: Icon(Icons.favorite_border)),
-              //       Text("0", style: _contextTheme.textTheme.bodyText1),
-              //       IconButton(
-              //           onPressed: () {}, icon: Icon(Icons.comment_outlined)),
-              //       Text("0", style: _contextTheme.textTheme.bodyText1),
-              //     ],
-              //   );
-              // }),
+//   return Row(
+//     children: [
+//       IconButton(
+//           onPressed: () {}, icon: Icon(Icons.favorite_border)),
+//       Text("0", style: _contextTheme.textTheme.bodyText1),
+//       IconButton(
+//           onPressed: () {}, icon: Icon(Icons.comment_outlined)),
+//       Text("0", style: _contextTheme.textTheme.bodyText1),
+//     ],
+//   );
+// }),
