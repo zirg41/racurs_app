@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'user_model.dart';
 
-class Publication {
+class Publication extends ChangeNotifier {
   final String userID;
   final String imageUrl;
   final Map map;

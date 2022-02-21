@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_complete_guide/models/user_model.dart';
+import '/providers/user_model.dart';
 import 'package:flutter_complete_guide/providers/users_provider.dart';
 import 'package:flutter_complete_guide/widgets/publication.dart';
 import '../providers/publications_provider.dart';

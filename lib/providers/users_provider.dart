@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 
-import '../models/user_model.dart';
+import 'user_model.dart';
 
 class Users with ChangeNotifier {
   List<User> _usersMOCK = [

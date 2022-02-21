@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_complete_guide/providers/publications_provider.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_complete_guide/pages/feed_page.dart';
-import 'pages/navigation_page.dart';
-import 'pages/recomendations_page.dart';
+
+import '/providers/publication_model.dart';
+import '/providers/publications_provider.dart';
+import '/providers/user_model.dart';
+import '/providers/users_provider.dart';
+
+import '/pages/feed_page.dart';
+import '/pages/navigation_page.dart';
+import '/pages/recomendations_page.dart';
 
 void main() => runApp(RacursApp());
 
@@ -38,6 +43,15 @@ class RacursApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           create: (context) => PublicationsProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => Publication(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => Users(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => User(),
         ),
       ],
       child: MaterialApp(

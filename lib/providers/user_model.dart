@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'publication_model.dart';
 
-class User {
+class User extends ChangeNotifier {
   final List<SimpleGrantedAuthority> authorities;
   final String id;
   final String firstName;

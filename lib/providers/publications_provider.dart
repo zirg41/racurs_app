@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_complete_guide/models/user_model.dart';
+import '/providers/user_model.dart';
 
-import '../models/publication_model.dart';
+import 'publication_model.dart';
 
 class PublicationsProvider with ChangeNotifier {
   List<Publication> _pubs = [
