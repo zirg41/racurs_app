@@ -5,7 +5,8 @@ import '/pages/publication_detail.dart';
 
 import '/providers/users_provider.dart';
 import '/providers/publication_provider.dart';
-import '/providers/publications_provider.dart';
+
+import '/widgets/avatar.dart';
 
 class PublicationWidget extends StatelessWidget {
   PublicationWidget();
@@ -35,18 +36,7 @@ class PublicationWidget extends StatelessWidget {
               //avatar with nickname
               child: Row(
                 children: [
-                  Container(
-                    margin: EdgeInsets.all(5),
-                    padding: EdgeInsets.all(5),
-                    height: 50,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(7),
-                      child: Image.network(
-                        users.getUserByID(pub.userID).avatarUrl,
-                        fit: BoxFit.fitWidth,
-                      ),
-                    ),
-                  ),
+                  Avatar(user: users.getUserByID(pub.userID)),
                   Container(
                       child: Text(
                     "${users.getUserByID(pub.userID).nickName}",
