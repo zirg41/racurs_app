@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'providers/publication_provider.dart';
+import '/providers/publication_provider.dart';
 import '/providers/publications_provider.dart';
-import 'providers/user_provider.dart';
+import '/providers/user_provider.dart';
 import '/providers/users_provider.dart';
 
 import '/pages/feed_page.dart';

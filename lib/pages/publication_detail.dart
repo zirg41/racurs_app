@@ -1,22 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter_complete_guide/providers/publications_provider.dart';
 import 'package:provider/provider.dart';
 
-class PublicationDetail extends StatelessWidget {
-  final String nickname;
-  final String imageUrl;
-  final String avatarUrl;
+// import 'package:flutter/rendering.dart';
+import '/providers/publication_provider.dart';
+import '/providers/users_provider.dart';
 
-  PublicationDetail({
-    this.nickname,
-    this.avatarUrl,
-    this.imageUrl,
-  });
+class PublicationDetail extends StatelessWidget {
+  static const routeName = "/publication-detail";
+
+  final Publication pub;
+
+  PublicationDetail(this.pub);
 
   @override
   Widget build(BuildContext context) {
     final _contextTheme = Theme.of(context);
+    final users = Provider.of<Users>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
         leading: Builder(
@@ -47,14 +46,14 @@ class PublicationDetail extends StatelessWidget {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(7),
                       child: Image.network(
-                        avatarUrl,
+                        users.getUserByID(pub.userID).avatarUrl,
                         fit: BoxFit.fitWidth,
                       ),
                     ),
                   ),
                   Container(
                       child: Text(
-                    "$nickname",
+                    "${users.getUserByID(pub.userID).nickName}",
                     style: _contextTheme.textTheme.bodyText1,
                   )),
                 ],
@@ -62,7 +61,7 @@ class PublicationDetail extends StatelessWidget {
             ),
             Container(
               // main image
-              child: Image.network(imageUrl),
+              child: Image.network(pub.imageUrl),
             ),
             Card(
               shape: RoundedRectangleBorder(

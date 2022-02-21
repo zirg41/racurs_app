@@ -20,11 +20,7 @@ class PublicationWidget extends StatelessWidget {
     return InkWell(
       onDoubleTap: () => Navigator.of(context).push(MaterialPageRoute(
         builder: (context) {
-          return PublicationDetail(
-            imageUrl: pub.imageUrl,
-            avatarUrl: users.getUserByID(pub.userID).avatarUrl,
-            nickname: users.getUserByID(pub.userID).nickName,
-          );
+          return PublicationDetail(pub);
         },
       )),
       child: Card(
