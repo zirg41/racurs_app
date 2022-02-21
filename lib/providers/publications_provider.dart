@@ -1,10 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import '/providers/user_model.dart';
+import 'user_provider.dart';
 
-import 'publication_model.dart';
+import 'publication_provider.dart';
 
-class PublicationsProvider with ChangeNotifier {
+class Publications with ChangeNotifier {
   List<Publication> _pubs = [
     Publication(
       userID: "id1",

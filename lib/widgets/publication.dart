@@ -1,28 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_complete_guide/pages/publication_detail.dart';
-import 'package:flutter_complete_guide/providers/publications_provider.dart';
 import 'package:provider/provider.dart';
 
+import '/pages/publication_detail.dart';
+
+import '/providers/users_provider.dart';
+import '/providers/publication_provider.dart';
+import '/providers/publications_provider.dart';
+
 class PublicationWidget extends StatelessWidget {
-  final String nickname;
-  final String imageUrl;
-  final String avatarUrl;
-  PublicationWidget({
-    this.nickname,
-    this.avatarUrl,
-    this.imageUrl,
-  });
+  PublicationWidget();
 
   @override
   Widget build(BuildContext context) {
     final _contextTheme = Theme.of(context);
+
+    final users = Provider.of<Users>(context, listen: false);
+    final pub = Provider.of<Publication>(context, listen: false);
+
     return InkWell(
       onDoubleTap: () => Navigator.of(context).push(MaterialPageRoute(
         builder: (context) {
           return PublicationDetail(
-            imageUrl: imageUrl,
-            avatarUrl: avatarUrl,
-            nickname: nickname,
+            imageUrl: pub.imageUrl,
+            avatarUrl: users.getUserByID(pub.userID).avatarUrl,
+            nickname: users.getUserByID(pub.userID).nickName,
           );
         },
       )),
@@ -45,34 +46,31 @@ class PublicationWidget extends StatelessWidget {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(7),
                       child: Image.network(
-                        avatarUrl,
+                        users.getUserByID(pub.userID).avatarUrl,
                         fit: BoxFit.fitWidth,
                       ),
                     ),
                   ),
                   Container(
                       child: Text(
-                    "$nickname",
+                    "${users.getUserByID(pub.userID).nickName}",
                     style: _contextTheme.textTheme.bodyText1,
                   )),
                 ],
               ),
             ),
             Container(
-              child: Image.network(imageUrl),
+              child: Image.network(pub.imageUrl),
             ),
-            Consumer<PublicationsProvider>(builder: (ctx, pubs, child) {
-              return Row(
-                children: [
-                  IconButton(
-                      onPressed: () {}, icon: Icon(Icons.favorite_border)),
-                  Text("0", style: _contextTheme.textTheme.bodyText1),
-                  IconButton(
-                      onPressed: () {}, icon: Icon(Icons.comment_outlined)),
-                  Text("0", style: _contextTheme.textTheme.bodyText1),
-                ],
-              );
-            }),
+            Row(
+              children: [
+                IconButton(onPressed: () {}, icon: Icon(Icons.favorite_border)),
+                Text("0", style: _contextTheme.textTheme.bodyText1),
+                IconButton(
+                    onPressed: () {}, icon: Icon(Icons.comment_outlined)),
+                Text("0", style: _contextTheme.textTheme.bodyText1),
+              ],
+            ),
           ],
         ),
       ),

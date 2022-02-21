@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'user_model.dart';
+import 'user_provider.dart';
 
 class Publication extends ChangeNotifier {
   final String userID;
