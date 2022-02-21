@@ -64,6 +64,15 @@ class PublicationDetail extends StatelessWidget {
               child: Image.network(pub.imageUrl),
             ),
             Card(
+              elevation: 4,
+              margin: EdgeInsets.all(10),
+              child: Container(
+                child: Text(pub.userComment),
+                width: double.infinity,
+                height: 50,
+              ),
+            ),
+            Card(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(15),
               ),
