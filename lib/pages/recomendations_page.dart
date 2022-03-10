@@ -21,7 +21,7 @@ class HomePage extends StatelessWidget {
       children: [
         HeadLineText(pageName: _pageName, contextTheme: _contextTheme),
         Container(
-          height: 635,
+          height: 554,
           child: ListView.builder(
             itemCount: pubs.publications.length,
             itemBuilder: (context, index) => ChangeNotifierProvider.value(

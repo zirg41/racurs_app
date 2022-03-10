@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'user_provider.dart';
 
 class Users with ChangeNotifier {
-  List<User> _usersMOCK = [
+  List<User> _users = [
     User(
       id: "id1",
       firstName: "Faiz",
@@ -22,10 +22,10 @@ class Users with ChangeNotifier {
     ),
   ];
   List<User> get users {
-    return [..._usersMOCK];
+    return [..._users];
   }
 
   User getUserByID(String id) {
-    return _usersMOCK.firstWhere((user) => user.id == id);
+    return _users.firstWhere((user) => user.id == id);
   }
 }
