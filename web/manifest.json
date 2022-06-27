@@ -1,6 +1,6 @@
 {
-    "name": "racurs_app",
-    "short_name": "racurs_app",
+    "name": "default_flutter_app",
+    "short_name": "default_flutter_app",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
