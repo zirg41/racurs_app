@@ -20,8 +20,24 @@ class Back4AppAuthFacade implements IAuthFacade {
   @override
   Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword(
       Email email, Password password) async {
-    // TODO: implement getSignedInUser
-    throw UnimplementedError();
+    final user = ParseUser.createUser(
+      email.getOrCrash(),
+      password.getOrCrash(),
+    );
+
+    final response = await user.signUp();
+
+    if (response.success) {
+      return right(unit);
+    } else {
+      final String? errorMessage = response.error?.message;
+
+      if (errorMessage == "Account already exists for this username.") {
+        return left(const AuthFailure.emailAlredyInUse());
+      } else {
+        return left(AuthFailure.serverError(errorMessage));
+      }
+    }
   }
 
   @override
