@@ -19,7 +19,7 @@ mixin _$AuthFailure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() cancelledByUser,
-    required TResult Function() serverError,
+    required TResult Function(String? message) serverError,
     required TResult Function() emailAlredyInUse,
     required TResult Function() invalidEmailAndPasswordCombination,
   }) =>
@@ -27,7 +27,7 @@ mixin _$AuthFailure {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? cancelledByUser,
-    TResult Function()? serverError,
+    TResult Function(String? message)? serverError,
     TResult Function()? emailAlredyInUse,
     TResult Function()? invalidEmailAndPasswordCombination,
   }) =>
@@ -35,7 +35,7 @@ mixin _$AuthFailure {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? cancelledByUser,
-    TResult Function()? serverError,
+    TResult Function(String? message)? serverError,
     TResult Function()? emailAlredyInUse,
     TResult Function()? invalidEmailAndPasswordCombination,
     required TResult orElse(),
@@ -129,7 +129,7 @@ class _$CancelledByUser implements CancelledByUser {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() cancelledByUser,
-    required TResult Function() serverError,
+    required TResult Function(String? message) serverError,
     required TResult Function() emailAlredyInUse,
     required TResult Function() invalidEmailAndPasswordCombination,
   }) {
@@ -140,7 +140,7 @@ class _$CancelledByUser implements CancelledByUser {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? cancelledByUser,
-    TResult Function()? serverError,
+    TResult Function(String? message)? serverError,
     TResult Function()? emailAlredyInUse,
     TResult Function()? invalidEmailAndPasswordCombination,
   }) {
@@ -151,7 +151,7 @@ class _$CancelledByUser implements CancelledByUser {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? cancelledByUser,
-    TResult Function()? serverError,
+    TResult Function(String? message)? serverError,
     TResult Function()? emailAlredyInUse,
     TResult Function()? invalidEmailAndPasswordCombination,
     required TResult orElse(),
@@ -212,6 +212,7 @@ abstract class _$$ServerErrorCopyWith<$Res> {
   factory _$$ServerErrorCopyWith(
           _$ServerError value, $Res Function(_$ServerError) then) =
       __$$ServerErrorCopyWithImpl<$Res>;
+  $Res call({String? message});
 }
 
 /// @nodoc
@@ -223,60 +224,83 @@ class __$$ServerErrorCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
 
   @override
   _$ServerError get _value => super._value as _$ServerError;
+
+  @override
+  $Res call({
+    Object? message = freezed,
+  }) {
+    return _then(_$ServerError(
+      message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$ServerError implements ServerError {
-  const _$ServerError();
+  const _$ServerError(this.message);
+
+  @override
+  final String? message;
 
   @override
   String toString() {
-    return 'AuthFailure.serverError()';
+    return 'AuthFailure.serverError(message: $message)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ServerError);
+        (other.runtimeType == runtimeType &&
+            other is _$ServerError &&
+            const DeepCollectionEquality().equals(other.message, message));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$ServerErrorCopyWith<_$ServerError> get copyWith =>
+      __$$ServerErrorCopyWithImpl<_$ServerError>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() cancelledByUser,
-    required TResult Function() serverError,
+    required TResult Function(String? message) serverError,
     required TResult Function() emailAlredyInUse,
     required TResult Function() invalidEmailAndPasswordCombination,
   }) {
-    return serverError();
+    return serverError(message);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? cancelledByUser,
-    TResult Function()? serverError,
+    TResult Function(String? message)? serverError,
     TResult Function()? emailAlredyInUse,
     TResult Function()? invalidEmailAndPasswordCombination,
   }) {
-    return serverError?.call();
+    return serverError?.call(message);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? cancelledByUser,
-    TResult Function()? serverError,
+    TResult Function(String? message)? serverError,
     TResult Function()? emailAlredyInUse,
     TResult Function()? invalidEmailAndPasswordCombination,
     required TResult orElse(),
   }) {
     if (serverError != null) {
-      return serverError();
+      return serverError(message);
     }
     return orElse();
   }
@@ -323,7 +347,12 @@ class _$ServerError implements ServerError {
 }
 
 abstract class ServerError implements AuthFailure {
-  const factory ServerError() = _$ServerError;
+  const factory ServerError(final String? message) = _$ServerError;
+
+  String? get message => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$$ServerErrorCopyWith<_$ServerError> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -368,7 +397,7 @@ class _$EmailAlredyInUse implements EmailAlredyInUse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() cancelledByUser,
-    required TResult Function() serverError,
+    required TResult Function(String? message) serverError,
     required TResult Function() emailAlredyInUse,
     required TResult Function() invalidEmailAndPasswordCombination,
   }) {
@@ -379,7 +408,7 @@ class _$EmailAlredyInUse implements EmailAlredyInUse {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? cancelledByUser,
-    TResult Function()? serverError,
+    TResult Function(String? message)? serverError,
     TResult Function()? emailAlredyInUse,
     TResult Function()? invalidEmailAndPasswordCombination,
   }) {
@@ -390,7 +419,7 @@ class _$EmailAlredyInUse implements EmailAlredyInUse {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? cancelledByUser,
-    TResult Function()? serverError,
+    TResult Function(String? message)? serverError,
     TResult Function()? emailAlredyInUse,
     TResult Function()? invalidEmailAndPasswordCombination,
     required TResult orElse(),
@@ -493,7 +522,7 @@ class _$InvalidEmailAndPasswordCombination
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() cancelledByUser,
-    required TResult Function() serverError,
+    required TResult Function(String? message) serverError,
     required TResult Function() emailAlredyInUse,
     required TResult Function() invalidEmailAndPasswordCombination,
   }) {
@@ -504,7 +533,7 @@ class _$InvalidEmailAndPasswordCombination
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? cancelledByUser,
-    TResult Function()? serverError,
+    TResult Function(String? message)? serverError,
     TResult Function()? emailAlredyInUse,
     TResult Function()? invalidEmailAndPasswordCombination,
   }) {
@@ -515,7 +544,7 @@ class _$InvalidEmailAndPasswordCombination
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? cancelledByUser,
-    TResult Function()? serverError,
+    TResult Function(String? message)? serverError,
     TResult Function()? emailAlredyInUse,
     TResult Function()? invalidEmailAndPasswordCombination,
     required TResult orElse(),
