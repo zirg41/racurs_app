@@ -5,16 +5,14 @@ import '../../domain/auth/auth_failure.dart';
 import '../../domain/auth/i_auth_facade.dart';
 import '../../domain/auth/user.dart';
 import '../../domain/auth/value_objects.dart';
+import '../../domain/core/unique_id.dart';
 
 class Back4AppAuthFacade implements IAuthFacade {
-  // final Parse server;
-
-  // AuthFacadeImpl(this.server);
-
   @override
-  Future<Option<User>> getSignedInUser() {
-    // TODO: implement getSignedInUser
-    throw UnimplementedError();
+  Future<Option<User>> getSignedInUser() async {
+    final user = await ParseUser.currentUser() as ParseUser;
+
+    return optionOf(User(id: UniqueId.fromUniqueString(user.objectId!)));
   }
 
   @override
@@ -41,9 +39,10 @@ class Back4AppAuthFacade implements IAuthFacade {
   }
 
   @override
-  Future<Either<AuthFailure, Unit>> signInWithApple() {
-    // TODO: implement signInWithApple
-    throw UnimplementedError();
+  Future<void> signOut() async {
+    final user = await ParseUser.currentUser() as ParseUser?;
+
+    await user?.logout();
   }
 
   @override
@@ -72,8 +71,8 @@ class Back4AppAuthFacade implements IAuthFacade {
   }
 
   @override
-  Future<void> signOut() {
-    // TODO: implement signOut
+  Future<Either<AuthFailure, Unit>> signInWithApple() {
+    // TODO: implement signInWithApple
     throw UnimplementedError();
   }
 }
