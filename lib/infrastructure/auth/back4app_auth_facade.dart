@@ -48,9 +48,21 @@ class Back4AppAuthFacade implements IAuthFacade {
 
   @override
   Future<Either<AuthFailure, Unit>> signInWithEmailAndPassword(
-      Email email, Password password) {
-    // TODO: implement signInWithEmailAndPassword
-    throw UnimplementedError();
+      Email email, Password password) async {
+    final user = ParseUser(email.getOrCrash(), password.getOrCrash(), null);
+
+    final response = await user.login();
+
+    if (response.success) {
+      return right(unit);
+    } else {
+      final String? errorMessage = response.error?.message;
+      if (errorMessage != null ||
+          errorMessage == 'Invalid username/password.') {
+        return left(const AuthFailure.invalidEmailAndPasswordCombination());
+      }
+      return left(AuthFailure.serverError(errorMessage));
+    }
   }
 
   @override
