@@ -18,8 +18,10 @@ class Back4AppAuthFacade implements IAuthFacade {
   }
 
   @override
-  Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword(
-      Email email, Password password) async {
+  Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword({
+    required Email email,
+    required Password password,
+  }) async {
     final user = ParseUser.createUser(
       email.getOrCrash(),
       password.getOrCrash(),
@@ -48,8 +50,10 @@ class Back4AppAuthFacade implements IAuthFacade {
   }
 
   @override
-  Future<Either<AuthFailure, Unit>> signInWithEmailAndPassword(
-      Email email, Password password) async {
+  Future<Either<AuthFailure, Unit>> signInWithEmailAndPassword({
+    required Email email,
+    required Password password,
+  }) async {
     final user = ParseUser(email.getOrCrash(), password.getOrCrash(), null);
 
     final response = await user.login();
