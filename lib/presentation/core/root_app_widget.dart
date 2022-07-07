@@ -1,3 +1,4 @@
+import 'package:default_flutter_app/presentation/sign_in/sign_in_page.dart';
 import 'package:flutter/material.dart';
 
 class RacursApp extends StatelessWidget {
@@ -7,14 +8,7 @@ class RacursApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Material App',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Empty Material App'),
-        ),
-        body: const Center(
-          child: Text('EmptyPage'),
-        ),
-      ),
+      home: SignInPage(),
     );
   }
 }
