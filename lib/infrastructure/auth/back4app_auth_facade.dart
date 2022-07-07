@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:injectable/injectable.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 
 import '../../domain/auth/auth_failure.dart';
@@ -7,6 +8,7 @@ import '../../domain/auth/user.dart';
 import '../../domain/auth/value_objects.dart';
 import '../../domain/core/unique_id.dart';
 
+@Singleton(as: IAuthFacade)
 class Back4AppAuthFacade implements IAuthFacade {
   @override
   Future<Option<User>> getSignedInUser() async {
