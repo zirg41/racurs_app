@@ -38,13 +38,13 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
         registerWithEmailAndPasswordPressed: () async {
           await _executeActionOnAuthFacadeWithEmailAndPassword(
             emit,
-            _authFacade.registerWithEmailAndPassword,
+            _authFacade.registerWithUsernameAndPassword,
           );
         },
         signInWithEmailAndPasswordPressed: () async {
           await _executeActionOnAuthFacadeWithEmailAndPassword(
             emit,
-            _authFacade.signInWithEmailAndPassword,
+            _authFacade.signInWithUsernameAndPassword,
           );
         },
         signInWithGooglePressed: () async {
@@ -72,8 +72,9 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
   Future<void> _executeActionOnAuthFacadeWithEmailAndPassword(
     Emitter<SignInFormState> emit,
     Future<Either<AuthFailure, Unit>> Function({
-      required Email email,
+      required Username username,
       required Password password,
+      Email? email,
     })
         forwardedCall,
   ) async {
@@ -88,6 +89,7 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
         authFailureOrSuccessOption: none(),
       ));
       failureOrSuccess = await forwardedCall(
+        username: state.username,
         email: state.email,
         password: state.password,
       );

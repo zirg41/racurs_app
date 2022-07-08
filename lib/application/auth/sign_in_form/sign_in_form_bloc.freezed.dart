@@ -1003,6 +1003,7 @@ abstract class SignInWithApplePressed implements SignInFormEvent {
 
 /// @nodoc
 mixin _$SignInFormState {
+  Username get username => throw _privateConstructorUsedError;
   Email get email => throw _privateConstructorUsedError;
   Password get password => throw _privateConstructorUsedError;
   AutovalidateMode get validateMode => throw _privateConstructorUsedError;
@@ -1021,7 +1022,8 @@ abstract class $SignInFormStateCopyWith<$Res> {
           SignInFormState value, $Res Function(SignInFormState) then) =
       _$SignInFormStateCopyWithImpl<$Res>;
   $Res call(
-      {Email email,
+      {Username username,
+      Email email,
       Password password,
       AutovalidateMode validateMode,
       bool isSubmitting,
@@ -1039,6 +1041,7 @@ class _$SignInFormStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? username = freezed,
     Object? email = freezed,
     Object? password = freezed,
     Object? validateMode = freezed,
@@ -1046,6 +1049,10 @@ class _$SignInFormStateCopyWithImpl<$Res>
     Object? authFailureOrSuccessOption = freezed,
   }) {
     return _then(_value.copyWith(
+      username: username == freezed
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
+              as Username,
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -1078,7 +1085,8 @@ abstract class _$$_SignInFormStateCopyWith<$Res>
       __$$_SignInFormStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {Email email,
+      {Username username,
+      Email email,
       Password password,
       AutovalidateMode validateMode,
       bool isSubmitting,
@@ -1098,6 +1106,7 @@ class __$$_SignInFormStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? username = freezed,
     Object? email = freezed,
     Object? password = freezed,
     Object? validateMode = freezed,
@@ -1105,6 +1114,10 @@ class __$$_SignInFormStateCopyWithImpl<$Res>
     Object? authFailureOrSuccessOption = freezed,
   }) {
     return _then(_$_SignInFormState(
+      username: username == freezed
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
+              as Username,
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -1133,12 +1146,15 @@ class __$$_SignInFormStateCopyWithImpl<$Res>
 
 class _$_SignInFormState implements _SignInFormState {
   const _$_SignInFormState(
-      {required this.email,
+      {required this.username,
+      required this.email,
       required this.password,
       required this.validateMode,
       required this.isSubmitting,
       required this.authFailureOrSuccessOption});
 
+  @override
+  final Username username;
   @override
   final Email email;
   @override
@@ -1152,7 +1168,7 @@ class _$_SignInFormState implements _SignInFormState {
 
   @override
   String toString() {
-    return 'SignInFormState(email: $email, password: $password, validateMode: $validateMode, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
+    return 'SignInFormState(username: $username, email: $email, password: $password, validateMode: $validateMode, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
   }
 
   @override
@@ -1160,6 +1176,7 @@ class _$_SignInFormState implements _SignInFormState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SignInFormState &&
+            const DeepCollectionEquality().equals(other.username, username) &&
             const DeepCollectionEquality().equals(other.email, email) &&
             const DeepCollectionEquality().equals(other.password, password) &&
             const DeepCollectionEquality()
@@ -1173,6 +1190,7 @@ class _$_SignInFormState implements _SignInFormState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(username),
       const DeepCollectionEquality().hash(email),
       const DeepCollectionEquality().hash(password),
       const DeepCollectionEquality().hash(validateMode),
@@ -1187,13 +1205,16 @@ class _$_SignInFormState implements _SignInFormState {
 
 abstract class _SignInFormState implements SignInFormState {
   const factory _SignInFormState(
-      {required final Email email,
+      {required final Username username,
+      required final Email email,
       required final Password password,
       required final AutovalidateMode validateMode,
       required final bool isSubmitting,
       required final Option<Either<AuthFailure, Unit>>
           authFailureOrSuccessOption}) = _$_SignInFormState;
 
+  @override
+  Username get username => throw _privateConstructorUsedError;
   @override
   Email get email => throw _privateConstructorUsedError;
   @override

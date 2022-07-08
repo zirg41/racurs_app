@@ -18,13 +18,15 @@ class Back4AppAuthFacade implements IAuthFacade {
   }
 
   @override
-  Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword({
-    required Email email,
+  Future<Either<AuthFailure, Unit>> registerWithUsernameAndPassword({
+    required Username username,
     required Password password,
+    Email? email,
   }) async {
     final user = ParseUser.createUser(
-      email.getOrCrash(),
+      username.getOrCrash(),
       password.getOrCrash(),
+      email?.getOrCrash(),
     );
 
     final response = await user.signUp();
@@ -35,7 +37,7 @@ class Back4AppAuthFacade implements IAuthFacade {
       final String? errorMessage = response.error?.message;
 
       if (errorMessage == "Account already exists for this username.") {
-        return left(const AuthFailure.emailAlredyInUse());
+        return left(const AuthFailure.usernameAlredyInUse());
       } else {
         return left(AuthFailure.serverError(errorMessage));
       }
@@ -50,11 +52,16 @@ class Back4AppAuthFacade implements IAuthFacade {
   }
 
   @override
-  Future<Either<AuthFailure, Unit>> signInWithEmailAndPassword({
-    required Email email,
+  Future<Either<AuthFailure, Unit>> signInWithUsernameAndPassword({
+    required Username username,
     required Password password,
+    Email? email,
   }) async {
-    final user = ParseUser(email.getOrCrash(), password.getOrCrash(), null);
+    final user = ParseUser.createUser(
+      username.getOrCrash(),
+      password.getOrCrash(),
+      email?.getOrCrash(),
+    );
 
     final response = await user.login();
 
@@ -64,7 +71,7 @@ class Back4AppAuthFacade implements IAuthFacade {
       final String? errorMessage = response.error?.message;
       if (errorMessage != null ||
           errorMessage == 'Invalid username/password.') {
-        return left(const AuthFailure.invalidEmailAndPasswordCombination());
+        return left(const AuthFailure.invalidUsernameAndPasswordCombination());
       }
       return left(AuthFailure.serverError(errorMessage));
     }
