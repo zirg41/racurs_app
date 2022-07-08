@@ -4,6 +4,19 @@ import '../core/value_failure.dart';
 import '../core/value_object.dart';
 import '../core/value_validators.dart';
 
+class Username extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory Username(String input) {
+    return Username._(
+      value: validateUsername(input),
+    );
+  }
+
+  const Username._({required this.value});
+}
+
 class Email extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;

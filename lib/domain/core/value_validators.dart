@@ -20,3 +20,11 @@ Either<ValueFailure<String>, String> validatePassword(String input) {
     return left(ValueFailure.shortPassword(failedValue: input));
   }
 }
+
+Either<ValueFailure<String>, String> validateUsername(String input) {
+  if (input.length >= 4) {
+    return right(input);
+  } else {
+    return left(ValueFailure.shortUsername(failedValue: input));
+  }
+}
