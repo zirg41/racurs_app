@@ -1,3 +1,4 @@
+import 'package:default_flutter_app/presentation/sign_in/widgets/apple_google_sign_in_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -11,6 +12,7 @@ class SignInForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
     final contextTheme = Theme.of(context);
 
     final focusedBorder = OutlineInputBorder(
@@ -58,7 +60,7 @@ class SignInForm extends StatelessWidget {
                       ),
                       SizedBox(height: screenHeight * 0.08),
                       TextFormField(
-                        //* EMAIL FIELD
+                        //@ EMAIL FIELD
                         style: const TextStyle(color: Colors.white),
 
                         decoration: InputDecoration(
@@ -95,6 +97,7 @@ class SignInForm extends StatelessWidget {
                       ),
                       const SizedBox(height: 10),
                       TextFormField(
+                        //@ PASSWORD FIELD
                         style: const TextStyle(color: Colors.white),
                         decoration: InputDecoration(
                           prefixIcon: const Icon(
@@ -104,6 +107,7 @@ class SignInForm extends StatelessWidget {
                           labelText: PASSWORD,
                           labelStyle: const TextStyle(color: Colors.white),
                           enabledBorder: enabledBorder,
+                          border: enabledBorder,
                           focusedBorder: focusedBorder,
                           errorBorder: errorBorder,
                         ),
@@ -136,6 +140,8 @@ class SignInForm extends StatelessWidget {
                           style: TextStyle(color: Colors.white, fontSize: 20),
                         ),
                       ),
+                      const SizedBox(height: 30),
+                      const EitherAppleOrGoogleSignInButton(),
                     ],
                   ),
                 ),
