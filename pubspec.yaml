@@ -24,6 +24,7 @@ dependencies:
   injectable_generator: ^1.5.3
   flutter_bloc: ^8.0.1
   get_it: ^7.2.0
+  shared_preferences: ^2.0.15
 
 dev_dependencies:
   flutter_test:
