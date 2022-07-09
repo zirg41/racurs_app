@@ -1,8 +1,8 @@
-import 'package:default_flutter_app/presentation/sign_in/widgets/apple_google_sign_in_button.dart';
+import 'package:default_flutter_app/application/auth/sign_in_form/sign_in_form_bloc.dart';
+import 'package:default_flutter_app/presentation/pages/sign_in/widgets/apple_google_sign_in_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../application/auth/sign_in_form/sign_in_form_bloc.dart';
 import '../messages.dart';
 import 'background.dart';
 
@@ -53,14 +53,15 @@ class SignInForm extends StatelessWidget {
                   child: ListView(
                     children: [
                       SizedBox(height: screenHeight * 0.08),
-                      const Text(
+                      Text(
+                        //@ APP NAME TEXT
                         'Racurs',
                         textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 30, color: Colors.white),
+                        style: contextTheme.textTheme.titleLarge,
                       ),
                       SizedBox(height: screenHeight * 0.08),
                       TextFormField(
-                        //@ EMAIL FIELD
+                        //@ USERNAME TEXT FIELD
                         style: const TextStyle(color: Colors.white),
 
                         decoration: InputDecoration(
@@ -68,7 +69,7 @@ class SignInForm extends StatelessWidget {
                             Icons.email,
                             color: Colors.white,
                           ),
-                          labelText: 'Email',
+                          labelText: USERNAME,
                           // TODO Use themeData
                           labelStyle: const TextStyle(color: Colors.white),
 

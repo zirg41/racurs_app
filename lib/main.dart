@@ -4,7 +4,8 @@ import 'package:injectable/injectable.dart';
 
 import 'presentation/core/root_app_widget.dart';
 
-void main() {
-  configureInjection(Environment.prod);
-  runApp(RacursApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await configureInjection(Environment.prod);
+  runApp(const RootApp());
 }
