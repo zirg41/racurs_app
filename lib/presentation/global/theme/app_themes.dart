@@ -9,19 +9,30 @@ enum AppTheme {
 final appThemeData = {
   AppTheme.lightTheme: ThemeData(
     textTheme: TextTheme(
-      titleLarge: GoogleFonts.lato(
-          fontSize: 30, color: const Color.fromARGB(255, 255, 255, 255)),
-      bodyLarge: GoogleFonts.lato(fontSize: 15, fontWeight: FontWeight.bold),
-      bodyMedium: GoogleFonts.lato(fontSize: 15),
-      bodySmall: GoogleFonts.lato(fontSize: 12),
-      displayLarge:
-          GoogleFonts.lato(fontSize: 25, color: const Color(0xFF121212)),
+      displayLarge: GoogleFonts.lato(
+        fontSize: 55,
+        color: const Color.fromARGB(255, 255, 255, 255),
+        fontWeight: FontWeight.bold,
+      ),
+      displayMedium: GoogleFonts.lato(
+        fontSize: 40,
+        color: const Color.fromARGB(255, 255, 255, 255),
+        fontWeight: FontWeight.bold,
+      ),
+      headlineMedium: GoogleFonts.lato(
+        fontSize: 17,
+        color: const Color.fromARGB(255, 255, 255, 255),
+      ),
+      labelMedium: GoogleFonts.lato(
+        fontSize: 15,
+        color: const Color.fromARGB(255, 255, 255, 255),
+      ),
     ),
     textSelectionTheme: const TextSelectionThemeData(
       cursorColor: Colors.white70,
       selectionColor: Colors.white70,
     ),
-    colorScheme: const ColorScheme.dark().copyWith(
+    colorScheme: const ColorScheme.light().copyWith(
       brightness: Brightness.light,
       primary: pottyPalette['Charcoal'],
       onBackground: const Color(0xFF121212),
@@ -35,6 +46,38 @@ final appThemeData = {
       primaryContainer: pottyPalette['Burnt Sienna'],
       outline: const Color.fromARGB(255, 185, 184, 184),
       error: const Color(0xFFB00020),
+    ),
+    outlinedButtonTheme: OutlinedButtonThemeData(
+      style: OutlinedButton.styleFrom(),
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(),
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(20),
+        borderSide: const BorderSide(
+          color: Colors.white,
+          width: 1.0,
+        ),
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(20),
+        borderSide: const BorderSide(
+          color: Colors.white,
+          width: 1.0,
+        ),
+      ),
+      errorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(20),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(20),
+        borderSide: const BorderSide(
+          color: Color.fromARGB(255, 49, 31, 203),
+          width: 1.0,
+        ),
+      ),
     ),
   ),
   AppTheme.darkTheme: ThemeData(

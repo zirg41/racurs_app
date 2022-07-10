@@ -9,14 +9,16 @@ class EitherAppleOrGoogleSignInButton extends StatelessWidget {
     return Center(
       child: SizedBox(
         width: MediaQuery.of(context).size.width * 0.6,
-        child: OutlinedButton(
+        child: ElevatedButton(
           onPressed: () {},
-          style: Theme.of(context).textButtonTheme.style,
+          style: ElevatedButton.styleFrom(
+              primary: Colors.black,
+              onPrimary: Theme.of(context).colorScheme.onPrimary),
           child: Row(
             children: [
               Image.asset(
                 'lib/presentation/assets/google_logo.png',
-                scale: 70,
+                scale: 80,
               ),
               const Spacer(),
               const Padding(

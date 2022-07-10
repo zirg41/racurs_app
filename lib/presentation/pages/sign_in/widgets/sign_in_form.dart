@@ -1,5 +1,6 @@
 import 'package:default_flutter_app/application/auth/sign_in_form/sign_in_form_bloc.dart';
 import 'package:default_flutter_app/presentation/pages/sign_in/widgets/apple_google_sign_in_button.dart';
+import 'package:default_flutter_app/presentation/pages/sign_in/widgets/dont_have_an_account_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -15,27 +16,11 @@ class SignInForm extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
     final contextTheme = Theme.of(context);
 
-    final focusedBorder = OutlineInputBorder(
-      borderRadius: BorderRadius.circular(20),
-      borderSide: const BorderSide(
-        color: Color.fromARGB(255, 49, 31, 203),
-        width: 1.0,
-      ),
-    );
-    final enabledBorder = OutlineInputBorder(
-      borderRadius: BorderRadius.circular(20),
-      borderSide: const BorderSide(
-        color: Colors.white,
-        width: 1.0,
-      ),
-    );
-    final errorBorder = OutlineInputBorder(
-      borderRadius: BorderRadius.circular(20),
-      // borderSide: const BorderSide(
-      //   color: Colors.white,
-      //   width: 1.0,
-      // ),
-    );
+    final customDevider = Column(children: const [
+      SizedBox(height: 15),
+      Divider(),
+      SizedBox(height: 15)
+    ]);
 
     return BlocConsumer<SignInFormBloc, SignInFormState>(
       listener: (context, state) {
@@ -57,7 +42,7 @@ class SignInForm extends StatelessWidget {
                         //@ APP NAME TEXT
                         'Racurs',
                         textAlign: TextAlign.center,
-                        style: contextTheme.textTheme.titleLarge,
+                        style: contextTheme.textTheme.displayLarge,
                       ),
                       SizedBox(height: screenHeight * 0.08),
                       TextFormField(
@@ -71,12 +56,7 @@ class SignInForm extends StatelessWidget {
                           ),
                           labelText: USERNAME,
                           // TODO Use themeData
-                          labelStyle: const TextStyle(color: Colors.white),
-
-                          enabledBorder: enabledBorder,
-                          focusedBorder: focusedBorder,
-                          errorBorder: errorBorder,
-                          border: enabledBorder,
+                          labelStyle: contextTheme.textTheme.labelMedium,
                         ),
                         autocorrect: false,
                         onChanged: (value) {
@@ -106,11 +86,7 @@ class SignInForm extends StatelessWidget {
                             color: Colors.white70,
                           ),
                           labelText: PASSWORD,
-                          labelStyle: const TextStyle(color: Colors.white),
-                          enabledBorder: enabledBorder,
-                          border: enabledBorder,
-                          focusedBorder: focusedBorder,
-                          errorBorder: errorBorder,
+                          labelStyle: contextTheme.textTheme.labelMedium,
                         ),
                         obscureText: true,
                         autocorrect: false,
@@ -135,14 +111,17 @@ class SignInForm extends StatelessWidget {
                       const SizedBox(height: 20),
                       TextButton(
                         onPressed: () {},
-                        style: contextTheme.textButtonTheme.style,
                         child: const Text(
                           SIGN_IN,
                           style: TextStyle(color: Colors.white, fontSize: 20),
                         ),
                       ),
-                      const SizedBox(height: 30),
+                      customDevider,
                       const EitherAppleOrGoogleSignInButton(),
+                      customDevider,
+                      DontHaveAnAccountButton(
+                        pushToSignUpPageFunction: () {},
+                      )
                     ],
                   ),
                 ),
