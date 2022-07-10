@@ -1,5 +1,6 @@
 import 'package:default_flutter_app/presentation/global/theme/theme_bloc/theme_bloc.dart';
-import 'package:default_flutter_app/presentation/pages/sign_in/sign_in_page.dart';
+import 'package:default_flutter_app/presentation/routes/router.gr.dart'
+    as router_lib;
 import 'package:flutter/material.dart';
 
 class RacursApp extends StatelessWidget {
@@ -9,10 +10,12 @@ class RacursApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    final router = router_lib.Router();
+    return MaterialApp.router(
+      routeInformationParser: router.defaultRouteParser(),
+      routerDelegate: router.delegate(),
       debugShowCheckedModeBanner: false,
       title: 'Material App',
-      home: const SignInPage(),
       theme: themeState.themeData,
     );
   }

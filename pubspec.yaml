@@ -26,6 +26,8 @@ dependencies:
   get_it: ^7.2.0
   shared_preferences: ^2.0.15
   google_fonts: ^3.0.1
+  auto_route: ^4.2.1
+  auto_route_generator: ^4.2.0
   
 dev_dependencies:
   flutter_test:

@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:default_flutter_app/application/auth/sign_in_form/sign_in_form_bloc.dart';
-import 'package:default_flutter_app/presentation/pages/sign_in/sign_in_page.dart';
+import 'package:default_flutter_app/presentation/pages/sign_in/widgets/already_have_an_account.dart';
 import 'package:default_flutter_app/presentation/pages/sign_in/widgets/apple_google_sign_in_button.dart';
 import 'package:default_flutter_app/presentation/pages/sign_in/widgets/dont_have_an_account_button.dart';
 import 'package:default_flutter_app/presentation/routes/router.gr.dart';
@@ -10,8 +10,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../messages.dart';
 import 'background.dart';
 
-class SignInForm extends StatelessWidget {
-  const SignInForm({Key? key}) : super(key: key);
+class SignUpForm extends StatelessWidget {
+  const SignUpForm({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -57,10 +57,10 @@ class SignInForm extends StatelessWidget {
                             Icons.email,
                             color: Colors.white,
                           ),
-                          labelText: USERNAME,
-                          // TODO Use themeData
+                          labelText: CREATE_NICKNAME_TEXT,
                           labelStyle: contextTheme.textTheme.labelMedium,
                         ),
+
                         autocorrect: false,
                         onChanged: (value) {
                           context
@@ -88,7 +88,39 @@ class SignInForm extends StatelessWidget {
                             Icons.lock,
                             color: Colors.white70,
                           ),
-                          labelText: PASSWORD,
+                          labelText: CREATE_PASSWORD_TEXT,
+                          labelStyle: contextTheme.textTheme.labelMedium,
+                        ),
+                        obscureText: true,
+                        autocorrect: false,
+                        onChanged: (value) {
+                          context
+                              .read<SignInFormBloc>()
+                              .add(SignInFormEvent.passwordChanged(value));
+                        },
+                        validator: (_) => context
+                            .read<SignInFormBloc>()
+                            .state
+                            .password
+                            .value
+                            .fold(
+                              (f) => f.maybeMap(
+                                orElse: () => null,
+                                shortPassword: (_) => SHORT_PASSWORD,
+                              ),
+                              (_) => null,
+                            ),
+                      ),
+                      const SizedBox(height: 10),
+                      TextFormField(
+                        //@ REPAET PASSWORD FIELD
+                        style: const TextStyle(color: Colors.white),
+                        decoration: InputDecoration(
+                          prefixIcon: const Icon(
+                            Icons.lock,
+                            color: Colors.white70,
+                          ),
+                          labelText: REPEAT_PASSWORD_TEXT,
                           labelStyle: contextTheme.textTheme.labelMedium,
                         ),
                         obscureText: true,
@@ -115,16 +147,16 @@ class SignInForm extends StatelessWidget {
                       TextButton(
                         onPressed: () {},
                         child: const Text(
-                          SIGN_IN,
+                          CREATE_ACCOUNT_TEXT,
                           style: TextStyle(color: Colors.white, fontSize: 20),
                         ),
                       ),
                       customDevider,
                       const EitherAppleOrGoogleSignInButton(),
                       customDevider,
-                      DontHaveAnAccountButton(
+                      AlreadyHaveAnAccountButton(
                         pushToSignUpPageFunction: () {
-                          AutoRouter.of(context).push(const SignUpRoute());
+                          AutoRouter.of(context).replace(const SignInRoute());
                         },
                       )
                     ],
