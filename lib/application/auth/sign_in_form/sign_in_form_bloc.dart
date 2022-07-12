@@ -15,7 +15,7 @@ part 'sign_in_form_state.dart';
 @injectable
 class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
   final IAuthFacade _authFacade;
-
+  Either<AuthFailure, Unit>? failureOrSuccess;
   SignInFormBloc(this._authFacade) : super(SignInFormState.initial()) {
     on<SignInFormEvent>((event, emit) {
       event.when(
@@ -43,16 +43,53 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
             ),
           );
         },
+        // TODO I dont know how to refactor these two event handlers
         registerWithEmailAndPasswordPressed: () async {
-          await _executeActionOnAuthFacadeWithEmailAndPassword(
-            emit,
-            _authFacade.registerWithUsernameAndPassword,
+          final isEmailValid = state.email.isValid();
+          final isPasswordValid = state.password.isValid();
+          final isNewPasswordsEqual = state.password == state.repeatedPassword;
+
+          if (isEmailValid && isPasswordValid && isNewPasswordsEqual) {
+            emit(state.copyWith(
+              isSubmitting: true,
+              authFailureOrSuccessOption: none(),
+            ));
+            failureOrSuccess =
+                await _authFacade.registerWithUsernameAndPassword(
+              username: state.username,
+              email: state.email,
+              password: state.password,
+            );
+          }
+          emit(
+            state.copyWith(
+              isSubmitting: false,
+              validateMode: AutovalidateMode.always,
+              authFailureOrSuccessOption: optionOf(failureOrSuccess),
+            ),
           );
         },
         signInWithEmailAndPasswordPressed: () async {
-          await _executeActionOnAuthFacadeWithEmailAndPassword(
-            emit,
-            _authFacade.signInWithUsernameAndPassword,
+          final isEmailValid = state.email.isValid();
+          final isPasswordValid = state.password.isValid();
+
+          if (isEmailValid && isPasswordValid) {
+            emit(state.copyWith(
+              isSubmitting: true,
+              authFailureOrSuccessOption: none(),
+            ));
+            failureOrSuccess = await _authFacade.signInWithUsernameAndPassword(
+              username: state.username,
+              email: state.email,
+              password: state.password,
+            );
+          }
+          emit(
+            state.copyWith(
+              isSubmitting: false,
+              validateMode: AutovalidateMode.always,
+              authFailureOrSuccessOption: optionOf(failureOrSuccess),
+            ),
           );
         },
         signInWithGooglePressed: () async {
@@ -75,39 +112,5 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
         signInWithApplePressed: () async {},
       );
     });
-  }
-
-  Future<void> _executeActionOnAuthFacadeWithEmailAndPassword(
-    Emitter<SignInFormState> emit,
-    Future<Either<AuthFailure, Unit>> Function({
-      required Username username,
-      required Password password,
-      Email? email,
-    })
-        forwardedCall,
-  ) async {
-    Either<AuthFailure, Unit>? failureOrSuccess;
-
-    final isEmailValid = state.email.isValid();
-    final isPasswordValid = state.password.isValid();
-
-    if (isEmailValid && isPasswordValid) {
-      emit(state.copyWith(
-        isSubmitting: true,
-        authFailureOrSuccessOption: none(),
-      ));
-      failureOrSuccess = await forwardedCall(
-        username: state.username,
-        email: state.email,
-        password: state.password,
-      );
-    }
-    emit(
-      state.copyWith(
-        isSubmitting: false,
-        validateMode: AutovalidateMode.always,
-        authFailureOrSuccessOption: optionOf(failureOrSuccess),
-      ),
-    );
   }
 }

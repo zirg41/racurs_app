@@ -1221,6 +1221,7 @@ mixin _$SignInFormState {
   Username get username => throw _privateConstructorUsedError;
   Email get email => throw _privateConstructorUsedError;
   Password get password => throw _privateConstructorUsedError;
+  Password? get repeatedPassword => throw _privateConstructorUsedError;
   AutovalidateMode get validateMode => throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
   Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption =>
@@ -1240,6 +1241,7 @@ abstract class $SignInFormStateCopyWith<$Res> {
       {Username username,
       Email email,
       Password password,
+      Password? repeatedPassword,
       AutovalidateMode validateMode,
       bool isSubmitting,
       Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption});
@@ -1259,6 +1261,7 @@ class _$SignInFormStateCopyWithImpl<$Res>
     Object? username = freezed,
     Object? email = freezed,
     Object? password = freezed,
+    Object? repeatedPassword = freezed,
     Object? validateMode = freezed,
     Object? isSubmitting = freezed,
     Object? authFailureOrSuccessOption = freezed,
@@ -1276,6 +1279,10 @@ class _$SignInFormStateCopyWithImpl<$Res>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
+      repeatedPassword: repeatedPassword == freezed
+          ? _value.repeatedPassword
+          : repeatedPassword // ignore: cast_nullable_to_non_nullable
+              as Password?,
       validateMode: validateMode == freezed
           ? _value.validateMode
           : validateMode // ignore: cast_nullable_to_non_nullable
@@ -1303,6 +1310,7 @@ abstract class _$$_SignInFormStateCopyWith<$Res>
       {Username username,
       Email email,
       Password password,
+      Password? repeatedPassword,
       AutovalidateMode validateMode,
       bool isSubmitting,
       Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption});
@@ -1324,6 +1332,7 @@ class __$$_SignInFormStateCopyWithImpl<$Res>
     Object? username = freezed,
     Object? email = freezed,
     Object? password = freezed,
+    Object? repeatedPassword = freezed,
     Object? validateMode = freezed,
     Object? isSubmitting = freezed,
     Object? authFailureOrSuccessOption = freezed,
@@ -1341,6 +1350,10 @@ class __$$_SignInFormStateCopyWithImpl<$Res>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
+      repeatedPassword: repeatedPassword == freezed
+          ? _value.repeatedPassword
+          : repeatedPassword // ignore: cast_nullable_to_non_nullable
+              as Password?,
       validateMode: validateMode == freezed
           ? _value.validateMode
           : validateMode // ignore: cast_nullable_to_non_nullable
@@ -1364,6 +1377,7 @@ class _$_SignInFormState implements _SignInFormState {
       {required this.username,
       required this.email,
       required this.password,
+      required this.repeatedPassword,
       required this.validateMode,
       required this.isSubmitting,
       required this.authFailureOrSuccessOption});
@@ -1375,6 +1389,8 @@ class _$_SignInFormState implements _SignInFormState {
   @override
   final Password password;
   @override
+  final Password? repeatedPassword;
+  @override
   final AutovalidateMode validateMode;
   @override
   final bool isSubmitting;
@@ -1383,7 +1399,7 @@ class _$_SignInFormState implements _SignInFormState {
 
   @override
   String toString() {
-    return 'SignInFormState(username: $username, email: $email, password: $password, validateMode: $validateMode, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
+    return 'SignInFormState(username: $username, email: $email, password: $password, repeatedPassword: $repeatedPassword, validateMode: $validateMode, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
   }
 
   @override
@@ -1394,6 +1410,8 @@ class _$_SignInFormState implements _SignInFormState {
             const DeepCollectionEquality().equals(other.username, username) &&
             const DeepCollectionEquality().equals(other.email, email) &&
             const DeepCollectionEquality().equals(other.password, password) &&
+            const DeepCollectionEquality()
+                .equals(other.repeatedPassword, repeatedPassword) &&
             const DeepCollectionEquality()
                 .equals(other.validateMode, validateMode) &&
             const DeepCollectionEquality()
@@ -1408,6 +1426,7 @@ class _$_SignInFormState implements _SignInFormState {
       const DeepCollectionEquality().hash(username),
       const DeepCollectionEquality().hash(email),
       const DeepCollectionEquality().hash(password),
+      const DeepCollectionEquality().hash(repeatedPassword),
       const DeepCollectionEquality().hash(validateMode),
       const DeepCollectionEquality().hash(isSubmitting),
       const DeepCollectionEquality().hash(authFailureOrSuccessOption));
@@ -1423,6 +1442,7 @@ abstract class _SignInFormState implements SignInFormState {
       {required final Username username,
       required final Email email,
       required final Password password,
+      required final Password? repeatedPassword,
       required final AutovalidateMode validateMode,
       required final bool isSubmitting,
       required final Option<Either<AuthFailure, Unit>>
@@ -1434,6 +1454,8 @@ abstract class _SignInFormState implements SignInFormState {
   Email get email => throw _privateConstructorUsedError;
   @override
   Password get password => throw _privateConstructorUsedError;
+  @override
+  Password? get repeatedPassword => throw _privateConstructorUsedError;
   @override
   AutovalidateMode get validateMode => throw _privateConstructorUsedError;
   @override
