@@ -14,5 +14,9 @@ abstract class ValueFailure<T> with _$ValueFailure<T> {
 
   const factory ValueFailure.shortUsername({
     required String failedValue,
-  }) = ShortPassword<T>;
+  }) = ShortUsername<T>;
+
+  const factory ValueFailure.passwordsNotEqual({
+    required String failedValue,
+  }) = PasswordsNotEqual<T>;
 }

@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/cupertino.dart';
 
 import 'errors.dart';
-import 'value_failure.dart';
+import 'failures.dart';
 
 @immutable
 abstract class ValueObject<T> {
