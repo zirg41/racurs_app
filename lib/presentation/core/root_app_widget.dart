@@ -1,11 +1,14 @@
-import 'package:default_flutter_app/injection.dart';
-import 'package:default_flutter_app/presentation/core/racurs_app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../global/theme/theme_bloc/theme_bloc.dart';
 
-class RootApp extends StatelessWidget {
-  const RootApp({Key? key}) : super(key: key);
+import '../../injection.dart';
+import '../global/theme/theme_bloc/theme_bloc.dart';
+import '../routes/router.gr.dart' as router_lib;
+
+class RacursApp extends StatelessWidget {
+  RacursApp({Key? key}) : super(key: key);
+
+  final router = router_lib.Router();
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +21,13 @@ class RootApp extends StatelessWidget {
       ],
       child: BlocBuilder<ThemeBloc, ThemeState>(
         builder: (context, themeState) {
-          return RacursApp(themeState: themeState);
+          return MaterialApp.router(
+            routeInformationParser: router.defaultRouteParser(),
+            routerDelegate: router.delegate(),
+            debugShowCheckedModeBanner: false,
+            title: 'Material App',
+            theme: themeState.themeData,
+          );
         },
       ),
     );

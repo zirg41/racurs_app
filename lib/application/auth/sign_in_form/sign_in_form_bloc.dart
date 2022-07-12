@@ -19,6 +19,14 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
   SignInFormBloc(this._authFacade) : super(SignInFormState.initial()) {
     on<SignInFormEvent>((event, emit) {
       event.when(
+        usernameChanged: (usernameStr) {
+          emit(
+            state.copyWith(
+              username: Username(usernameStr),
+              authFailureOrSuccessOption: none(),
+            ),
+          );
+        },
         emailChanged: (email) {
           emit(
             state.copyWith(

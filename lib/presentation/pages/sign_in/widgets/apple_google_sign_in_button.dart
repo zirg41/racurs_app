@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 class EitherAppleOrGoogleSignInButton extends StatelessWidget {
   const EitherAppleOrGoogleSignInButton({Key? key}) : super(key: key);
 
+  // TODO Make widget responsible to screen size
+  // if device is iOS an Apple signing in should be added
   @override
   Widget build(BuildContext context) {
     return Center(

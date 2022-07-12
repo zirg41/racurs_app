@@ -7,5 +7,5 @@ import 'presentation/core/root_app_widget.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await configureInjection(Environment.prod);
-  runApp(const RootApp());
+  runApp(RacursApp());
 }

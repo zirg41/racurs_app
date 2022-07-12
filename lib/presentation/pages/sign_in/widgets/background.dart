@@ -12,8 +12,8 @@ class SignInBackground extends StatelessWidget {
           begin: Alignment.topLeft,
           end: Alignment(0.8, 1),
           colors: <Color>[
-            Color.fromARGB(255, 216, 177, 137),
-            Color.fromARGB(255, 139, 105, 207),
+            Color.fromARGB(255, 80, 187, 216),
+            Color.fromARGB(255, 63, 11, 169),
           ],
           tileMode: TileMode.mirror,
         ),

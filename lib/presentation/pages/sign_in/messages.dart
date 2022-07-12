@@ -15,3 +15,4 @@ const String REPEAT_PASSWORD_TEXT = 'Повторите пароль';
 const String CREATE_PASSWORD_TEXT = 'Придумайте пароль';
 const String CREATE_NICKNAME_TEXT = 'Придумайте никнейм';
 const String CREATE_ACCOUNT_TEXT = 'Создать аккаунт';
+const String PASSWORDS_MUST_BE_SAME = 'Пароли должны совпадать';

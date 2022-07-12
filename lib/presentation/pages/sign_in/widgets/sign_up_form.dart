@@ -65,12 +65,12 @@ class SignUpForm extends StatelessWidget {
                         onChanged: (value) {
                           context
                               .read<SignInFormBloc>()
-                              .add(SignInFormEvent.emailChanged(value));
+                              .add(SignInFormEvent.usernameChanged(value));
                         },
                         validator: (_) => context
                             .read<SignInFormBloc>()
                             .state
-                            .email
+                            .username
                             .value
                             .fold(
                               (f) => f.maybeMap(
@@ -125,23 +125,18 @@ class SignUpForm extends StatelessWidget {
                         ),
                         obscureText: true,
                         autocorrect: false,
-                        onChanged: (value) {
-                          context
-                              .read<SignInFormBloc>()
-                              .add(SignInFormEvent.passwordChanged(value));
+                        validator: (inputValue) {
+                          if (inputValue !=
+                              context
+                                  .read<SignInFormBloc>()
+                                  .state
+                                  .password
+                                  .value
+                                  .getOrElse(() => '')) {
+                            return PASSWORDS_MUST_BE_SAME;
+                          }
+                          return null;
                         },
-                        validator: (_) => context
-                            .read<SignInFormBloc>()
-                            .state
-                            .password
-                            .value
-                            .fold(
-                              (f) => f.maybeMap(
-                                orElse: () => null,
-                                shortPassword: (_) => SHORT_PASSWORD,
-                              ),
-                              (_) => null,
-                            ),
                       ),
                       const SizedBox(height: 20),
                       TextButton(
