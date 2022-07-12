@@ -21,6 +21,7 @@ mixin _$SignInFormEvent {
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String usernameStr) usernameChanged,
     required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function(String passwordStr) repeatedPasswordChanged,
     required TResult Function() registerWithEmailAndPasswordPressed,
     required TResult Function() signInWithEmailAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
@@ -32,6 +33,7 @@ mixin _$SignInFormEvent {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String usernameStr)? usernameChanged,
     TResult Function(String passwordStr)? passwordChanged,
+    TResult Function(String passwordStr)? repeatedPasswordChanged,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
@@ -43,6 +45,7 @@ mixin _$SignInFormEvent {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String usernameStr)? usernameChanged,
     TResult Function(String passwordStr)? passwordChanged,
+    TResult Function(String passwordStr)? repeatedPasswordChanged,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
@@ -55,6 +58,8 @@ mixin _$SignInFormEvent {
     required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(UsernameChanged value) usernameChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(RepeatedPasswordChanged value)
+        repeatedPasswordChanged,
     required TResult Function(RegisterWithEmailAndPasswordPressed value)
         registerWithEmailAndPasswordPressed,
     required TResult Function(SignInWithEmailAndPasswordPressed value)
@@ -70,6 +75,7 @@ mixin _$SignInFormEvent {
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(UsernameChanged value)? usernameChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(RepeatedPasswordChanged value)? repeatedPasswordChanged,
     TResult Function(RegisterWithEmailAndPasswordPressed value)?
         registerWithEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?
@@ -83,6 +89,7 @@ mixin _$SignInFormEvent {
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(UsernameChanged value)? usernameChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(RepeatedPasswordChanged value)? repeatedPasswordChanged,
     TResult Function(RegisterWithEmailAndPasswordPressed value)?
         registerWithEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?
@@ -179,6 +186,7 @@ class _$EmailChanged implements EmailChanged {
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String usernameStr) usernameChanged,
     required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function(String passwordStr) repeatedPasswordChanged,
     required TResult Function() registerWithEmailAndPasswordPressed,
     required TResult Function() signInWithEmailAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
@@ -193,6 +201,7 @@ class _$EmailChanged implements EmailChanged {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String usernameStr)? usernameChanged,
     TResult Function(String passwordStr)? passwordChanged,
+    TResult Function(String passwordStr)? repeatedPasswordChanged,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
@@ -207,6 +216,7 @@ class _$EmailChanged implements EmailChanged {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String usernameStr)? usernameChanged,
     TResult Function(String passwordStr)? passwordChanged,
+    TResult Function(String passwordStr)? repeatedPasswordChanged,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
@@ -225,6 +235,8 @@ class _$EmailChanged implements EmailChanged {
     required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(UsernameChanged value) usernameChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(RepeatedPasswordChanged value)
+        repeatedPasswordChanged,
     required TResult Function(RegisterWithEmailAndPasswordPressed value)
         registerWithEmailAndPasswordPressed,
     required TResult Function(SignInWithEmailAndPasswordPressed value)
@@ -243,6 +255,7 @@ class _$EmailChanged implements EmailChanged {
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(UsernameChanged value)? usernameChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(RepeatedPasswordChanged value)? repeatedPasswordChanged,
     TResult Function(RegisterWithEmailAndPasswordPressed value)?
         registerWithEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?
@@ -259,6 +272,7 @@ class _$EmailChanged implements EmailChanged {
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(UsernameChanged value)? usernameChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(RepeatedPasswordChanged value)? repeatedPasswordChanged,
     TResult Function(RegisterWithEmailAndPasswordPressed value)?
         registerWithEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?
@@ -352,6 +366,7 @@ class _$UsernameChanged implements UsernameChanged {
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String usernameStr) usernameChanged,
     required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function(String passwordStr) repeatedPasswordChanged,
     required TResult Function() registerWithEmailAndPasswordPressed,
     required TResult Function() signInWithEmailAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
@@ -366,6 +381,7 @@ class _$UsernameChanged implements UsernameChanged {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String usernameStr)? usernameChanged,
     TResult Function(String passwordStr)? passwordChanged,
+    TResult Function(String passwordStr)? repeatedPasswordChanged,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
@@ -380,6 +396,7 @@ class _$UsernameChanged implements UsernameChanged {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String usernameStr)? usernameChanged,
     TResult Function(String passwordStr)? passwordChanged,
+    TResult Function(String passwordStr)? repeatedPasswordChanged,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
@@ -398,6 +415,8 @@ class _$UsernameChanged implements UsernameChanged {
     required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(UsernameChanged value) usernameChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(RepeatedPasswordChanged value)
+        repeatedPasswordChanged,
     required TResult Function(RegisterWithEmailAndPasswordPressed value)
         registerWithEmailAndPasswordPressed,
     required TResult Function(SignInWithEmailAndPasswordPressed value)
@@ -416,6 +435,7 @@ class _$UsernameChanged implements UsernameChanged {
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(UsernameChanged value)? usernameChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(RepeatedPasswordChanged value)? repeatedPasswordChanged,
     TResult Function(RegisterWithEmailAndPasswordPressed value)?
         registerWithEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?
@@ -432,6 +452,7 @@ class _$UsernameChanged implements UsernameChanged {
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(UsernameChanged value)? usernameChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(RepeatedPasswordChanged value)? repeatedPasswordChanged,
     TResult Function(RegisterWithEmailAndPasswordPressed value)?
         registerWithEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?
@@ -525,6 +546,7 @@ class _$PasswordChanged implements PasswordChanged {
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String usernameStr) usernameChanged,
     required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function(String passwordStr) repeatedPasswordChanged,
     required TResult Function() registerWithEmailAndPasswordPressed,
     required TResult Function() signInWithEmailAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
@@ -539,6 +561,7 @@ class _$PasswordChanged implements PasswordChanged {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String usernameStr)? usernameChanged,
     TResult Function(String passwordStr)? passwordChanged,
+    TResult Function(String passwordStr)? repeatedPasswordChanged,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
@@ -553,6 +576,7 @@ class _$PasswordChanged implements PasswordChanged {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String usernameStr)? usernameChanged,
     TResult Function(String passwordStr)? passwordChanged,
+    TResult Function(String passwordStr)? repeatedPasswordChanged,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
@@ -571,6 +595,8 @@ class _$PasswordChanged implements PasswordChanged {
     required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(UsernameChanged value) usernameChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(RepeatedPasswordChanged value)
+        repeatedPasswordChanged,
     required TResult Function(RegisterWithEmailAndPasswordPressed value)
         registerWithEmailAndPasswordPressed,
     required TResult Function(SignInWithEmailAndPasswordPressed value)
@@ -589,6 +615,7 @@ class _$PasswordChanged implements PasswordChanged {
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(UsernameChanged value)? usernameChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(RepeatedPasswordChanged value)? repeatedPasswordChanged,
     TResult Function(RegisterWithEmailAndPasswordPressed value)?
         registerWithEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?
@@ -605,6 +632,7 @@ class _$PasswordChanged implements PasswordChanged {
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(UsernameChanged value)? usernameChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(RepeatedPasswordChanged value)? repeatedPasswordChanged,
     TResult Function(RegisterWithEmailAndPasswordPressed value)?
         registerWithEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?
@@ -626,6 +654,189 @@ abstract class PasswordChanged implements SignInFormEvent {
   String get passwordStr => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$PasswordChangedCopyWith<_$PasswordChanged> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$RepeatedPasswordChangedCopyWith<$Res> {
+  factory _$$RepeatedPasswordChangedCopyWith(_$RepeatedPasswordChanged value,
+          $Res Function(_$RepeatedPasswordChanged) then) =
+      __$$RepeatedPasswordChangedCopyWithImpl<$Res>;
+  $Res call({String passwordStr});
+}
+
+/// @nodoc
+class __$$RepeatedPasswordChangedCopyWithImpl<$Res>
+    extends _$SignInFormEventCopyWithImpl<$Res>
+    implements _$$RepeatedPasswordChangedCopyWith<$Res> {
+  __$$RepeatedPasswordChangedCopyWithImpl(_$RepeatedPasswordChanged _value,
+      $Res Function(_$RepeatedPasswordChanged) _then)
+      : super(_value, (v) => _then(v as _$RepeatedPasswordChanged));
+
+  @override
+  _$RepeatedPasswordChanged get _value =>
+      super._value as _$RepeatedPasswordChanged;
+
+  @override
+  $Res call({
+    Object? passwordStr = freezed,
+  }) {
+    return _then(_$RepeatedPasswordChanged(
+      passwordStr == freezed
+          ? _value.passwordStr
+          : passwordStr // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$RepeatedPasswordChanged implements RepeatedPasswordChanged {
+  const _$RepeatedPasswordChanged(this.passwordStr);
+
+  @override
+  final String passwordStr;
+
+  @override
+  String toString() {
+    return 'SignInFormEvent.repeatedPasswordChanged(passwordStr: $passwordStr)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RepeatedPasswordChanged &&
+            const DeepCollectionEquality()
+                .equals(other.passwordStr, passwordStr));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(passwordStr));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$RepeatedPasswordChangedCopyWith<_$RepeatedPasswordChanged> get copyWith =>
+      __$$RepeatedPasswordChangedCopyWithImpl<_$RepeatedPasswordChanged>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String emailStr) emailChanged,
+    required TResult Function(String usernameStr) usernameChanged,
+    required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function(String passwordStr) repeatedPasswordChanged,
+    required TResult Function() registerWithEmailAndPasswordPressed,
+    required TResult Function() signInWithEmailAndPasswordPressed,
+    required TResult Function() signInWithGooglePressed,
+    required TResult Function() signInWithApplePressed,
+  }) {
+    return repeatedPasswordChanged(passwordStr);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String emailStr)? emailChanged,
+    TResult Function(String usernameStr)? usernameChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function(String passwordStr)? repeatedPasswordChanged,
+    TResult Function()? registerWithEmailAndPasswordPressed,
+    TResult Function()? signInWithEmailAndPasswordPressed,
+    TResult Function()? signInWithGooglePressed,
+    TResult Function()? signInWithApplePressed,
+  }) {
+    return repeatedPasswordChanged?.call(passwordStr);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String emailStr)? emailChanged,
+    TResult Function(String usernameStr)? usernameChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function(String passwordStr)? repeatedPasswordChanged,
+    TResult Function()? registerWithEmailAndPasswordPressed,
+    TResult Function()? signInWithEmailAndPasswordPressed,
+    TResult Function()? signInWithGooglePressed,
+    TResult Function()? signInWithApplePressed,
+    required TResult orElse(),
+  }) {
+    if (repeatedPasswordChanged != null) {
+      return repeatedPasswordChanged(passwordStr);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(EmailChanged value) emailChanged,
+    required TResult Function(UsernameChanged value) usernameChanged,
+    required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(RepeatedPasswordChanged value)
+        repeatedPasswordChanged,
+    required TResult Function(RegisterWithEmailAndPasswordPressed value)
+        registerWithEmailAndPasswordPressed,
+    required TResult Function(SignInWithEmailAndPasswordPressed value)
+        signInWithEmailAndPasswordPressed,
+    required TResult Function(SignInWithGooglePressed value)
+        signInWithGooglePressed,
+    required TResult Function(SignInWithApplePressed value)
+        signInWithApplePressed,
+  }) {
+    return repeatedPasswordChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(EmailChanged value)? emailChanged,
+    TResult Function(UsernameChanged value)? usernameChanged,
+    TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(RepeatedPasswordChanged value)? repeatedPasswordChanged,
+    TResult Function(RegisterWithEmailAndPasswordPressed value)?
+        registerWithEmailAndPasswordPressed,
+    TResult Function(SignInWithEmailAndPasswordPressed value)?
+        signInWithEmailAndPasswordPressed,
+    TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult Function(SignInWithApplePressed value)? signInWithApplePressed,
+  }) {
+    return repeatedPasswordChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(EmailChanged value)? emailChanged,
+    TResult Function(UsernameChanged value)? usernameChanged,
+    TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(RepeatedPasswordChanged value)? repeatedPasswordChanged,
+    TResult Function(RegisterWithEmailAndPasswordPressed value)?
+        registerWithEmailAndPasswordPressed,
+    TResult Function(SignInWithEmailAndPasswordPressed value)?
+        signInWithEmailAndPasswordPressed,
+    TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult Function(SignInWithApplePressed value)? signInWithApplePressed,
+    required TResult orElse(),
+  }) {
+    if (repeatedPasswordChanged != null) {
+      return repeatedPasswordChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class RepeatedPasswordChanged implements SignInFormEvent {
+  const factory RepeatedPasswordChanged(final String passwordStr) =
+      _$RepeatedPasswordChanged;
+
+  String get passwordStr => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$$RepeatedPasswordChangedCopyWith<_$RepeatedPasswordChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -678,6 +889,7 @@ class _$RegisterWithEmailAndPasswordPressed
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String usernameStr) usernameChanged,
     required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function(String passwordStr) repeatedPasswordChanged,
     required TResult Function() registerWithEmailAndPasswordPressed,
     required TResult Function() signInWithEmailAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
@@ -692,6 +904,7 @@ class _$RegisterWithEmailAndPasswordPressed
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String usernameStr)? usernameChanged,
     TResult Function(String passwordStr)? passwordChanged,
+    TResult Function(String passwordStr)? repeatedPasswordChanged,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
@@ -706,6 +919,7 @@ class _$RegisterWithEmailAndPasswordPressed
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String usernameStr)? usernameChanged,
     TResult Function(String passwordStr)? passwordChanged,
+    TResult Function(String passwordStr)? repeatedPasswordChanged,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
@@ -724,6 +938,8 @@ class _$RegisterWithEmailAndPasswordPressed
     required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(UsernameChanged value) usernameChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(RepeatedPasswordChanged value)
+        repeatedPasswordChanged,
     required TResult Function(RegisterWithEmailAndPasswordPressed value)
         registerWithEmailAndPasswordPressed,
     required TResult Function(SignInWithEmailAndPasswordPressed value)
@@ -742,6 +958,7 @@ class _$RegisterWithEmailAndPasswordPressed
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(UsernameChanged value)? usernameChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(RepeatedPasswordChanged value)? repeatedPasswordChanged,
     TResult Function(RegisterWithEmailAndPasswordPressed value)?
         registerWithEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?
@@ -758,6 +975,7 @@ class _$RegisterWithEmailAndPasswordPressed
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(UsernameChanged value)? usernameChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(RepeatedPasswordChanged value)? repeatedPasswordChanged,
     TResult Function(RegisterWithEmailAndPasswordPressed value)?
         registerWithEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?
@@ -827,6 +1045,7 @@ class _$SignInWithEmailAndPasswordPressed
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String usernameStr) usernameChanged,
     required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function(String passwordStr) repeatedPasswordChanged,
     required TResult Function() registerWithEmailAndPasswordPressed,
     required TResult Function() signInWithEmailAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
@@ -841,6 +1060,7 @@ class _$SignInWithEmailAndPasswordPressed
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String usernameStr)? usernameChanged,
     TResult Function(String passwordStr)? passwordChanged,
+    TResult Function(String passwordStr)? repeatedPasswordChanged,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
@@ -855,6 +1075,7 @@ class _$SignInWithEmailAndPasswordPressed
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String usernameStr)? usernameChanged,
     TResult Function(String passwordStr)? passwordChanged,
+    TResult Function(String passwordStr)? repeatedPasswordChanged,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
@@ -873,6 +1094,8 @@ class _$SignInWithEmailAndPasswordPressed
     required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(UsernameChanged value) usernameChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(RepeatedPasswordChanged value)
+        repeatedPasswordChanged,
     required TResult Function(RegisterWithEmailAndPasswordPressed value)
         registerWithEmailAndPasswordPressed,
     required TResult Function(SignInWithEmailAndPasswordPressed value)
@@ -891,6 +1114,7 @@ class _$SignInWithEmailAndPasswordPressed
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(UsernameChanged value)? usernameChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(RepeatedPasswordChanged value)? repeatedPasswordChanged,
     TResult Function(RegisterWithEmailAndPasswordPressed value)?
         registerWithEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?
@@ -907,6 +1131,7 @@ class _$SignInWithEmailAndPasswordPressed
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(UsernameChanged value)? usernameChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(RepeatedPasswordChanged value)? repeatedPasswordChanged,
     TResult Function(RegisterWithEmailAndPasswordPressed value)?
         registerWithEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?
@@ -973,6 +1198,7 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String usernameStr) usernameChanged,
     required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function(String passwordStr) repeatedPasswordChanged,
     required TResult Function() registerWithEmailAndPasswordPressed,
     required TResult Function() signInWithEmailAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
@@ -987,6 +1213,7 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String usernameStr)? usernameChanged,
     TResult Function(String passwordStr)? passwordChanged,
+    TResult Function(String passwordStr)? repeatedPasswordChanged,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
@@ -1001,6 +1228,7 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String usernameStr)? usernameChanged,
     TResult Function(String passwordStr)? passwordChanged,
+    TResult Function(String passwordStr)? repeatedPasswordChanged,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
@@ -1019,6 +1247,8 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
     required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(UsernameChanged value) usernameChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(RepeatedPasswordChanged value)
+        repeatedPasswordChanged,
     required TResult Function(RegisterWithEmailAndPasswordPressed value)
         registerWithEmailAndPasswordPressed,
     required TResult Function(SignInWithEmailAndPasswordPressed value)
@@ -1037,6 +1267,7 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(UsernameChanged value)? usernameChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(RepeatedPasswordChanged value)? repeatedPasswordChanged,
     TResult Function(RegisterWithEmailAndPasswordPressed value)?
         registerWithEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?
@@ -1053,6 +1284,7 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(UsernameChanged value)? usernameChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(RepeatedPasswordChanged value)? repeatedPasswordChanged,
     TResult Function(RegisterWithEmailAndPasswordPressed value)?
         registerWithEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?
@@ -1117,6 +1349,7 @@ class _$SignInWithApplePressed implements SignInWithApplePressed {
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String usernameStr) usernameChanged,
     required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function(String passwordStr) repeatedPasswordChanged,
     required TResult Function() registerWithEmailAndPasswordPressed,
     required TResult Function() signInWithEmailAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
@@ -1131,6 +1364,7 @@ class _$SignInWithApplePressed implements SignInWithApplePressed {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String usernameStr)? usernameChanged,
     TResult Function(String passwordStr)? passwordChanged,
+    TResult Function(String passwordStr)? repeatedPasswordChanged,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
@@ -1145,6 +1379,7 @@ class _$SignInWithApplePressed implements SignInWithApplePressed {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String usernameStr)? usernameChanged,
     TResult Function(String passwordStr)? passwordChanged,
+    TResult Function(String passwordStr)? repeatedPasswordChanged,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
@@ -1163,6 +1398,8 @@ class _$SignInWithApplePressed implements SignInWithApplePressed {
     required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(UsernameChanged value) usernameChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(RepeatedPasswordChanged value)
+        repeatedPasswordChanged,
     required TResult Function(RegisterWithEmailAndPasswordPressed value)
         registerWithEmailAndPasswordPressed,
     required TResult Function(SignInWithEmailAndPasswordPressed value)
@@ -1181,6 +1418,7 @@ class _$SignInWithApplePressed implements SignInWithApplePressed {
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(UsernameChanged value)? usernameChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(RepeatedPasswordChanged value)? repeatedPasswordChanged,
     TResult Function(RegisterWithEmailAndPasswordPressed value)?
         registerWithEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?
@@ -1197,6 +1435,7 @@ class _$SignInWithApplePressed implements SignInWithApplePressed {
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(UsernameChanged value)? usernameChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(RepeatedPasswordChanged value)? repeatedPasswordChanged,
     TResult Function(RegisterWithEmailAndPasswordPressed value)?
         registerWithEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?

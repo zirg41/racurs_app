@@ -125,6 +125,10 @@ class SignUpForm extends StatelessWidget {
                         ),
                         obscureText: true,
                         autocorrect: false,
+                        onChanged: (value) {
+                          context.read<SignInFormBloc>().add(
+                              SignInFormEvent.repeatedPasswordChanged(value));
+                        },
                         validator: (inputValue) {
                           if (inputValue !=
                               context

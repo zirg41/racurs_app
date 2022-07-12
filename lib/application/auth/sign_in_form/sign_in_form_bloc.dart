@@ -19,6 +19,14 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
   SignInFormBloc(this._authFacade) : super(SignInFormState.initial()) {
     on<SignInFormEvent>((event, emit) {
       event.when(
+        repeatedPasswordChanged: (repeatedPasswordStr) {
+          emit(
+            state.copyWith(
+              repeatedPassword: Password(repeatedPasswordStr),
+              authFailureOrSuccessOption: none(),
+            ),
+          );
+        },
         usernameChanged: (usernameStr) {
           emit(
             state.copyWith(

@@ -7,6 +7,8 @@ class SignInFormEvent with _$SignInFormEvent {
       UsernameChanged;
   const factory SignInFormEvent.passwordChanged(String passwordStr) =
       PasswordChanged;
+  const factory SignInFormEvent.repeatedPasswordChanged(String passwordStr) =
+      RepeatedPasswordChanged;
   const factory SignInFormEvent.registerWithEmailAndPasswordPressed() =
       RegisterWithEmailAndPasswordPressed;
   const factory SignInFormEvent.signInWithEmailAndPasswordPressed() =
