@@ -6,15 +6,14 @@ import '../../domain/auth/auth_failure.dart';
 import '../../domain/auth/i_auth_facade.dart';
 import '../../domain/auth/user.dart';
 import '../../domain/auth/value_objects.dart';
-import '../../domain/core/unique_id.dart';
 
 @Singleton(as: IAuthFacade)
 class Back4AppAuthFacade implements IAuthFacade {
   @override
   Future<Option<User>> getSignedInUser() async {
-    final user = await ParseUser.currentUser() as ParseUser;
+    final parseUser = await ParseUser.currentUser();
 
-    return optionOf(User(id: UniqueId.fromUniqueString(user.objectId!)));
+    return optionOf<User>(parseUser?.toDomain());
   }
 
   @override
@@ -28,8 +27,8 @@ class Back4AppAuthFacade implements IAuthFacade {
       password.getOrCrash(),
       email?.getOrCrash(),
     );
-
-    final response = await user.signUp();
+    final response =
+        await user.signUp(allowWithoutEmail: email == null ? true : false);
 
     if (response.success) {
       return right(unit);

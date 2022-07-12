@@ -28,6 +28,7 @@ class SignUpForm extends StatelessWidget {
     return BlocConsumer<SignInFormBloc, SignInFormState>(
       listener: (context, state) {
         // TODO: implement listener
+        print(state);
       },
       builder: (context, state) {
         return Stack(
@@ -144,7 +145,12 @@ class SignUpForm extends StatelessWidget {
                       ),
                       const SizedBox(height: 20),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          context.read<SignInFormBloc>().add(
+                                const SignInFormEvent
+                                    .registerWithUsernameAndPasswordPressed(),
+                              );
+                        },
                         child: const Text(
                           CREATE_ACCOUNT_TEXT,
                           style: TextStyle(color: Colors.white, fontSize: 20),

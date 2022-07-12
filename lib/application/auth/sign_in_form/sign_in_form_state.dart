@@ -4,7 +4,7 @@ part of 'sign_in_form_bloc.dart';
 class SignInFormState with _$SignInFormState {
   const factory SignInFormState({
     required Username username,
-    required Email email,
+    required Email? email,
     required Password password,
     required Password? repeatedPassword,
     required AutovalidateMode validateMode,
@@ -14,7 +14,7 @@ class SignInFormState with _$SignInFormState {
 
   factory SignInFormState.initial() => SignInFormState(
         username: Username(''),
-        email: Email(''),
+        email: null,
         password: Password(''),
         repeatedPassword: null,
         validateMode: AutovalidateMode.disabled,

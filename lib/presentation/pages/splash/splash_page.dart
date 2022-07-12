@@ -1,3 +1,5 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:default_flutter_app/presentation/routes/router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -17,7 +19,7 @@ class SplashPage extends StatelessWidget {
             // TODO Implement pushing to app page
           },
           unauthenticated: (_) {
-            // TODO Implement pushing to signInPage
+            AutoRouter.of(context).replace(const SignInRoute());
           },
         );
       },

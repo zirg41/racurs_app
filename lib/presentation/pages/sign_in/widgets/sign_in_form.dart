@@ -70,7 +70,7 @@ class SignInForm extends StatelessWidget {
                         validator: (_) => context
                             .read<SignInFormBloc>()
                             .state
-                            .email
+                            .username
                             .value
                             .fold(
                               (f) => f.maybeMap(

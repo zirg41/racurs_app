@@ -8,6 +8,7 @@ const String SHORT_PASSWORD = 'Пароль должен содержать бо
 const String SIGN_IN = 'Войти';
 const String SIGN_IN_WITH_GOOGLE = 'Продолжить c Google';
 const String USERNAME = 'Имя/никнейм пользователя';
+const String SHORT_USERNAME = 'Никнейм должен содержать больше 4-х символов';
 const String DO_NOT_HAVE_AN_ACCOUNT_TEXT = 'Нет аккаунта?';
 const String ALREADY_HAVE_AN_ACCOUNT_TEXT = 'Уже зарегестрированы?';
 const String SIGN_UP_TEXT = 'Зарегестрироваться';

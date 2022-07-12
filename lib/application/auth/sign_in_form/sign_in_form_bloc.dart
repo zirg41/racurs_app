@@ -52,12 +52,12 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
           );
         },
         // TODO I dont know how to refactor these two event handlers
-        registerWithEmailAndPasswordPressed: () async {
-          final isEmailValid = state.email.isValid();
+        registerWithUsernameAndPasswordPressed: () async {
+          final isUsernameValid = state.username.isValid();
           final isPasswordValid = state.password.isValid();
           final isNewPasswordsEqual = state.password == state.repeatedPassword;
 
-          if (isEmailValid && isPasswordValid && isNewPasswordsEqual) {
+          if (isUsernameValid && isPasswordValid && isNewPasswordsEqual) {
             emit(state.copyWith(
               isSubmitting: true,
               authFailureOrSuccessOption: none(),
@@ -77,11 +77,11 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
             ),
           );
         },
-        signInWithEmailAndPasswordPressed: () async {
-          final isEmailValid = state.email.isValid();
+        signInWithUsernameAndPasswordPressed: () async {
+          final isUsernameValid = state.username.isValid();
           final isPasswordValid = state.password.isValid();
 
-          if (isEmailValid && isPasswordValid) {
+          if (isUsernameValid && isPasswordValid) {
             emit(state.copyWith(
               isSubmitting: true,
               authFailureOrSuccessOption: none(),
