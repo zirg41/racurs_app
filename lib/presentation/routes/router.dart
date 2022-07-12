@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:default_flutter_app/presentation/pages/home/home_page.dart';
 import 'package:default_flutter_app/presentation/pages/sign_in/sign_in_page.dart';
 import 'package:default_flutter_app/presentation/pages/sign_in/sign_up_page.dart';
 import 'package:default_flutter_app/presentation/pages/splash/splash_page.dart';
@@ -7,6 +8,7 @@ import 'package:default_flutter_app/presentation/pages/splash/splash_page.dart';
   replaceInRouteName: 'Page,Route',
   routes: [
     AutoRoute(page: SplashPage, initial: true),
+    AutoRoute(page: HomePage),
     CustomRoute(
       page: SignInPage,
       transitionsBuilder: TransitionsBuilders.slideRightWithFade,

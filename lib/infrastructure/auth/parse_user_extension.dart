@@ -1,8 +1,8 @@
 import 'package:default_flutter_app/domain/auth/user.dart';
 import 'package:default_flutter_app/domain/core/unique_id.dart';
-import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk.dart' as parse_lib;
 
-extension ParseUserExtension on ParseUser {
+extension ParseUserExtension on parse_lib.ParseUser {
   User toDomain() {
     return User(id: UniqueId.fromUniqueString(objectId!));
   }

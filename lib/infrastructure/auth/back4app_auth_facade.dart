@@ -6,12 +6,13 @@ import '../../domain/auth/auth_failure.dart';
 import '../../domain/auth/i_auth_facade.dart';
 import '../../domain/auth/user.dart';
 import '../../domain/auth/value_objects.dart';
+import 'parse_user_extension.dart';
 
 @Singleton(as: IAuthFacade)
 class Back4AppAuthFacade implements IAuthFacade {
   @override
   Future<Option<User>> getSignedInUser() async {
-    final parseUser = await ParseUser.currentUser();
+    final ParseUser? parseUser = await ParseUser.currentUser();
 
     return optionOf<User>(parseUser?.toDomain());
   }
