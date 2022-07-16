@@ -1,8 +1,8 @@
-import 'package:default_flutter_app/back4app_api_keys.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 
+import 'back4app_api_keys.dart';
 import 'injection.config.dart';
 
 final GetIt getIt = GetIt.instance;

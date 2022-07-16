@@ -1,4 +1,4 @@
-import 'package:default_flutter_app/presentation/pages/sign_in/messages.dart';
+import '../messages.dart';
 import 'package:flutter/material.dart';
 
 class AlreadyHaveAnAccountButton extends StatelessWidget {

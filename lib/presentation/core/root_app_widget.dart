@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../application/auth/auth_bloc.dart';
 
+import '../../../application/auth/auth_bloc.dart';
+import '../../application/auth/sign_in_form/sign_in_form_bloc.dart';
 import '../../injection.dart';
 import '../global/theme/theme_bloc/theme_bloc.dart';
 import '../routes/router.gr.dart' as router_lib;
@@ -22,6 +23,9 @@ class RacursApp extends StatelessWidget {
         BlocProvider(
           create: (context) =>
               getIt<AuthBloc>()..add(const AuthEvent.authCheckReqested()),
+        ),
+        BlocProvider(
+          create: (context) => getIt<SignInFormBloc>(),
         ),
       ],
       child: BlocBuilder<ThemeBloc, ThemeState>(

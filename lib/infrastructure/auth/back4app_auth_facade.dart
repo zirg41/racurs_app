@@ -26,11 +26,11 @@ class Back4AppAuthFacade implements IAuthFacade {
     final user = ParseUser.createUser(
       username.getOrCrash(),
       password.getOrCrash(),
-      email?.getOrCrash(),
+      email?.getOrNull(),
     );
     final response =
         await user.signUp(allowWithoutEmail: email == null ? true : false);
-
+    print('method from back4app was invoked and got respponse: $response');
     if (response.success) {
       return right(unit);
     } else {
@@ -60,7 +60,7 @@ class Back4AppAuthFacade implements IAuthFacade {
     final user = ParseUser.createUser(
       username.getOrCrash(),
       password.getOrCrash(),
-      email?.getOrCrash(),
+      email?.getOrNull(),
     );
 
     final response = await user.login();

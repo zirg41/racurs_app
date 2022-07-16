@@ -1,4 +1,4 @@
-import 'package:default_flutter_app/presentation/pages/sign_in/messages.dart';
+import '../messages.dart';
 import 'package:flutter/material.dart';
 
 class EitherAppleOrGoogleSignInButton extends StatelessWidget {
@@ -10,7 +10,7 @@ class EitherAppleOrGoogleSignInButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: SizedBox(
-        width: MediaQuery.of(context).size.width * 0.6,
+        width: MediaQuery.of(context).size.width * 0.65,
         child: ElevatedButton(
           onPressed: () {},
           style: ElevatedButton.styleFrom(

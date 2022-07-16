@@ -15,10 +15,12 @@ part 'sign_in_form_state.dart';
 @injectable
 class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
   final IAuthFacade _authFacade;
+
   Either<AuthFailure, Unit>? failureOrSuccess;
+
   SignInFormBloc(this._authFacade) : super(SignInFormState.initial()) {
-    on<SignInFormEvent>((event, emit) {
-      event.when(
+    on<SignInFormEvent>((event, emit) async {
+      await event.when(
         repeatedPasswordChanged: (repeatedPasswordStr) {
           emit(
             state.copyWith(
@@ -76,6 +78,10 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
               authFailureOrSuccessOption: optionOf(failureOrSuccess),
             ),
           );
+          failureOrSuccess?.fold(
+            (l) => null,
+            (r) => emit(SignInFormState.initial()),
+          );
         },
         signInWithUsernameAndPasswordPressed: () async {
           final isUsernameValid = state.username.isValid();
@@ -98,6 +104,11 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
               validateMode: AutovalidateMode.always,
               authFailureOrSuccessOption: optionOf(failureOrSuccess),
             ),
+          );
+
+          failureOrSuccess?.fold(
+            (l) => null,
+            (r) => emit(SignInFormState.initial()),
           );
         },
         signInWithGooglePressed: () async {

@@ -1,14 +1,14 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:default_flutter_app/application/auth/sign_in_form/sign_in_form_bloc.dart';
-import 'package:default_flutter_app/presentation/pages/sign_in/sign_in_page.dart';
-import 'package:default_flutter_app/presentation/pages/sign_in/widgets/apple_google_sign_in_button.dart';
-import 'package:default_flutter_app/presentation/pages/sign_in/widgets/dont_have_an_account_button.dart';
-import 'package:default_flutter_app/presentation/routes/router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../application/auth/auth_bloc.dart';
+import '../../../../application/auth/sign_in_form/sign_in_form_bloc.dart';
+import '../../../routes/router.gr.dart';
 import '../messages.dart';
+import 'apple_google_sign_in_button.dart';
 import 'background.dart';
+import 'dont_have_an_account_button.dart';
 
 class SignInForm extends StatelessWidget {
   const SignInForm({Key? key}) : super(key: key);
@@ -27,7 +27,28 @@ class SignInForm extends StatelessWidget {
 
     return BlocConsumer<SignInFormBloc, SignInFormState>(
       listener: (context, state) {
-        // TODO: implement listener
+        state.authFailureOrSuccessOption.fold(
+          () => null,
+          (either) => either.fold(
+            (failure) => ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(
+                  failure.map(
+                    cancelledByUser: (_) => '',
+                    serverError: (_) => SERVER_ERROR_MESSAGE,
+                    usernameAlredyInUse: (_) => USERNAME_ALREADY_IN_USE,
+                    invalidUsernameAndPasswordCombination: (_) =>
+                        INVALID_USERNAME_AND_PASSWORD_COMBINATION,
+                  ),
+                ),
+              ),
+            ),
+            (_) {
+              context.router.navigate(const HomeRoute());
+              context.read<AuthBloc>().add(const AuthEvent.authCheckReqested());
+            },
+          ),
+        );
       },
       builder: (context, state) {
         return Stack(
@@ -43,7 +64,7 @@ class SignInForm extends StatelessWidget {
                       SizedBox(height: screenHeight * 0.08),
                       Text(
                         //@ APP NAME TEXT
-                        'Racurs',
+                        APP_LOGO_NAME,
                         textAlign: TextAlign.center,
                         style: contextTheme.textTheme.displayLarge,
                       ),
@@ -65,7 +86,7 @@ class SignInForm extends StatelessWidget {
                         onChanged: (value) {
                           context
                               .read<SignInFormBloc>()
-                              .add(SignInFormEvent.emailChanged(value));
+                              .add(SignInFormEvent.usernameChanged(value));
                         },
                         validator: (_) => context
                             .read<SignInFormBloc>()
@@ -113,7 +134,12 @@ class SignInForm extends StatelessWidget {
                       ),
                       const SizedBox(height: 20),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          context.read<SignInFormBloc>().add(
+                                const SignInFormEvent
+                                    .signInWithUsernameAndPasswordPressed(),
+                              );
+                        },
                         child: const Text(
                           SIGN_IN,
                           style: TextStyle(color: Colors.white, fontSize: 20),
@@ -124,7 +150,7 @@ class SignInForm extends StatelessWidget {
                       customDevider,
                       DontHaveAnAccountButton(
                         pushToSignUpPageFunction: () {
-                          AutoRouter.of(context).push(const SignUpRoute());
+                          context.router.replace(const SignUpRoute());
                         },
                       )
                     ],

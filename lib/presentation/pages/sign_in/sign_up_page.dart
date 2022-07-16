@@ -1,4 +1,4 @@
-import 'package:default_flutter_app/presentation/pages/sign_in/widgets/sign_up_form.dart';
+import 'widgets/sign_up_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -10,11 +10,8 @@ class SignUpPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: BlocProvider<SignInFormBloc>(
-        create: (context) => getIt<SignInFormBloc>(),
-        child: const SignUpForm(),
-      ),
+    return const Scaffold(
+      body: SignUpForm(),
     );
   }
 }

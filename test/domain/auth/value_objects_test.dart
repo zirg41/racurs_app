@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:default_flutter_app/domain/auth/value_objects.dart';
+import 'package:racurs_app/domain/auth/value_objects.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

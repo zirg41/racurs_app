@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:default_flutter_app/domain/auth/user.dart';
+import '../../domain/auth/user.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
@@ -14,8 +14,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final IAuthFacade _authFacade;
 
   AuthBloc(this._authFacade) : super(const _Initial()) {
-    on<AuthEvent>((event, emit) {
-      event.map(
+    on<AuthEvent>((event, emit) async {
+      await event.map(
         authCheckReqested: (event) async {
           final userOption = await _authFacade.getSignedInUser();
           emit(
@@ -31,7 +31,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         },
         signedOut: (event) async {
           await _authFacade.signOut();
-          return const AuthState.unauthenticated();
+          emit(const AuthState.unauthenticated());
         },
       );
     });

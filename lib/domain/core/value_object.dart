@@ -18,6 +18,10 @@ abstract class ValueObject<T> {
         (failure) => throw UnexpectedValue(failure), (string) => string);
   }
 
+  T? getOrNull() {
+    return value.fold((failure) => null, (string) => string);
+  }
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;

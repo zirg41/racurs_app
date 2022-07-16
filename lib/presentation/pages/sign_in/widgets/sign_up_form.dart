@@ -1,11 +1,13 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:default_flutter_app/application/auth/sign_in_form/sign_in_form_bloc.dart';
-import 'package:default_flutter_app/presentation/pages/sign_in/widgets/already_have_an_account.dart';
-import 'package:default_flutter_app/presentation/pages/sign_in/widgets/apple_google_sign_in_button.dart';
-import 'package:default_flutter_app/presentation/pages/sign_in/widgets/dont_have_an_account_button.dart';
-import 'package:default_flutter_app/presentation/routes/router.gr.dart';
+import '../../../../application/auth/auth_bloc.dart';
+import '../../../../application/auth/sign_in_form/sign_in_form_bloc.dart';
+import 'already_have_an_account.dart';
+import 'apple_google_sign_in_button.dart';
+import 'dont_have_an_account_button.dart';
+import '../../../routes/router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:parse_server_sdk_flutter/generated/i18n.dart';
 
 import '../messages.dart';
 import 'background.dart';
@@ -27,8 +29,33 @@ class SignUpForm extends StatelessWidget {
 
     return BlocConsumer<SignInFormBloc, SignInFormState>(
       listener: (context, state) {
-        // TODO: implement listener
         print(state);
+        state.authFailureOrSuccessOption.fold(
+          () => null,
+          (either) => either.fold(
+            (failure) {
+              final scafMessanger = ScaffoldMessenger.of(context);
+              scafMessanger.clearSnackBars();
+              scafMessanger.showSnackBar(
+                SnackBar(
+                  content: Text(
+                    failure.map(
+                      cancelledByUser: (_) => '',
+                      serverError: (_) => SERVER_ERROR_MESSAGE,
+                      usernameAlredyInUse: (_) => USERNAME_ALREADY_IN_USE,
+                      invalidUsernameAndPasswordCombination: (_) =>
+                          INVALID_USERNAME_AND_PASSWORD_COMBINATION,
+                    ),
+                  ),
+                ),
+              );
+            },
+            (_) {
+              context.router.navigate(const HomeRoute());
+              context.read<AuthBloc>().add(const AuthEvent.authCheckReqested());
+            },
+          ),
+        );
       },
       builder: (context, state) {
         return Stack(
@@ -44,7 +71,7 @@ class SignUpForm extends StatelessWidget {
                       SizedBox(height: screenHeight * 0.08),
                       Text(
                         //@ APP NAME TEXT
-                        'Racurs',
+                        APP_LOGO_NAME,
                         textAlign: TextAlign.center,
                         style: contextTheme.textTheme.displayLarge,
                       ),
@@ -161,7 +188,7 @@ class SignUpForm extends StatelessWidget {
                       customDevider,
                       AlreadyHaveAnAccountButton(
                         pushToSignUpPageFunction: () {
-                          AutoRouter.of(context).replace(const SignInRoute());
+                          context.router.replace(const SignInRoute());
                         },
                       )
                     ],

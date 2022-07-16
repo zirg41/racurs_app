@@ -17,3 +17,9 @@ const String CREATE_PASSWORD_TEXT = 'Придумайте пароль';
 const String CREATE_NICKNAME_TEXT = 'Придумайте никнейм';
 const String CREATE_ACCOUNT_TEXT = 'Создать аккаунт';
 const String PASSWORDS_MUST_BE_SAME = 'Пароли должны совпадать';
+const String APP_LOGO_NAME = 'Racurs';
+const String SERVER_ERROR_MESSAGE =
+    'Ошибка со стороны сервера. Попробуйте позже';
+const String USERNAME_ALREADY_IN_USE = 'Это имя пользователя уже занято';
+const String INVALID_USERNAME_AND_PASSWORD_COMBINATION =
+    'Неверное имя пользователя или пароль';

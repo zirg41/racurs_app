@@ -1,10 +1,9 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:default_flutter_app/presentation/pages/home/home_page.dart';
-import 'package:default_flutter_app/presentation/routes/router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/auth/auth_bloc.dart';
+import '../../routes/router.gr.dart';
 import 'splash_body.dart';
 
 class SplashPage extends StatelessWidget {
@@ -19,10 +18,12 @@ class SplashPage extends StatelessWidget {
           authenticated: (_) {
             // TODO Implement pushing to app page
 
-            AutoRouter.of(context).replace(const HomeRoute());
+            // AutoRouter.of(context).pushNamed(HomeRoute.name);
+            context.router.navigate(const HomeRoute());
           },
           unauthenticated: (_) {
-            AutoRouter.of(context).replace(const SignInRoute());
+            // AutoRouter.of(context).pushNamed(SignInRoute.name);
+            context.router.navigate(const SignInRoute());
           },
         );
       },

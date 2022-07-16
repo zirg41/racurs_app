@@ -10,11 +10,8 @@ class SignInPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: BlocProvider<SignInFormBloc>(
-        create: (context) => getIt<SignInFormBloc>(),
-        child: const SignInForm(),
-      ),
+    return const Scaffold(
+      body: SignInForm(),
     );
   }
 }

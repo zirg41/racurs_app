@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:default_flutter_app/presentation/global/theme/app_themes.dart';
+import '../app_themes.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';

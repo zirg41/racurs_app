@@ -1,4 +1,4 @@
-import 'package:default_flutter_app/domain/core/unique_id.dart';
+import '../core/unique_id.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'user.freezed.dart';
