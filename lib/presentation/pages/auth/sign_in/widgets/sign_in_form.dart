@@ -1,19 +1,24 @@
 import 'package:auto_route/auto_route.dart';
-import '../../../../application/auth/auth_bloc.dart';
-import '../../../../application/auth/sign_in_form/sign_in_form_bloc.dart';
-import 'already_have_an_account.dart';
-import 'apple_google_sign_in_button.dart';
-import 'dont_have_an_account_button.dart';
-import '../../../routes/router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:parse_server_sdk_flutter/generated/i18n.dart';
 
-import '../messages.dart';
-import 'background.dart';
+import '../../../../../application/auth/auth_bloc.dart';
+import '../../../../../application/auth/sign_in_form/sign_in_form_bloc.dart';
+import '../../../../routes/router.gr.dart';
+import '../../messages.dart';
+import '../../widgets/apple_google_sign_in_button.dart';
+import '../../widgets/background.dart';
+import '../../widgets/dont_have_an_account_button.dart';
 
-class SignUpForm extends StatelessWidget {
-  const SignUpForm({Key? key}) : super(key: key);
+class SignInForm extends StatefulWidget {
+  const SignInForm({Key? key}) : super(key: key);
+
+  @override
+  State<SignInForm> createState() => _SignInFormState();
+}
+
+class _SignInFormState extends State<SignInForm> {
+  bool _passwordVisible = false;
 
   @override
   Widget build(BuildContext context) {
@@ -29,27 +34,22 @@ class SignUpForm extends StatelessWidget {
 
     return BlocConsumer<SignInFormBloc, SignInFormState>(
       listener: (context, state) {
-        print(state);
         state.authFailureOrSuccessOption.fold(
           () => null,
           (either) => either.fold(
-            (failure) {
-              final scafMessanger = ScaffoldMessenger.of(context);
-              scafMessanger.clearSnackBars();
-              scafMessanger.showSnackBar(
-                SnackBar(
-                  content: Text(
-                    failure.map(
-                      cancelledByUser: (_) => '',
-                      serverError: (_) => SERVER_ERROR_MESSAGE,
-                      usernameAlredyInUse: (_) => USERNAME_ALREADY_IN_USE,
-                      invalidUsernameAndPasswordCombination: (_) =>
-                          INVALID_USERNAME_AND_PASSWORD_COMBINATION,
-                    ),
+            (failure) => ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(
+                  failure.map(
+                    cancelledByUser: (_) => '',
+                    serverError: (_) => SERVER_ERROR_MESSAGE,
+                    usernameAlredyInUse: (_) => USERNAME_ALREADY_IN_USE,
+                    invalidUsernameAndPasswordCombination: (_) =>
+                        INVALID_USERNAME_AND_PASSWORD_COMBINATION,
                   ),
                 ),
-              );
-            },
+              ),
+            ),
             (_) {
               context.router.navigate(const HomeRoute());
               context.read<AuthBloc>().add(const AuthEvent.authCheckReqested());
@@ -82,13 +82,13 @@ class SignUpForm extends StatelessWidget {
 
                         decoration: InputDecoration(
                           prefixIcon: const Icon(
-                            Icons.email,
+                            Icons.person,
                             color: Colors.white,
                           ),
-                          labelText: CREATE_NICKNAME_TEXT,
+                          labelText: USERNAME,
+                          // TODO Use themeData
                           labelStyle: contextTheme.textTheme.labelMedium,
                         ),
-
                         autocorrect: false,
                         onChanged: (value) {
                           context
@@ -112,14 +112,17 @@ class SignUpForm extends StatelessWidget {
                         //@ PASSWORD FIELD
                         style: const TextStyle(color: Colors.white),
                         decoration: InputDecoration(
-                          prefixIcon: const Icon(
-                            Icons.lock,
-                            color: Colors.white70,
-                          ),
-                          labelText: CREATE_PASSWORD_TEXT,
-                          labelStyle: contextTheme.textTheme.labelMedium,
-                        ),
-                        obscureText: true,
+                            prefixIcon: const Icon(
+                              Icons.lock,
+                              color: Colors.white70,
+                            ),
+                            labelText: PASSWORD,
+                            labelStyle: contextTheme.textTheme.labelMedium,
+                            suffix: IconButton(
+                              onPressed: () {},
+                              icon: const Icon(Icons.visibility),
+                            )),
+                        obscureText: _passwordVisible,
                         autocorrect: false,
                         onChanged: (value) {
                           context
@@ -139,56 +142,25 @@ class SignUpForm extends StatelessWidget {
                               (_) => null,
                             ),
                       ),
-                      const SizedBox(height: 10),
-                      TextFormField(
-                        //@ REPAET PASSWORD FIELD
-                        style: const TextStyle(color: Colors.white),
-                        decoration: InputDecoration(
-                          prefixIcon: const Icon(
-                            Icons.lock,
-                            color: Colors.white70,
-                          ),
-                          labelText: REPEAT_PASSWORD_TEXT,
-                          labelStyle: contextTheme.textTheme.labelMedium,
-                        ),
-                        obscureText: true,
-                        autocorrect: false,
-                        onChanged: (value) {
-                          context.read<SignInFormBloc>().add(
-                              SignInFormEvent.repeatedPasswordChanged(value));
-                        },
-                        validator: (inputValue) {
-                          if (inputValue !=
-                              context
-                                  .read<SignInFormBloc>()
-                                  .state
-                                  .password
-                                  .value
-                                  .getOrElse(() => '')) {
-                            return PASSWORDS_MUST_BE_SAME;
-                          }
-                          return null;
-                        },
-                      ),
                       const SizedBox(height: 20),
                       TextButton(
                         onPressed: () {
                           context.read<SignInFormBloc>().add(
                                 const SignInFormEvent
-                                    .registerWithUsernameAndPasswordPressed(),
+                                    .signInWithUsernameAndPasswordPressed(),
                               );
                         },
                         child: const Text(
-                          CREATE_ACCOUNT_TEXT,
+                          SIGN_IN,
                           style: TextStyle(color: Colors.white, fontSize: 20),
                         ),
                       ),
                       customDevider,
                       const EitherAppleOrGoogleSignInButton(),
                       customDevider,
-                      AlreadyHaveAnAccountButton(
+                      DontHaveAnAccountButton(
                         pushToSignUpPageFunction: () {
-                          context.router.replace(const SignInRoute());
+                          context.router.replace(const SignUpRoute());
                         },
                       )
                     ],

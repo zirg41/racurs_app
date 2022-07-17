@@ -1,17 +1,19 @@
 import 'package:auto_route/auto_route.dart';
+import '../../../../../application/auth/auth_bloc.dart';
+import '../../../../../application/auth/sign_in_form/sign_in_form_bloc.dart';
+import '../../widgets/already_have_an_account.dart';
+import '../../widgets/apple_google_sign_in_button.dart';
+import '../../widgets/dont_have_an_account_button.dart';
+import '../../../../routes/router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:parse_server_sdk_flutter/generated/i18n.dart';
 
-import '../../../../application/auth/auth_bloc.dart';
-import '../../../../application/auth/sign_in_form/sign_in_form_bloc.dart';
-import '../../../routes/router.gr.dart';
-import '../messages.dart';
-import 'apple_google_sign_in_button.dart';
-import 'background.dart';
-import 'dont_have_an_account_button.dart';
+import '../../messages.dart';
+import '../../widgets/background.dart';
 
-class SignInForm extends StatelessWidget {
-  const SignInForm({Key? key}) : super(key: key);
+class SignUpForm extends StatelessWidget {
+  const SignUpForm({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,22 +29,27 @@ class SignInForm extends StatelessWidget {
 
     return BlocConsumer<SignInFormBloc, SignInFormState>(
       listener: (context, state) {
+        print(state);
         state.authFailureOrSuccessOption.fold(
           () => null,
           (either) => either.fold(
-            (failure) => ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text(
-                  failure.map(
-                    cancelledByUser: (_) => '',
-                    serverError: (_) => SERVER_ERROR_MESSAGE,
-                    usernameAlredyInUse: (_) => USERNAME_ALREADY_IN_USE,
-                    invalidUsernameAndPasswordCombination: (_) =>
-                        INVALID_USERNAME_AND_PASSWORD_COMBINATION,
+            (failure) {
+              final scafMessanger = ScaffoldMessenger.of(context);
+              scafMessanger.clearSnackBars();
+              scafMessanger.showSnackBar(
+                SnackBar(
+                  content: Text(
+                    failure.map(
+                      cancelledByUser: (_) => '',
+                      serverError: (_) => SERVER_ERROR_MESSAGE,
+                      usernameAlredyInUse: (_) => USERNAME_ALREADY_IN_USE,
+                      invalidUsernameAndPasswordCombination: (_) =>
+                          INVALID_USERNAME_AND_PASSWORD_COMBINATION,
+                    ),
                   ),
                 ),
-              ),
-            ),
+              );
+            },
             (_) {
               context.router.navigate(const HomeRoute());
               context.read<AuthBloc>().add(const AuthEvent.authCheckReqested());
@@ -78,10 +85,10 @@ class SignInForm extends StatelessWidget {
                             Icons.email,
                             color: Colors.white,
                           ),
-                          labelText: USERNAME,
-                          // TODO Use themeData
+                          labelText: CREATE_NICKNAME_TEXT,
                           labelStyle: contextTheme.textTheme.labelMedium,
                         ),
+
                         autocorrect: false,
                         onChanged: (value) {
                           context
@@ -109,7 +116,7 @@ class SignInForm extends StatelessWidget {
                             Icons.lock,
                             color: Colors.white70,
                           ),
-                          labelText: PASSWORD,
+                          labelText: CREATE_PASSWORD_TEXT,
                           labelStyle: contextTheme.textTheme.labelMedium,
                         ),
                         obscureText: true,
@@ -132,25 +139,56 @@ class SignInForm extends StatelessWidget {
                               (_) => null,
                             ),
                       ),
+                      const SizedBox(height: 10),
+                      TextFormField(
+                        //@ REPAET PASSWORD FIELD
+                        style: const TextStyle(color: Colors.white),
+                        decoration: InputDecoration(
+                          prefixIcon: const Icon(
+                            Icons.lock,
+                            color: Colors.white70,
+                          ),
+                          labelText: REPEAT_PASSWORD_TEXT,
+                          labelStyle: contextTheme.textTheme.labelMedium,
+                        ),
+                        obscureText: true,
+                        autocorrect: false,
+                        onChanged: (value) {
+                          context.read<SignInFormBloc>().add(
+                              SignInFormEvent.repeatedPasswordChanged(value));
+                        },
+                        validator: (inputValue) {
+                          if (inputValue !=
+                              context
+                                  .read<SignInFormBloc>()
+                                  .state
+                                  .password
+                                  .value
+                                  .getOrElse(() => '')) {
+                            return PASSWORDS_MUST_BE_SAME;
+                          }
+                          return null;
+                        },
+                      ),
                       const SizedBox(height: 20),
                       TextButton(
                         onPressed: () {
                           context.read<SignInFormBloc>().add(
                                 const SignInFormEvent
-                                    .signInWithUsernameAndPasswordPressed(),
+                                    .registerWithUsernameAndPasswordPressed(),
                               );
                         },
                         child: const Text(
-                          SIGN_IN,
+                          CREATE_ACCOUNT_TEXT,
                           style: TextStyle(color: Colors.white, fontSize: 20),
                         ),
                       ),
                       customDevider,
                       const EitherAppleOrGoogleSignInButton(),
                       customDevider,
-                      DontHaveAnAccountButton(
+                      AlreadyHaveAnAccountButton(
                         pushToSignUpPageFunction: () {
-                          context.router.replace(const SignUpRoute());
+                          context.router.replace(const SignInRoute());
                         },
                       )
                     ],
