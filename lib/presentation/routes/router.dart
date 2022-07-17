@@ -12,11 +12,11 @@ import '../pages/splash/splash_page.dart';
     AutoRoute(page: HomePage),
     CustomRoute(
       page: SignInPage,
-      transitionsBuilder: TransitionsBuilders.slideRightWithFade,
+      // transitionsBuilder: TransitionsBuilders.slideRightWithFade,
     ),
     CustomRoute(
       page: SignUpPage,
-      transitionsBuilder: TransitionsBuilders.slideLeftWithFade,
+      // transitionsBuilder: TransitionsBuilders.slideLeftWithFade,
     ),
   ],
 )

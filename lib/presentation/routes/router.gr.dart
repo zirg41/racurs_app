@@ -36,7 +36,6 @@ class Router extends _i5.RootStackRouter {
       return _i5.CustomPage<dynamic>(
           routeData: routeData,
           child: const _i3.SignInPage(),
-          transitionsBuilder: _i5.TransitionsBuilders.slideRightWithFade,
           opaque: true,
           barrierDismissible: false);
     },
@@ -44,7 +43,6 @@ class Router extends _i5.RootStackRouter {
       return _i5.CustomPage<dynamic>(
           routeData: routeData,
           child: const _i4.SignUpPage(),
-          transitionsBuilder: _i5.TransitionsBuilders.slideLeftWithFade,
           opaque: true,
           barrierDismissible: false);
     }
