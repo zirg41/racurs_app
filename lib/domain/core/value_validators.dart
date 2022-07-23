@@ -9,7 +9,11 @@ Either<ValueFailure<String>, String> validateEmailAddress(String input) {
   if (RegExp(emailRegex).hasMatch(input)) {
     return right(input);
   } else {
-    return left(ValueFailure.invalidEmail(failedValue: input));
+    return left(
+      ValueFailure.authFailure(
+        AuthValueFailure.invalidEmail(input),
+      ),
+    );
   }
 }
 
@@ -17,7 +21,11 @@ Either<ValueFailure<String>, String> validatePassword(String input) {
   if (input.length >= 6) {
     return right(input);
   } else {
-    return left(ValueFailure.shortPassword(failedValue: input));
+    return left(
+      ValueFailure.authFailure(
+        AuthValueFailure.shortPassword(input),
+      ),
+    );
   }
 }
 
@@ -25,6 +33,10 @@ Either<ValueFailure<String>, String> validateUsername(String input) {
   if (input.length >= 4) {
     return right(input);
   } else {
-    return left(ValueFailure.shortUsername(failedValue: input));
+    return left(
+      ValueFailure.authFailure(
+        AuthValueFailure.shortUsername(input),
+      ),
+    );
   }
 }

@@ -45,8 +45,12 @@ class _SignUpFormState extends State<SignUpForm> {
                 validator: (_) =>
                     context.read<SignInFormBloc>().state.username.value.fold(
                           (f) => f.maybeMap(
+                            orElse: () => null,
+                            authFailure: (value) => value.failure.maybeMap(
+                              shortUsername: (_) => SHORT_USERNAME,
                               orElse: () => null,
-                              shortUsername: (_) => SHORT_USERNAME),
+                            ),
+                          ),
                           (_) => null,
                         ),
               ),
@@ -85,7 +89,10 @@ class _SignUpFormState extends State<SignUpForm> {
                     context.read<SignInFormBloc>().state.password.value.fold(
                           (f) => f.maybeMap(
                             orElse: () => null,
-                            shortPassword: (_) => SHORT_PASSWORD,
+                            authFailure: (value) => value.failure.maybeMap(
+                              shortPassword: (_) => SHORT_PASSWORD,
+                              orElse: () => null,
+                            ),
                           ),
                           (_) => null,
                         ),
