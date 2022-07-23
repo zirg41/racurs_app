@@ -595,7 +595,7 @@ class _$_Authenticated implements _Authenticated {
 abstract class _Authenticated implements AuthState {
   const factory _Authenticated(final User currentUser) = _$_Authenticated;
 
-  User get currentUser => throw _privateConstructorUsedError;
+  User get currentUser;
   @JsonKey(ignore: true)
   _$$_AuthenticatedCopyWith<_$_Authenticated> get copyWith =>
       throw _privateConstructorUsedError;

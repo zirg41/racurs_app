@@ -349,7 +349,7 @@ class _$ServerError implements ServerError {
 abstract class ServerError implements AuthFailure {
   const factory ServerError(final String? message) = _$ServerError;
 
-  String? get message => throw _privateConstructorUsedError;
+  String? get message;
   @JsonKey(ignore: true)
   _$$ServerErrorCopyWith<_$ServerError> get copyWith =>
       throw _privateConstructorUsedError;

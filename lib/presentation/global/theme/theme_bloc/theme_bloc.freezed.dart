@@ -304,7 +304,7 @@ class _$_ThemeChanged implements _ThemeChanged {
 abstract class _ThemeChanged implements ThemeEvent {
   const factory _ThemeChanged(final AppTheme theme) = _$_ThemeChanged;
 
-  AppTheme get theme => throw _privateConstructorUsedError;
+  AppTheme get theme;
   @JsonKey(ignore: true)
   _$$_ThemeChangedCopyWith<_$_ThemeChanged> get copyWith =>
       throw _privateConstructorUsedError;
@@ -504,7 +504,7 @@ abstract class _CurrentTheme implements ThemeState {
   const factory _CurrentTheme(final ThemeData themeData) = _$_CurrentTheme;
 
   @override
-  ThemeData get themeData => throw _privateConstructorUsedError;
+  ThemeData get themeData;
   @override
   @JsonKey(ignore: true)
   _$$_CurrentThemeCopyWith<_$_CurrentTheme> get copyWith =>

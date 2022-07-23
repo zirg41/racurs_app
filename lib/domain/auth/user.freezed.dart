@@ -115,7 +115,7 @@ abstract class _User implements User {
   const factory _User({required final UniqueId id}) = _$_User;
 
   @override
-  UniqueId get id => throw _privateConstructorUsedError;
+  UniqueId get id;
   @override
   @JsonKey(ignore: true)
   _$$_UserCopyWith<_$_User> get copyWith => throw _privateConstructorUsedError;

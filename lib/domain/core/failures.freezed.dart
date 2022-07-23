@@ -211,7 +211,7 @@ abstract class _AuthFailure<T> implements ValueFailure<T> {
   const factory _AuthFailure(final AuthValueFailure<T> failure) =
       _$_AuthFailure<T>;
 
-  AuthValueFailure<T> get failure => throw _privateConstructorUsedError;
+  AuthValueFailure<T> get failure;
   @JsonKey(ignore: true)
   _$$_AuthFailureCopyWith<T, _$_AuthFailure<T>> get copyWith =>
       throw _privateConstructorUsedError;
@@ -355,7 +355,7 @@ abstract class _GeoFailure<T> implements ValueFailure<T> {
   const factory _GeoFailure(final GeoValueFailure<T> failure) =
       _$_GeoFailure<T>;
 
-  GeoValueFailure<T> get failure => throw _privateConstructorUsedError;
+  GeoValueFailure<T> get failure;
   @JsonKey(ignore: true)
   _$$_GeoFailureCopyWith<T, _$_GeoFailure<T>> get copyWith =>
       throw _privateConstructorUsedError;
@@ -594,7 +594,7 @@ abstract class _InvalidEmail<T> implements AuthValueFailure<T> {
   const factory _InvalidEmail(final String failedValue) = _$_InvalidEmail<T>;
 
   @override
-  String get failedValue => throw _privateConstructorUsedError;
+  String get failedValue;
   @override
   @JsonKey(ignore: true)
   _$$_InvalidEmailCopyWith<T, _$_InvalidEmail<T>> get copyWith =>
@@ -745,7 +745,7 @@ abstract class _ShortPassword<T> implements AuthValueFailure<T> {
   const factory _ShortPassword(final String failedValue) = _$_ShortPassword<T>;
 
   @override
-  String get failedValue => throw _privateConstructorUsedError;
+  String get failedValue;
   @override
   @JsonKey(ignore: true)
   _$$_ShortPasswordCopyWith<T, _$_ShortPassword<T>> get copyWith =>
@@ -896,7 +896,7 @@ abstract class _ShortUsername<T> implements AuthValueFailure<T> {
   const factory _ShortUsername(final String failedValue) = _$_ShortUsername<T>;
 
   @override
-  String get failedValue => throw _privateConstructorUsedError;
+  String get failedValue;
   @override
   @JsonKey(ignore: true)
   _$$_ShortUsernameCopyWith<T, _$_ShortUsername<T>> get copyWith =>
@@ -1049,7 +1049,7 @@ abstract class _PasswordsNotEqual<T> implements AuthValueFailure<T> {
       _$_PasswordsNotEqual<T>;
 
   @override
-  String get failedValue => throw _privateConstructorUsedError;
+  String get failedValue;
   @override
   @JsonKey(ignore: true)
   _$$_PasswordsNotEqualCopyWith<T, _$_PasswordsNotEqual<T>> get copyWith =>
@@ -1265,7 +1265,7 @@ abstract class WrongLatitude<T> implements GeoValueFailure<T> {
   const factory WrongLatitude(final double failedValue) = _$WrongLatitude<T>;
 
   @override
-  double get failedValue => throw _privateConstructorUsedError;
+  double get failedValue;
   @override
   @JsonKey(ignore: true)
   _$$WrongLatitudeCopyWith<T, _$WrongLatitude<T>> get copyWith =>
@@ -1404,7 +1404,7 @@ abstract class WrongLongitude<T> implements GeoValueFailure<T> {
   const factory WrongLongitude(final double failedValue) = _$WrongLongitude<T>;
 
   @override
-  double get failedValue => throw _privateConstructorUsedError;
+  double get failedValue;
   @override
   @JsonKey(ignore: true)
   _$$WrongLongitudeCopyWith<T, _$WrongLongitude<T>> get copyWith =>
