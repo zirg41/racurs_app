@@ -19,7 +19,7 @@ class HomePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Привет, ${state.maybeMap(orElse: () => null, authenticated: (authState) => authState.currentUser.id)}',
+                  'Привет, ${state.maybeMap(orElse: () => null, authenticated: (authState) => authState.currentUser.username)}',
                 ),
                 ElevatedButton(
                     onPressed: () {
