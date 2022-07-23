@@ -1,3 +1,6 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:convert';
+
 import 'package:dartz/dartz.dart';
 
 import '../core/failures.dart';
@@ -23,8 +26,13 @@ class GeoLocation {
   }
 
   @override
-  String toString() =>
-      'GeoLocation(longitude: $longitude, latitude: $latitude)';
+  String toString() => 'GeoLocation: \n \t longitude: ${longitude.value.fold(
+        (failure) => null,
+        (value) => value,
+      )} \n \t latitude: ${latitude.value.fold(
+        (failure) => null,
+        (value) => value,
+      )}';
 
   @override
   bool operator ==(covariant GeoLocation other) {
@@ -35,6 +43,25 @@ class GeoLocation {
 
   @override
   int get hashCode => longitude.hashCode ^ latitude.hashCode;
+
+  Map<String, dynamic> toMap() {
+    return <String, dynamic>{
+      'longitude': longitude.value.fold((l) => null, (r) => r),
+      'latitude': latitude.value.fold((l) => null, (r) => r),
+    };
+  }
+
+  factory GeoLocation.fromMap(Map<String, dynamic> map) {
+    return GeoLocation(
+      Longitude(map['longitude'] as double),
+      Latitude(map['latitude'] as double),
+    );
+  }
+
+  String toJson() => json.encode(toMap());
+
+  factory GeoLocation.fromJson(String source) =>
+      GeoLocation.fromMap(json.decode(source) as Map<String, dynamic>);
 }
 
 class Longitude extends ValueObject<double> {
