@@ -4,7 +4,6 @@ part 'post_failure.freezed.dart';
 
 @freezed
 abstract class PostFailure with _$PostFailure {
-  const factory PostFailure.serverError() = _ServerError;
-  const factory PostFailure.publicationWasNotBePosted() =
-      _PublicationWasNotBePosted;
+  const factory PostFailure.serverError(String? message) = _ServerError;
+  const factory PostFailure.noInternet() = _NoInternet;
 }

@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$Publication {
   UniqueId get id => throw _privateConstructorUsedError;
   User get user => throw _privateConstructorUsedError;
-  Image get image => throw _privateConstructorUsedError;
+  File get imageFile => throw _privateConstructorUsedError;
   GeoLocation get location => throw _privateConstructorUsedError;
   DateTime get createdDate => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ abstract class $PublicationCopyWith<$Res> {
   $Res call(
       {UniqueId id,
       User user,
-      Image image,
+      File imageFile,
       GeoLocation location,
       DateTime createdDate,
       String title});
@@ -56,7 +56,7 @@ class _$PublicationCopyWithImpl<$Res> implements $PublicationCopyWith<$Res> {
   $Res call({
     Object? id = freezed,
     Object? user = freezed,
-    Object? image = freezed,
+    Object? imageFile = freezed,
     Object? location = freezed,
     Object? createdDate = freezed,
     Object? title = freezed,
@@ -70,10 +70,10 @@ class _$PublicationCopyWithImpl<$Res> implements $PublicationCopyWith<$Res> {
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as User,
-      image: image == freezed
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
-              as Image,
+      imageFile: imageFile == freezed
+          ? _value.imageFile
+          : imageFile // ignore: cast_nullable_to_non_nullable
+              as File,
       location: location == freezed
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
@@ -107,7 +107,7 @@ abstract class _$$_PublicationCopyWith<$Res>
   $Res call(
       {UniqueId id,
       User user,
-      Image image,
+      File imageFile,
       GeoLocation location,
       DateTime createdDate,
       String title});
@@ -130,7 +130,7 @@ class __$$_PublicationCopyWithImpl<$Res> extends _$PublicationCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? user = freezed,
-    Object? image = freezed,
+    Object? imageFile = freezed,
     Object? location = freezed,
     Object? createdDate = freezed,
     Object? title = freezed,
@@ -144,10 +144,10 @@ class __$$_PublicationCopyWithImpl<$Res> extends _$PublicationCopyWithImpl<$Res>
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as User,
-      image: image == freezed
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
-              as Image,
+      imageFile: imageFile == freezed
+          ? _value.imageFile
+          : imageFile // ignore: cast_nullable_to_non_nullable
+              as File,
       location: location == freezed
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
@@ -170,7 +170,7 @@ class _$_Publication implements _Publication {
   const _$_Publication(
       {required this.id,
       required this.user,
-      required this.image,
+      required this.imageFile,
       required this.location,
       required this.createdDate,
       required this.title});
@@ -180,7 +180,7 @@ class _$_Publication implements _Publication {
   @override
   final User user;
   @override
-  final Image image;
+  final File imageFile;
   @override
   final GeoLocation location;
   @override
@@ -190,7 +190,7 @@ class _$_Publication implements _Publication {
 
   @override
   String toString() {
-    return 'Publication(id: $id, user: $user, image: $image, location: $location, createdDate: $createdDate, title: $title)';
+    return 'Publication(id: $id, user: $user, imageFile: $imageFile, location: $location, createdDate: $createdDate, title: $title)';
   }
 
   @override
@@ -200,7 +200,7 @@ class _$_Publication implements _Publication {
             other is _$_Publication &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.user, user) &&
-            const DeepCollectionEquality().equals(other.image, image) &&
+            const DeepCollectionEquality().equals(other.imageFile, imageFile) &&
             const DeepCollectionEquality().equals(other.location, location) &&
             const DeepCollectionEquality()
                 .equals(other.createdDate, createdDate) &&
@@ -212,7 +212,7 @@ class _$_Publication implements _Publication {
       runtimeType,
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(user),
-      const DeepCollectionEquality().hash(image),
+      const DeepCollectionEquality().hash(imageFile),
       const DeepCollectionEquality().hash(location),
       const DeepCollectionEquality().hash(createdDate),
       const DeepCollectionEquality().hash(title));
@@ -227,7 +227,7 @@ abstract class _Publication implements Publication {
   const factory _Publication(
       {required final UniqueId id,
       required final User user,
-      required final Image image,
+      required final File imageFile,
       required final GeoLocation location,
       required final DateTime createdDate,
       required final String title}) = _$_Publication;
@@ -237,7 +237,7 @@ abstract class _Publication implements Publication {
   @override
   User get user;
   @override
-  Image get image;
+  File get imageFile;
   @override
   GeoLocation get location;
   @override

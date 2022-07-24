@@ -18,42 +18,39 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$PostFailure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() serverError,
-    required TResult Function() publicationWasNotBePosted,
+    required TResult Function(String? message) serverError,
+    required TResult Function() noInternet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? serverError,
-    TResult Function()? publicationWasNotBePosted,
+    TResult Function(String? message)? serverError,
+    TResult Function()? noInternet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? serverError,
-    TResult Function()? publicationWasNotBePosted,
+    TResult Function(String? message)? serverError,
+    TResult Function()? noInternet,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_ServerError value) serverError,
-    required TResult Function(_PublicationWasNotBePosted value)
-        publicationWasNotBePosted,
+    required TResult Function(_NoInternet value) noInternet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_ServerError value)? serverError,
-    TResult Function(_PublicationWasNotBePosted value)?
-        publicationWasNotBePosted,
+    TResult Function(_NoInternet value)? noInternet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ServerError value)? serverError,
-    TResult Function(_PublicationWasNotBePosted value)?
-        publicationWasNotBePosted,
+    TResult Function(_NoInternet value)? noInternet,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -80,6 +77,7 @@ abstract class _$$_ServerErrorCopyWith<$Res> {
   factory _$$_ServerErrorCopyWith(
           _$_ServerError value, $Res Function(_$_ServerError) then) =
       __$$_ServerErrorCopyWithImpl<$Res>;
+  $Res call({String? message});
 }
 
 /// @nodoc
@@ -91,54 +89,77 @@ class __$$_ServerErrorCopyWithImpl<$Res> extends _$PostFailureCopyWithImpl<$Res>
 
   @override
   _$_ServerError get _value => super._value as _$_ServerError;
+
+  @override
+  $Res call({
+    Object? message = freezed,
+  }) {
+    return _then(_$_ServerError(
+      message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_ServerError implements _ServerError {
-  const _$_ServerError();
+  const _$_ServerError(this.message);
+
+  @override
+  final String? message;
 
   @override
   String toString() {
-    return 'PostFailure.serverError()';
+    return 'PostFailure.serverError(message: $message)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_ServerError);
+        (other.runtimeType == runtimeType &&
+            other is _$_ServerError &&
+            const DeepCollectionEquality().equals(other.message, message));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_ServerErrorCopyWith<_$_ServerError> get copyWith =>
+      __$$_ServerErrorCopyWithImpl<_$_ServerError>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() serverError,
-    required TResult Function() publicationWasNotBePosted,
+    required TResult Function(String? message) serverError,
+    required TResult Function() noInternet,
   }) {
-    return serverError();
+    return serverError(message);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? serverError,
-    TResult Function()? publicationWasNotBePosted,
+    TResult Function(String? message)? serverError,
+    TResult Function()? noInternet,
   }) {
-    return serverError?.call();
+    return serverError?.call(message);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? serverError,
-    TResult Function()? publicationWasNotBePosted,
+    TResult Function(String? message)? serverError,
+    TResult Function()? noInternet,
     required TResult orElse(),
   }) {
     if (serverError != null) {
-      return serverError();
+      return serverError(message);
     }
     return orElse();
   }
@@ -147,8 +168,7 @@ class _$_ServerError implements _ServerError {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_ServerError value) serverError,
-    required TResult Function(_PublicationWasNotBePosted value)
-        publicationWasNotBePosted,
+    required TResult Function(_NoInternet value) noInternet,
   }) {
     return serverError(this);
   }
@@ -157,8 +177,7 @@ class _$_ServerError implements _ServerError {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_ServerError value)? serverError,
-    TResult Function(_PublicationWasNotBePosted value)?
-        publicationWasNotBePosted,
+    TResult Function(_NoInternet value)? noInternet,
   }) {
     return serverError?.call(this);
   }
@@ -167,8 +186,7 @@ class _$_ServerError implements _ServerError {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ServerError value)? serverError,
-    TResult Function(_PublicationWasNotBePosted value)?
-        publicationWasNotBePosted,
+    TResult Function(_NoInternet value)? noInternet,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -179,46 +197,46 @@ class _$_ServerError implements _ServerError {
 }
 
 abstract class _ServerError implements PostFailure {
-  const factory _ServerError() = _$_ServerError;
+  const factory _ServerError(final String? message) = _$_ServerError;
+
+  String? get message;
+  @JsonKey(ignore: true)
+  _$$_ServerErrorCopyWith<_$_ServerError> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_PublicationWasNotBePostedCopyWith<$Res> {
-  factory _$$_PublicationWasNotBePostedCopyWith(
-          _$_PublicationWasNotBePosted value,
-          $Res Function(_$_PublicationWasNotBePosted) then) =
-      __$$_PublicationWasNotBePostedCopyWithImpl<$Res>;
+abstract class _$$_NoInternetCopyWith<$Res> {
+  factory _$$_NoInternetCopyWith(
+          _$_NoInternet value, $Res Function(_$_NoInternet) then) =
+      __$$_NoInternetCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_PublicationWasNotBePostedCopyWithImpl<$Res>
-    extends _$PostFailureCopyWithImpl<$Res>
-    implements _$$_PublicationWasNotBePostedCopyWith<$Res> {
-  __$$_PublicationWasNotBePostedCopyWithImpl(
-      _$_PublicationWasNotBePosted _value,
-      $Res Function(_$_PublicationWasNotBePosted) _then)
-      : super(_value, (v) => _then(v as _$_PublicationWasNotBePosted));
+class __$$_NoInternetCopyWithImpl<$Res> extends _$PostFailureCopyWithImpl<$Res>
+    implements _$$_NoInternetCopyWith<$Res> {
+  __$$_NoInternetCopyWithImpl(
+      _$_NoInternet _value, $Res Function(_$_NoInternet) _then)
+      : super(_value, (v) => _then(v as _$_NoInternet));
 
   @override
-  _$_PublicationWasNotBePosted get _value =>
-      super._value as _$_PublicationWasNotBePosted;
+  _$_NoInternet get _value => super._value as _$_NoInternet;
 }
 
 /// @nodoc
 
-class _$_PublicationWasNotBePosted implements _PublicationWasNotBePosted {
-  const _$_PublicationWasNotBePosted();
+class _$_NoInternet implements _NoInternet {
+  const _$_NoInternet();
 
   @override
   String toString() {
-    return 'PostFailure.publicationWasNotBePosted()';
+    return 'PostFailure.noInternet()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_PublicationWasNotBePosted);
+        (other.runtimeType == runtimeType && other is _$_NoInternet);
   }
 
   @override
@@ -227,30 +245,30 @@ class _$_PublicationWasNotBePosted implements _PublicationWasNotBePosted {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() serverError,
-    required TResult Function() publicationWasNotBePosted,
+    required TResult Function(String? message) serverError,
+    required TResult Function() noInternet,
   }) {
-    return publicationWasNotBePosted();
+    return noInternet();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? serverError,
-    TResult Function()? publicationWasNotBePosted,
+    TResult Function(String? message)? serverError,
+    TResult Function()? noInternet,
   }) {
-    return publicationWasNotBePosted?.call();
+    return noInternet?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? serverError,
-    TResult Function()? publicationWasNotBePosted,
+    TResult Function(String? message)? serverError,
+    TResult Function()? noInternet,
     required TResult orElse(),
   }) {
-    if (publicationWasNotBePosted != null) {
-      return publicationWasNotBePosted();
+    if (noInternet != null) {
+      return noInternet();
     }
     return orElse();
   }
@@ -259,37 +277,34 @@ class _$_PublicationWasNotBePosted implements _PublicationWasNotBePosted {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_ServerError value) serverError,
-    required TResult Function(_PublicationWasNotBePosted value)
-        publicationWasNotBePosted,
+    required TResult Function(_NoInternet value) noInternet,
   }) {
-    return publicationWasNotBePosted(this);
+    return noInternet(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_ServerError value)? serverError,
-    TResult Function(_PublicationWasNotBePosted value)?
-        publicationWasNotBePosted,
+    TResult Function(_NoInternet value)? noInternet,
   }) {
-    return publicationWasNotBePosted?.call(this);
+    return noInternet?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ServerError value)? serverError,
-    TResult Function(_PublicationWasNotBePosted value)?
-        publicationWasNotBePosted,
+    TResult Function(_NoInternet value)? noInternet,
     required TResult orElse(),
   }) {
-    if (publicationWasNotBePosted != null) {
-      return publicationWasNotBePosted(this);
+    if (noInternet != null) {
+      return noInternet(this);
     }
     return orElse();
   }
 }
 
-abstract class _PublicationWasNotBePosted implements PostFailure {
-  const factory _PublicationWasNotBePosted() = _$_PublicationWasNotBePosted;
+abstract class _NoInternet implements PostFailure {
+  const factory _NoInternet() = _$_NoInternet;
 }

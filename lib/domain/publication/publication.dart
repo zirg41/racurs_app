@@ -1,4 +1,4 @@
-import 'dart:ui';
+import 'dart:io';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -13,7 +13,7 @@ abstract class Publication with _$Publication {
   const factory Publication({
     required UniqueId id,
     required User user,
-    required Image image,
+    required File imageFile,
     required GeoLocation location,
     required DateTime createdDate,
     required String title,
