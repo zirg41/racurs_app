@@ -105,9 +105,44 @@ class Back4AppPostFacade implements IPostFacade {
   }
 
   @override
-  Future<Either<PostFailure, Publication>> getConcretePublication(UniqueId id) {
-    // TODO: implement getConcretePublication
-    throw UnimplementedError();
+  Future<Either<PostFailure, Publication>> getConcretePublication(
+      UniqueId id) async {
+    var query = QueryBuilder<ParseObject>(ParseObject(publicationApiClassName))
+      ..whereEqualTo(
+        pubIdApiName,
+        id.getOrCrash(),
+      );
+
+    final apiResponse = await query.query();
+
+    print('getConcretePublication() apiResponse: $apiResponse');
+
+    if (apiResponse.success && apiResponse.results != null) {
+      final r = apiResponse.results as ParseObject;
+      return right(
+        Publication(
+          id: UniqueId.fromUniqueString(
+            r.get(pubIdApiName).toString(),
+          ),
+          user: User(
+            id: UniqueId.fromUniqueString(
+              r.get(userApiName).objectId,
+            ),
+            username: r.get<ParseUser>(userApiName)!.username as String,
+          ),
+          imageFile: r.get<File>(imageApiName)!,
+          location: GeoLocation.fromMap(
+            r.get<Map<String, dynamic>>(locationApiName) as Map<String, double>,
+          ),
+          createdDate: r.get<DateTime>(dateApiName) as DateTime,
+          title: r.get<String>(titleApiName) as String,
+        ),
+      );
+    } else {
+      // TODO add connection checker which returns noInternet PostFailure
+      // TODO add failure uninons for popular status codes (404, 500 ...)
+      return left(PostFailure.serverError(apiResponse.error?.message));
+    }
   }
 
   @override
