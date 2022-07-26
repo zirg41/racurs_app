@@ -1,8 +1,6 @@
 import 'dart:io';
-import 'dart:ui';
 
 import 'package:dartz/dartz.dart';
-import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 
@@ -24,7 +22,7 @@ const String dateApiName = 'createdDate';
 @Singleton(as: IPostFacade)
 class Back4AppPostFacade implements IPostFacade {
   @override
-  Future<Either<PostFailure, Unit>> postPublication(
+  Future<Either<PostFailure, Unit>> createPublication(
       Publication publication) async {
     ParseUser currentUser = await ParseUser.currentUser() as ParseUser;
 
@@ -32,6 +30,47 @@ class Back4AppPostFacade implements IPostFacade {
     await parseFile.save();
 
     final publicationToUpload = ParseObject(publicationApiClassName)
+      ..set(userApiName, currentUser)
+      ..set(imageApiName, parseFile)
+      ..set<String>(titleApiName, publication.title)
+      ..set<String>(pubIdApiName, publication.id.getOrCrash())
+      ..set<Map<String, dynamic>>(locationApiName, publication.location.toMap())
+      ..set<DateTime>(dateApiName, publication.createdDate);
+
+    final apiResponse = await publicationToUpload.save();
+
+    if (apiResponse.success) {
+      return right(unit);
+    } else {
+      // TODO add connection checker which returns noInternet PostFailure
+      // TODO add failure uninons for popular status codes (404, 500 ...)
+      return left(PostFailure.serverError(apiResponse.error?.message));
+    }
+  }
+
+  @override
+  Future<Either<PostFailure, Unit>> updatePublication(
+      Publication publication) async {
+    String updatingObjectId;
+
+    var query = QueryBuilder<ParseObject>(ParseObject(publicationApiClassName))
+      ..whereContains(pubIdApiName, publication.id.getOrCrash());
+
+    final queryResponse = await query.query();
+
+    if (queryResponse.success && queryResponse.result is String) {
+      updatingObjectId = queryResponse.result as String;
+    } else {
+      return left(const PostFailure.updatingError());
+    }
+
+    ParseUser currentUser = await ParseUser.currentUser() as ParseUser;
+
+    final parseFile = ParseFile(File(publication.imageFile.path));
+    await parseFile.save();
+
+    final publicationToUpload = ParseObject(publicationApiClassName)
+      ..objectId = updatingObjectId
       ..set(userApiName, currentUser)
       ..set(imageApiName, parseFile)
       ..set<String>(titleApiName, publication.title)

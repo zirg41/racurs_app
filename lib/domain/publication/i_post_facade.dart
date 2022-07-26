@@ -7,8 +7,9 @@ import 'publication.dart';
 import 'value_objects.dart';
 
 abstract class IPostFacade {
-  Future<Either<PostFailure, Unit>> postPublication(Publication publication);
+  Future<Either<PostFailure, Unit>> createPublication(Publication publication);
   Future<Either<PostFailure, Publication>> getConcretePublication(UniqueId id);
+  Future<Either<PostFailure, Unit>> updatePublication(Publication publication);
   Future<Either<PostFailure, Unit>> deletePublication(UniqueId id);
   Future<Either<PostFailure, List<Publication>>> getFeed(User user);
   // TODO not for release

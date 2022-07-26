@@ -20,18 +20,21 @@ mixin _$PostFailure {
   TResult when<TResult extends Object?>({
     required TResult Function(String? message) serverError,
     required TResult Function() noInternet,
+    required TResult Function() updatingError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String? message)? serverError,
     TResult Function()? noInternet,
+    TResult Function()? updatingError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String? message)? serverError,
     TResult Function()? noInternet,
+    TResult Function()? updatingError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$PostFailure {
   TResult map<TResult extends Object?>({
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_NoInternet value) noInternet,
+    required TResult Function(_UpdatingError value) updatingError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_ServerError value)? serverError,
     TResult Function(_NoInternet value)? noInternet,
+    TResult Function(_UpdatingError value)? updatingError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ServerError value)? serverError,
     TResult Function(_NoInternet value)? noInternet,
+    TResult Function(_UpdatingError value)? updatingError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -138,6 +144,7 @@ class _$_ServerError implements _ServerError {
   TResult when<TResult extends Object?>({
     required TResult Function(String? message) serverError,
     required TResult Function() noInternet,
+    required TResult Function() updatingError,
   }) {
     return serverError(message);
   }
@@ -147,6 +154,7 @@ class _$_ServerError implements _ServerError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String? message)? serverError,
     TResult Function()? noInternet,
+    TResult Function()? updatingError,
   }) {
     return serverError?.call(message);
   }
@@ -156,6 +164,7 @@ class _$_ServerError implements _ServerError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String? message)? serverError,
     TResult Function()? noInternet,
+    TResult Function()? updatingError,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -169,6 +178,7 @@ class _$_ServerError implements _ServerError {
   TResult map<TResult extends Object?>({
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_NoInternet value) noInternet,
+    required TResult Function(_UpdatingError value) updatingError,
   }) {
     return serverError(this);
   }
@@ -178,6 +188,7 @@ class _$_ServerError implements _ServerError {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_ServerError value)? serverError,
     TResult Function(_NoInternet value)? noInternet,
+    TResult Function(_UpdatingError value)? updatingError,
   }) {
     return serverError?.call(this);
   }
@@ -187,6 +198,7 @@ class _$_ServerError implements _ServerError {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ServerError value)? serverError,
     TResult Function(_NoInternet value)? noInternet,
+    TResult Function(_UpdatingError value)? updatingError,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -247,6 +259,7 @@ class _$_NoInternet implements _NoInternet {
   TResult when<TResult extends Object?>({
     required TResult Function(String? message) serverError,
     required TResult Function() noInternet,
+    required TResult Function() updatingError,
   }) {
     return noInternet();
   }
@@ -256,6 +269,7 @@ class _$_NoInternet implements _NoInternet {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String? message)? serverError,
     TResult Function()? noInternet,
+    TResult Function()? updatingError,
   }) {
     return noInternet?.call();
   }
@@ -265,6 +279,7 @@ class _$_NoInternet implements _NoInternet {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String? message)? serverError,
     TResult Function()? noInternet,
+    TResult Function()? updatingError,
     required TResult orElse(),
   }) {
     if (noInternet != null) {
@@ -278,6 +293,7 @@ class _$_NoInternet implements _NoInternet {
   TResult map<TResult extends Object?>({
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_NoInternet value) noInternet,
+    required TResult Function(_UpdatingError value) updatingError,
   }) {
     return noInternet(this);
   }
@@ -287,6 +303,7 @@ class _$_NoInternet implements _NoInternet {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_ServerError value)? serverError,
     TResult Function(_NoInternet value)? noInternet,
+    TResult Function(_UpdatingError value)? updatingError,
   }) {
     return noInternet?.call(this);
   }
@@ -296,6 +313,7 @@ class _$_NoInternet implements _NoInternet {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ServerError value)? serverError,
     TResult Function(_NoInternet value)? noInternet,
+    TResult Function(_UpdatingError value)? updatingError,
     required TResult orElse(),
   }) {
     if (noInternet != null) {
@@ -307,4 +325,115 @@ class _$_NoInternet implements _NoInternet {
 
 abstract class _NoInternet implements PostFailure {
   const factory _NoInternet() = _$_NoInternet;
+}
+
+/// @nodoc
+abstract class _$$_UpdatingErrorCopyWith<$Res> {
+  factory _$$_UpdatingErrorCopyWith(
+          _$_UpdatingError value, $Res Function(_$_UpdatingError) then) =
+      __$$_UpdatingErrorCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_UpdatingErrorCopyWithImpl<$Res>
+    extends _$PostFailureCopyWithImpl<$Res>
+    implements _$$_UpdatingErrorCopyWith<$Res> {
+  __$$_UpdatingErrorCopyWithImpl(
+      _$_UpdatingError _value, $Res Function(_$_UpdatingError) _then)
+      : super(_value, (v) => _then(v as _$_UpdatingError));
+
+  @override
+  _$_UpdatingError get _value => super._value as _$_UpdatingError;
+}
+
+/// @nodoc
+
+class _$_UpdatingError implements _UpdatingError {
+  const _$_UpdatingError();
+
+  @override
+  String toString() {
+    return 'PostFailure.updatingError()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_UpdatingError);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? message) serverError,
+    required TResult Function() noInternet,
+    required TResult Function() updatingError,
+  }) {
+    return updatingError();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String? message)? serverError,
+    TResult Function()? noInternet,
+    TResult Function()? updatingError,
+  }) {
+    return updatingError?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? message)? serverError,
+    TResult Function()? noInternet,
+    TResult Function()? updatingError,
+    required TResult orElse(),
+  }) {
+    if (updatingError != null) {
+      return updatingError();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ServerError value) serverError,
+    required TResult Function(_NoInternet value) noInternet,
+    required TResult Function(_UpdatingError value) updatingError,
+  }) {
+    return updatingError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_NoInternet value)? noInternet,
+    TResult Function(_UpdatingError value)? updatingError,
+  }) {
+    return updatingError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_NoInternet value)? noInternet,
+    TResult Function(_UpdatingError value)? updatingError,
+    required TResult orElse(),
+  }) {
+    if (updatingError != null) {
+      return updatingError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdatingError implements PostFailure {
+  const factory _UpdatingError() = _$_UpdatingError;
 }
