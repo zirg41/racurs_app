@@ -185,7 +185,7 @@ class Back4AppPostFacade implements IPostFacade {
   }
 
   @override
-  Future<Either<PostFailure, List<Publication>>> getFeed(User user) {
+  Future<Either<PostFailure, List<Publication>>> getFeed() {
     // TODO: implement getFeed
     throw UnimplementedError();
   }

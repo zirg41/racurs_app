@@ -93,7 +93,7 @@ class _HomePageState extends State<HomePage> {
                         createdDate: DateTime.now(),
                         title: 'Title of publication');
 
-                    final response = await server.postPublication(pub);
+                    final response = await server.createPublication(pub);
                     print('Post response: ${response}');
                   },
                   child: const Text('Запостить тестовую публикацию'),

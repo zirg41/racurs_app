@@ -1,7 +1,7 @@
-import 'dart:ui';
+import 'dart:io';
 
 import 'value_objects.dart';
 
 abstract class IStaticMapImageProvider {
-  Image getStaticMapImageByLocation(GeoLocation location);
+  File getStaticMapImageByLocation(GeoLocation location);
 }
