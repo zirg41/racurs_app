@@ -1,0 +1,31 @@
+import 'package:bloc/bloc.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+import '../../../domain/core/unique_id.dart';
+import '../../../domain/publication/i_post_facade.dart';
+import '../../../domain/publication/post_failure.dart';
+
+part 'action_bloc.freezed.dart';
+part 'action_event.dart';
+part 'action_state.dart';
+
+class PublicationActionBloc
+    extends Bloc<PublicationActionEvent, PublicationActionState> {
+  final IPostFacade repository;
+
+  PublicationActionBloc(this.repository) : super(const _Initial()) {
+    on<PublicationActionEvent>((event, emit) async {
+      await event.map(
+        deletePublicationRequested: (event) async {
+          final response = await repository.deletePublication(event.id);
+          emit(
+            response.fold(
+              (failure) => PublicationActionState.deleteError(failure),
+              (_) => const PublicationActionState.deleteSuccess(),
+            ),
+          );
+        },
+      );
+    });
+  }
+}
