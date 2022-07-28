@@ -18,51 +18,49 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$PublicationReaderEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getAllPublicationRequested,
-    required TResult Function() getFeedRequested,
-    required TResult Function(UniqueId id) getConcretePublicationRequested,
+    required TResult Function() getAllPublicationPressed,
+    required TResult Function() getFeedPressed,
+    required TResult Function(UniqueId id) getConcretePublicationPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? getAllPublicationRequested,
-    TResult Function()? getFeedRequested,
-    TResult Function(UniqueId id)? getConcretePublicationRequested,
+    TResult Function()? getAllPublicationPressed,
+    TResult Function()? getFeedPressed,
+    TResult Function(UniqueId id)? getConcretePublicationPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getAllPublicationRequested,
-    TResult Function()? getFeedRequested,
-    TResult Function(UniqueId id)? getConcretePublicationRequested,
+    TResult Function()? getAllPublicationPressed,
+    TResult Function()? getFeedPressed,
+    TResult Function(UniqueId id)? getConcretePublicationPressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_GetAllPublicationRequested value)
-        getAllPublicationRequested,
-    required TResult Function(_GetFeedRequested value) getFeedRequested,
-    required TResult Function(_GetConcretePublicationRequested value)
-        getConcretePublicationRequested,
+    required TResult Function(_GetAllPublicationPressed value)
+        getAllPublicationPressed,
+    required TResult Function(_GetFeedPressed value) getFeedPressed,
+    required TResult Function(_GetConcretePublicationPressed value)
+        getConcretePublicationPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_GetAllPublicationRequested value)?
-        getAllPublicationRequested,
-    TResult Function(_GetFeedRequested value)? getFeedRequested,
-    TResult Function(_GetConcretePublicationRequested value)?
-        getConcretePublicationRequested,
+    TResult Function(_GetAllPublicationPressed value)? getAllPublicationPressed,
+    TResult Function(_GetFeedPressed value)? getFeedPressed,
+    TResult Function(_GetConcretePublicationPressed value)?
+        getConcretePublicationPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetAllPublicationRequested value)?
-        getAllPublicationRequested,
-    TResult Function(_GetFeedRequested value)? getFeedRequested,
-    TResult Function(_GetConcretePublicationRequested value)?
-        getConcretePublicationRequested,
+    TResult Function(_GetAllPublicationPressed value)? getAllPublicationPressed,
+    TResult Function(_GetFeedPressed value)? getFeedPressed,
+    TResult Function(_GetConcretePublicationPressed value)?
+        getConcretePublicationPressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -86,42 +84,41 @@ class _$PublicationReaderEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$_GetAllPublicationRequestedCopyWith<$Res> {
-  factory _$$_GetAllPublicationRequestedCopyWith(
-          _$_GetAllPublicationRequested value,
-          $Res Function(_$_GetAllPublicationRequested) then) =
-      __$$_GetAllPublicationRequestedCopyWithImpl<$Res>;
+abstract class _$$_GetAllPublicationPressedCopyWith<$Res> {
+  factory _$$_GetAllPublicationPressedCopyWith(
+          _$_GetAllPublicationPressed value,
+          $Res Function(_$_GetAllPublicationPressed) then) =
+      __$$_GetAllPublicationPressedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_GetAllPublicationRequestedCopyWithImpl<$Res>
+class __$$_GetAllPublicationPressedCopyWithImpl<$Res>
     extends _$PublicationReaderEventCopyWithImpl<$Res>
-    implements _$$_GetAllPublicationRequestedCopyWith<$Res> {
-  __$$_GetAllPublicationRequestedCopyWithImpl(
-      _$_GetAllPublicationRequested _value,
-      $Res Function(_$_GetAllPublicationRequested) _then)
-      : super(_value, (v) => _then(v as _$_GetAllPublicationRequested));
+    implements _$$_GetAllPublicationPressedCopyWith<$Res> {
+  __$$_GetAllPublicationPressedCopyWithImpl(_$_GetAllPublicationPressed _value,
+      $Res Function(_$_GetAllPublicationPressed) _then)
+      : super(_value, (v) => _then(v as _$_GetAllPublicationPressed));
 
   @override
-  _$_GetAllPublicationRequested get _value =>
-      super._value as _$_GetAllPublicationRequested;
+  _$_GetAllPublicationPressed get _value =>
+      super._value as _$_GetAllPublicationPressed;
 }
 
 /// @nodoc
 
-class _$_GetAllPublicationRequested implements _GetAllPublicationRequested {
-  const _$_GetAllPublicationRequested();
+class _$_GetAllPublicationPressed implements _GetAllPublicationPressed {
+  const _$_GetAllPublicationPressed();
 
   @override
   String toString() {
-    return 'PublicationReaderEvent.getAllPublicationRequested()';
+    return 'PublicationReaderEvent.getAllPublicationPressed()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GetAllPublicationRequested);
+            other is _$_GetAllPublicationPressed);
   }
 
   @override
@@ -130,33 +127,33 @@ class _$_GetAllPublicationRequested implements _GetAllPublicationRequested {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getAllPublicationRequested,
-    required TResult Function() getFeedRequested,
-    required TResult Function(UniqueId id) getConcretePublicationRequested,
+    required TResult Function() getAllPublicationPressed,
+    required TResult Function() getFeedPressed,
+    required TResult Function(UniqueId id) getConcretePublicationPressed,
   }) {
-    return getAllPublicationRequested();
+    return getAllPublicationPressed();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? getAllPublicationRequested,
-    TResult Function()? getFeedRequested,
-    TResult Function(UniqueId id)? getConcretePublicationRequested,
+    TResult Function()? getAllPublicationPressed,
+    TResult Function()? getFeedPressed,
+    TResult Function(UniqueId id)? getConcretePublicationPressed,
   }) {
-    return getAllPublicationRequested?.call();
+    return getAllPublicationPressed?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getAllPublicationRequested,
-    TResult Function()? getFeedRequested,
-    TResult Function(UniqueId id)? getConcretePublicationRequested,
+    TResult Function()? getAllPublicationPressed,
+    TResult Function()? getFeedPressed,
+    TResult Function(UniqueId id)? getConcretePublicationPressed,
     required TResult orElse(),
   }) {
-    if (getAllPublicationRequested != null) {
-      return getAllPublicationRequested();
+    if (getAllPublicationPressed != null) {
+      return getAllPublicationPressed();
     }
     return orElse();
   }
@@ -164,81 +161,79 @@ class _$_GetAllPublicationRequested implements _GetAllPublicationRequested {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_GetAllPublicationRequested value)
-        getAllPublicationRequested,
-    required TResult Function(_GetFeedRequested value) getFeedRequested,
-    required TResult Function(_GetConcretePublicationRequested value)
-        getConcretePublicationRequested,
+    required TResult Function(_GetAllPublicationPressed value)
+        getAllPublicationPressed,
+    required TResult Function(_GetFeedPressed value) getFeedPressed,
+    required TResult Function(_GetConcretePublicationPressed value)
+        getConcretePublicationPressed,
   }) {
-    return getAllPublicationRequested(this);
+    return getAllPublicationPressed(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_GetAllPublicationRequested value)?
-        getAllPublicationRequested,
-    TResult Function(_GetFeedRequested value)? getFeedRequested,
-    TResult Function(_GetConcretePublicationRequested value)?
-        getConcretePublicationRequested,
+    TResult Function(_GetAllPublicationPressed value)? getAllPublicationPressed,
+    TResult Function(_GetFeedPressed value)? getFeedPressed,
+    TResult Function(_GetConcretePublicationPressed value)?
+        getConcretePublicationPressed,
   }) {
-    return getAllPublicationRequested?.call(this);
+    return getAllPublicationPressed?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetAllPublicationRequested value)?
-        getAllPublicationRequested,
-    TResult Function(_GetFeedRequested value)? getFeedRequested,
-    TResult Function(_GetConcretePublicationRequested value)?
-        getConcretePublicationRequested,
+    TResult Function(_GetAllPublicationPressed value)? getAllPublicationPressed,
+    TResult Function(_GetFeedPressed value)? getFeedPressed,
+    TResult Function(_GetConcretePublicationPressed value)?
+        getConcretePublicationPressed,
     required TResult orElse(),
   }) {
-    if (getAllPublicationRequested != null) {
-      return getAllPublicationRequested(this);
+    if (getAllPublicationPressed != null) {
+      return getAllPublicationPressed(this);
     }
     return orElse();
   }
 }
 
-abstract class _GetAllPublicationRequested implements PublicationReaderEvent {
-  const factory _GetAllPublicationRequested() = _$_GetAllPublicationRequested;
+abstract class _GetAllPublicationPressed implements PublicationReaderEvent {
+  const factory _GetAllPublicationPressed() = _$_GetAllPublicationPressed;
 }
 
 /// @nodoc
-abstract class _$$_GetFeedRequestedCopyWith<$Res> {
-  factory _$$_GetFeedRequestedCopyWith(
-          _$_GetFeedRequested value, $Res Function(_$_GetFeedRequested) then) =
-      __$$_GetFeedRequestedCopyWithImpl<$Res>;
+abstract class _$$_GetFeedPressedCopyWith<$Res> {
+  factory _$$_GetFeedPressedCopyWith(
+          _$_GetFeedPressed value, $Res Function(_$_GetFeedPressed) then) =
+      __$$_GetFeedPressedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_GetFeedRequestedCopyWithImpl<$Res>
+class __$$_GetFeedPressedCopyWithImpl<$Res>
     extends _$PublicationReaderEventCopyWithImpl<$Res>
-    implements _$$_GetFeedRequestedCopyWith<$Res> {
-  __$$_GetFeedRequestedCopyWithImpl(
-      _$_GetFeedRequested _value, $Res Function(_$_GetFeedRequested) _then)
-      : super(_value, (v) => _then(v as _$_GetFeedRequested));
+    implements _$$_GetFeedPressedCopyWith<$Res> {
+  __$$_GetFeedPressedCopyWithImpl(
+      _$_GetFeedPressed _value, $Res Function(_$_GetFeedPressed) _then)
+      : super(_value, (v) => _then(v as _$_GetFeedPressed));
 
   @override
-  _$_GetFeedRequested get _value => super._value as _$_GetFeedRequested;
+  _$_GetFeedPressed get _value => super._value as _$_GetFeedPressed;
 }
 
 /// @nodoc
 
-class _$_GetFeedRequested implements _GetFeedRequested {
-  const _$_GetFeedRequested();
+class _$_GetFeedPressed implements _GetFeedPressed {
+  const _$_GetFeedPressed();
 
   @override
   String toString() {
-    return 'PublicationReaderEvent.getFeedRequested()';
+    return 'PublicationReaderEvent.getFeedPressed()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_GetFeedRequested);
+        (other.runtimeType == runtimeType && other is _$_GetFeedPressed);
   }
 
   @override
@@ -247,33 +242,33 @@ class _$_GetFeedRequested implements _GetFeedRequested {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getAllPublicationRequested,
-    required TResult Function() getFeedRequested,
-    required TResult Function(UniqueId id) getConcretePublicationRequested,
+    required TResult Function() getAllPublicationPressed,
+    required TResult Function() getFeedPressed,
+    required TResult Function(UniqueId id) getConcretePublicationPressed,
   }) {
-    return getFeedRequested();
+    return getFeedPressed();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? getAllPublicationRequested,
-    TResult Function()? getFeedRequested,
-    TResult Function(UniqueId id)? getConcretePublicationRequested,
+    TResult Function()? getAllPublicationPressed,
+    TResult Function()? getFeedPressed,
+    TResult Function(UniqueId id)? getConcretePublicationPressed,
   }) {
-    return getFeedRequested?.call();
+    return getFeedPressed?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getAllPublicationRequested,
-    TResult Function()? getFeedRequested,
-    TResult Function(UniqueId id)? getConcretePublicationRequested,
+    TResult Function()? getAllPublicationPressed,
+    TResult Function()? getFeedPressed,
+    TResult Function(UniqueId id)? getConcretePublicationPressed,
     required TResult orElse(),
   }) {
-    if (getFeedRequested != null) {
-      return getFeedRequested();
+    if (getFeedPressed != null) {
+      return getFeedPressed();
     }
     return orElse();
   }
@@ -281,75 +276,73 @@ class _$_GetFeedRequested implements _GetFeedRequested {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_GetAllPublicationRequested value)
-        getAllPublicationRequested,
-    required TResult Function(_GetFeedRequested value) getFeedRequested,
-    required TResult Function(_GetConcretePublicationRequested value)
-        getConcretePublicationRequested,
+    required TResult Function(_GetAllPublicationPressed value)
+        getAllPublicationPressed,
+    required TResult Function(_GetFeedPressed value) getFeedPressed,
+    required TResult Function(_GetConcretePublicationPressed value)
+        getConcretePublicationPressed,
   }) {
-    return getFeedRequested(this);
+    return getFeedPressed(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_GetAllPublicationRequested value)?
-        getAllPublicationRequested,
-    TResult Function(_GetFeedRequested value)? getFeedRequested,
-    TResult Function(_GetConcretePublicationRequested value)?
-        getConcretePublicationRequested,
+    TResult Function(_GetAllPublicationPressed value)? getAllPublicationPressed,
+    TResult Function(_GetFeedPressed value)? getFeedPressed,
+    TResult Function(_GetConcretePublicationPressed value)?
+        getConcretePublicationPressed,
   }) {
-    return getFeedRequested?.call(this);
+    return getFeedPressed?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetAllPublicationRequested value)?
-        getAllPublicationRequested,
-    TResult Function(_GetFeedRequested value)? getFeedRequested,
-    TResult Function(_GetConcretePublicationRequested value)?
-        getConcretePublicationRequested,
+    TResult Function(_GetAllPublicationPressed value)? getAllPublicationPressed,
+    TResult Function(_GetFeedPressed value)? getFeedPressed,
+    TResult Function(_GetConcretePublicationPressed value)?
+        getConcretePublicationPressed,
     required TResult orElse(),
   }) {
-    if (getFeedRequested != null) {
-      return getFeedRequested(this);
+    if (getFeedPressed != null) {
+      return getFeedPressed(this);
     }
     return orElse();
   }
 }
 
-abstract class _GetFeedRequested implements PublicationReaderEvent {
-  const factory _GetFeedRequested() = _$_GetFeedRequested;
+abstract class _GetFeedPressed implements PublicationReaderEvent {
+  const factory _GetFeedPressed() = _$_GetFeedPressed;
 }
 
 /// @nodoc
-abstract class _$$_GetConcretePublicationRequestedCopyWith<$Res> {
-  factory _$$_GetConcretePublicationRequestedCopyWith(
-          _$_GetConcretePublicationRequested value,
-          $Res Function(_$_GetConcretePublicationRequested) then) =
-      __$$_GetConcretePublicationRequestedCopyWithImpl<$Res>;
+abstract class _$$_GetConcretePublicationPressedCopyWith<$Res> {
+  factory _$$_GetConcretePublicationPressedCopyWith(
+          _$_GetConcretePublicationPressed value,
+          $Res Function(_$_GetConcretePublicationPressed) then) =
+      __$$_GetConcretePublicationPressedCopyWithImpl<$Res>;
   $Res call({UniqueId id});
 }
 
 /// @nodoc
-class __$$_GetConcretePublicationRequestedCopyWithImpl<$Res>
+class __$$_GetConcretePublicationPressedCopyWithImpl<$Res>
     extends _$PublicationReaderEventCopyWithImpl<$Res>
-    implements _$$_GetConcretePublicationRequestedCopyWith<$Res> {
-  __$$_GetConcretePublicationRequestedCopyWithImpl(
-      _$_GetConcretePublicationRequested _value,
-      $Res Function(_$_GetConcretePublicationRequested) _then)
-      : super(_value, (v) => _then(v as _$_GetConcretePublicationRequested));
+    implements _$$_GetConcretePublicationPressedCopyWith<$Res> {
+  __$$_GetConcretePublicationPressedCopyWithImpl(
+      _$_GetConcretePublicationPressed _value,
+      $Res Function(_$_GetConcretePublicationPressed) _then)
+      : super(_value, (v) => _then(v as _$_GetConcretePublicationPressed));
 
   @override
-  _$_GetConcretePublicationRequested get _value =>
-      super._value as _$_GetConcretePublicationRequested;
+  _$_GetConcretePublicationPressed get _value =>
+      super._value as _$_GetConcretePublicationPressed;
 
   @override
   $Res call({
     Object? id = freezed,
   }) {
-    return _then(_$_GetConcretePublicationRequested(
+    return _then(_$_GetConcretePublicationPressed(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -360,23 +353,23 @@ class __$$_GetConcretePublicationRequestedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_GetConcretePublicationRequested
-    implements _GetConcretePublicationRequested {
-  const _$_GetConcretePublicationRequested({required this.id});
+class _$_GetConcretePublicationPressed
+    implements _GetConcretePublicationPressed {
+  const _$_GetConcretePublicationPressed({required this.id});
 
   @override
   final UniqueId id;
 
   @override
   String toString() {
-    return 'PublicationReaderEvent.getConcretePublicationRequested(id: $id)';
+    return 'PublicationReaderEvent.getConcretePublicationPressed(id: $id)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GetConcretePublicationRequested &&
+            other is _$_GetConcretePublicationPressed &&
             const DeepCollectionEquality().equals(other.id, id));
   }
 
@@ -386,41 +379,40 @@ class _$_GetConcretePublicationRequested
 
   @JsonKey(ignore: true)
   @override
-  _$$_GetConcretePublicationRequestedCopyWith<
-          _$_GetConcretePublicationRequested>
-      get copyWith => __$$_GetConcretePublicationRequestedCopyWithImpl<
-          _$_GetConcretePublicationRequested>(this, _$identity);
+  _$$_GetConcretePublicationPressedCopyWith<_$_GetConcretePublicationPressed>
+      get copyWith => __$$_GetConcretePublicationPressedCopyWithImpl<
+          _$_GetConcretePublicationPressed>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getAllPublicationRequested,
-    required TResult Function() getFeedRequested,
-    required TResult Function(UniqueId id) getConcretePublicationRequested,
+    required TResult Function() getAllPublicationPressed,
+    required TResult Function() getFeedPressed,
+    required TResult Function(UniqueId id) getConcretePublicationPressed,
   }) {
-    return getConcretePublicationRequested(id);
+    return getConcretePublicationPressed(id);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? getAllPublicationRequested,
-    TResult Function()? getFeedRequested,
-    TResult Function(UniqueId id)? getConcretePublicationRequested,
+    TResult Function()? getAllPublicationPressed,
+    TResult Function()? getFeedPressed,
+    TResult Function(UniqueId id)? getConcretePublicationPressed,
   }) {
-    return getConcretePublicationRequested?.call(id);
+    return getConcretePublicationPressed?.call(id);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getAllPublicationRequested,
-    TResult Function()? getFeedRequested,
-    TResult Function(UniqueId id)? getConcretePublicationRequested,
+    TResult Function()? getAllPublicationPressed,
+    TResult Function()? getFeedPressed,
+    TResult Function(UniqueId id)? getConcretePublicationPressed,
     required TResult orElse(),
   }) {
-    if (getConcretePublicationRequested != null) {
-      return getConcretePublicationRequested(id);
+    if (getConcretePublicationPressed != null) {
+      return getConcretePublicationPressed(id);
     }
     return orElse();
   }
@@ -428,53 +420,50 @@ class _$_GetConcretePublicationRequested
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_GetAllPublicationRequested value)
-        getAllPublicationRequested,
-    required TResult Function(_GetFeedRequested value) getFeedRequested,
-    required TResult Function(_GetConcretePublicationRequested value)
-        getConcretePublicationRequested,
+    required TResult Function(_GetAllPublicationPressed value)
+        getAllPublicationPressed,
+    required TResult Function(_GetFeedPressed value) getFeedPressed,
+    required TResult Function(_GetConcretePublicationPressed value)
+        getConcretePublicationPressed,
   }) {
-    return getConcretePublicationRequested(this);
+    return getConcretePublicationPressed(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_GetAllPublicationRequested value)?
-        getAllPublicationRequested,
-    TResult Function(_GetFeedRequested value)? getFeedRequested,
-    TResult Function(_GetConcretePublicationRequested value)?
-        getConcretePublicationRequested,
+    TResult Function(_GetAllPublicationPressed value)? getAllPublicationPressed,
+    TResult Function(_GetFeedPressed value)? getFeedPressed,
+    TResult Function(_GetConcretePublicationPressed value)?
+        getConcretePublicationPressed,
   }) {
-    return getConcretePublicationRequested?.call(this);
+    return getConcretePublicationPressed?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetAllPublicationRequested value)?
-        getAllPublicationRequested,
-    TResult Function(_GetFeedRequested value)? getFeedRequested,
-    TResult Function(_GetConcretePublicationRequested value)?
-        getConcretePublicationRequested,
+    TResult Function(_GetAllPublicationPressed value)? getAllPublicationPressed,
+    TResult Function(_GetFeedPressed value)? getFeedPressed,
+    TResult Function(_GetConcretePublicationPressed value)?
+        getConcretePublicationPressed,
     required TResult orElse(),
   }) {
-    if (getConcretePublicationRequested != null) {
-      return getConcretePublicationRequested(this);
+    if (getConcretePublicationPressed != null) {
+      return getConcretePublicationPressed(this);
     }
     return orElse();
   }
 }
 
-abstract class _GetConcretePublicationRequested
+abstract class _GetConcretePublicationPressed
     implements PublicationReaderEvent {
-  const factory _GetConcretePublicationRequested({required final UniqueId id}) =
-      _$_GetConcretePublicationRequested;
+  const factory _GetConcretePublicationPressed({required final UniqueId id}) =
+      _$_GetConcretePublicationPressed;
 
   UniqueId get id;
   @JsonKey(ignore: true)
-  _$$_GetConcretePublicationRequestedCopyWith<
-          _$_GetConcretePublicationRequested>
+  _$$_GetConcretePublicationPressedCopyWith<_$_GetConcretePublicationPressed>
       get copyWith => throw _privateConstructorUsedError;
 }
 

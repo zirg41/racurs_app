@@ -21,6 +21,7 @@ mixin _$PostFailure {
     required TResult Function(String? message) serverError,
     required TResult Function() noInternet,
     required TResult Function() updatingError,
+    required TResult Function() userDoesNotExist,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$PostFailure {
     TResult Function(String? message)? serverError,
     TResult Function()? noInternet,
     TResult Function()? updatingError,
+    TResult Function()? userDoesNotExist,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$PostFailure {
     TResult Function(String? message)? serverError,
     TResult Function()? noInternet,
     TResult Function()? updatingError,
+    TResult Function()? userDoesNotExist,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,7 @@ mixin _$PostFailure {
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_NoInternet value) noInternet,
     required TResult Function(_UpdatingError value) updatingError,
+    required TResult Function(_UserDoesNotExist value) userDoesNotExist,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +54,7 @@ mixin _$PostFailure {
     TResult Function(_ServerError value)? serverError,
     TResult Function(_NoInternet value)? noInternet,
     TResult Function(_UpdatingError value)? updatingError,
+    TResult Function(_UserDoesNotExist value)? userDoesNotExist,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +62,7 @@ mixin _$PostFailure {
     TResult Function(_ServerError value)? serverError,
     TResult Function(_NoInternet value)? noInternet,
     TResult Function(_UpdatingError value)? updatingError,
+    TResult Function(_UserDoesNotExist value)? userDoesNotExist,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -145,6 +151,7 @@ class _$_ServerError implements _ServerError {
     required TResult Function(String? message) serverError,
     required TResult Function() noInternet,
     required TResult Function() updatingError,
+    required TResult Function() userDoesNotExist,
   }) {
     return serverError(message);
   }
@@ -155,6 +162,7 @@ class _$_ServerError implements _ServerError {
     TResult Function(String? message)? serverError,
     TResult Function()? noInternet,
     TResult Function()? updatingError,
+    TResult Function()? userDoesNotExist,
   }) {
     return serverError?.call(message);
   }
@@ -165,6 +173,7 @@ class _$_ServerError implements _ServerError {
     TResult Function(String? message)? serverError,
     TResult Function()? noInternet,
     TResult Function()? updatingError,
+    TResult Function()? userDoesNotExist,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -179,6 +188,7 @@ class _$_ServerError implements _ServerError {
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_NoInternet value) noInternet,
     required TResult Function(_UpdatingError value) updatingError,
+    required TResult Function(_UserDoesNotExist value) userDoesNotExist,
   }) {
     return serverError(this);
   }
@@ -189,6 +199,7 @@ class _$_ServerError implements _ServerError {
     TResult Function(_ServerError value)? serverError,
     TResult Function(_NoInternet value)? noInternet,
     TResult Function(_UpdatingError value)? updatingError,
+    TResult Function(_UserDoesNotExist value)? userDoesNotExist,
   }) {
     return serverError?.call(this);
   }
@@ -199,6 +210,7 @@ class _$_ServerError implements _ServerError {
     TResult Function(_ServerError value)? serverError,
     TResult Function(_NoInternet value)? noInternet,
     TResult Function(_UpdatingError value)? updatingError,
+    TResult Function(_UserDoesNotExist value)? userDoesNotExist,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -260,6 +272,7 @@ class _$_NoInternet implements _NoInternet {
     required TResult Function(String? message) serverError,
     required TResult Function() noInternet,
     required TResult Function() updatingError,
+    required TResult Function() userDoesNotExist,
   }) {
     return noInternet();
   }
@@ -270,6 +283,7 @@ class _$_NoInternet implements _NoInternet {
     TResult Function(String? message)? serverError,
     TResult Function()? noInternet,
     TResult Function()? updatingError,
+    TResult Function()? userDoesNotExist,
   }) {
     return noInternet?.call();
   }
@@ -280,6 +294,7 @@ class _$_NoInternet implements _NoInternet {
     TResult Function(String? message)? serverError,
     TResult Function()? noInternet,
     TResult Function()? updatingError,
+    TResult Function()? userDoesNotExist,
     required TResult orElse(),
   }) {
     if (noInternet != null) {
@@ -294,6 +309,7 @@ class _$_NoInternet implements _NoInternet {
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_NoInternet value) noInternet,
     required TResult Function(_UpdatingError value) updatingError,
+    required TResult Function(_UserDoesNotExist value) userDoesNotExist,
   }) {
     return noInternet(this);
   }
@@ -304,6 +320,7 @@ class _$_NoInternet implements _NoInternet {
     TResult Function(_ServerError value)? serverError,
     TResult Function(_NoInternet value)? noInternet,
     TResult Function(_UpdatingError value)? updatingError,
+    TResult Function(_UserDoesNotExist value)? userDoesNotExist,
   }) {
     return noInternet?.call(this);
   }
@@ -314,6 +331,7 @@ class _$_NoInternet implements _NoInternet {
     TResult Function(_ServerError value)? serverError,
     TResult Function(_NoInternet value)? noInternet,
     TResult Function(_UpdatingError value)? updatingError,
+    TResult Function(_UserDoesNotExist value)? userDoesNotExist,
     required TResult orElse(),
   }) {
     if (noInternet != null) {
@@ -371,6 +389,7 @@ class _$_UpdatingError implements _UpdatingError {
     required TResult Function(String? message) serverError,
     required TResult Function() noInternet,
     required TResult Function() updatingError,
+    required TResult Function() userDoesNotExist,
   }) {
     return updatingError();
   }
@@ -381,6 +400,7 @@ class _$_UpdatingError implements _UpdatingError {
     TResult Function(String? message)? serverError,
     TResult Function()? noInternet,
     TResult Function()? updatingError,
+    TResult Function()? userDoesNotExist,
   }) {
     return updatingError?.call();
   }
@@ -391,6 +411,7 @@ class _$_UpdatingError implements _UpdatingError {
     TResult Function(String? message)? serverError,
     TResult Function()? noInternet,
     TResult Function()? updatingError,
+    TResult Function()? userDoesNotExist,
     required TResult orElse(),
   }) {
     if (updatingError != null) {
@@ -405,6 +426,7 @@ class _$_UpdatingError implements _UpdatingError {
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_NoInternet value) noInternet,
     required TResult Function(_UpdatingError value) updatingError,
+    required TResult Function(_UserDoesNotExist value) userDoesNotExist,
   }) {
     return updatingError(this);
   }
@@ -415,6 +437,7 @@ class _$_UpdatingError implements _UpdatingError {
     TResult Function(_ServerError value)? serverError,
     TResult Function(_NoInternet value)? noInternet,
     TResult Function(_UpdatingError value)? updatingError,
+    TResult Function(_UserDoesNotExist value)? userDoesNotExist,
   }) {
     return updatingError?.call(this);
   }
@@ -425,6 +448,7 @@ class _$_UpdatingError implements _UpdatingError {
     TResult Function(_ServerError value)? serverError,
     TResult Function(_NoInternet value)? noInternet,
     TResult Function(_UpdatingError value)? updatingError,
+    TResult Function(_UserDoesNotExist value)? userDoesNotExist,
     required TResult orElse(),
   }) {
     if (updatingError != null) {
@@ -436,4 +460,121 @@ class _$_UpdatingError implements _UpdatingError {
 
 abstract class _UpdatingError implements PostFailure {
   const factory _UpdatingError() = _$_UpdatingError;
+}
+
+/// @nodoc
+abstract class _$$_UserDoesNotExistCopyWith<$Res> {
+  factory _$$_UserDoesNotExistCopyWith(
+          _$_UserDoesNotExist value, $Res Function(_$_UserDoesNotExist) then) =
+      __$$_UserDoesNotExistCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_UserDoesNotExistCopyWithImpl<$Res>
+    extends _$PostFailureCopyWithImpl<$Res>
+    implements _$$_UserDoesNotExistCopyWith<$Res> {
+  __$$_UserDoesNotExistCopyWithImpl(
+      _$_UserDoesNotExist _value, $Res Function(_$_UserDoesNotExist) _then)
+      : super(_value, (v) => _then(v as _$_UserDoesNotExist));
+
+  @override
+  _$_UserDoesNotExist get _value => super._value as _$_UserDoesNotExist;
+}
+
+/// @nodoc
+
+class _$_UserDoesNotExist implements _UserDoesNotExist {
+  const _$_UserDoesNotExist();
+
+  @override
+  String toString() {
+    return 'PostFailure.userDoesNotExist()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_UserDoesNotExist);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? message) serverError,
+    required TResult Function() noInternet,
+    required TResult Function() updatingError,
+    required TResult Function() userDoesNotExist,
+  }) {
+    return userDoesNotExist();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String? message)? serverError,
+    TResult Function()? noInternet,
+    TResult Function()? updatingError,
+    TResult Function()? userDoesNotExist,
+  }) {
+    return userDoesNotExist?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? message)? serverError,
+    TResult Function()? noInternet,
+    TResult Function()? updatingError,
+    TResult Function()? userDoesNotExist,
+    required TResult orElse(),
+  }) {
+    if (userDoesNotExist != null) {
+      return userDoesNotExist();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ServerError value) serverError,
+    required TResult Function(_NoInternet value) noInternet,
+    required TResult Function(_UpdatingError value) updatingError,
+    required TResult Function(_UserDoesNotExist value) userDoesNotExist,
+  }) {
+    return userDoesNotExist(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_NoInternet value)? noInternet,
+    TResult Function(_UpdatingError value)? updatingError,
+    TResult Function(_UserDoesNotExist value)? userDoesNotExist,
+  }) {
+    return userDoesNotExist?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_NoInternet value)? noInternet,
+    TResult Function(_UpdatingError value)? updatingError,
+    TResult Function(_UserDoesNotExist value)? userDoesNotExist,
+    required TResult orElse(),
+  }) {
+    if (userDoesNotExist != null) {
+      return userDoesNotExist(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UserDoesNotExist implements PostFailure {
+  const factory _UserDoesNotExist() = _$_UserDoesNotExist;
 }

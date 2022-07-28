@@ -21,7 +21,7 @@ class PublicationReaderBloc
   PublicationReaderBloc(this.repository, this.mapImageProvider)
       : super(const _Initial()) {
     on<PublicationReaderEvent>((event, emit) async {
-      await event.map(getAllPublicationRequested: (_) async {
+      await event.when(getAllPublicationPressed: () async {
         final response = await repository.getAllPublications();
         response.fold(
           (failure) => emit(
@@ -31,7 +31,7 @@ class PublicationReaderBloc
             PublicationReaderState.publicationsReceived(pubs),
           ),
         );
-      }, getFeedRequested: (_) async {
+      }, getFeedPressed: () async {
         final response = await repository.getFeed();
         response.fold(
           (failure) => emit(
@@ -41,8 +41,8 @@ class PublicationReaderBloc
             PublicationReaderState.publicationsReceived(pubs),
           ),
         );
-      }, getConcretePublicationRequested: (ev) async {
-        final response = await repository.getConcretePublication(ev.id);
+      }, getConcretePublicationPressed: (id) async {
+        final response = await repository.getConcretePublication(id);
         response.fold(
           (failure) => emit(
             PublicationReaderState.loadingError(failure),

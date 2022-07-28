@@ -15,9 +15,9 @@ class PublicationActionBloc
 
   PublicationActionBloc(this.repository) : super(const _Initial()) {
     on<PublicationActionEvent>((event, emit) async {
-      await event.map(
-        deletePublicationRequested: (event) async {
-          final response = await repository.deletePublication(event.id);
+      await event.when(
+        deletePublicationRequested: (id) async {
+          final response = await repository.deletePublication(id);
           emit(
             response.fold(
               (failure) => PublicationActionState.deleteError(failure),
