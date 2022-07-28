@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 
 import '../../../domain/core/unique_id.dart';
 import '../../../domain/publication/i_map_image_provider.dart';
@@ -13,6 +14,7 @@ part 'reader_bloc.freezed.dart';
 part 'reader_event.dart';
 part 'reader_state.dart';
 
+@injectable
 class PublicationReaderBloc
     extends Bloc<PublicationReaderEvent, PublicationReaderState> {
   final IPostFacade repository;

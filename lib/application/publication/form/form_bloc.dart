@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 
 import '../../../domain/auth/i_auth_facade.dart';
 import '../../../domain/core/exceptions.dart';
@@ -17,6 +18,7 @@ part 'form_bloc.freezed.dart';
 part 'form_event.dart';
 part 'form_state.dart';
 
+@injectable
 class PublicationFormBloc
     extends Bloc<PublicationFormEvent, PublicationFormState> {
   final IPostFacade repository;

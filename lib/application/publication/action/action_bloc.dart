@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 
 import '../../../domain/core/unique_id.dart';
 import '../../../domain/publication/i_post_facade.dart';
@@ -9,6 +10,7 @@ part 'action_bloc.freezed.dart';
 part 'action_event.dart';
 part 'action_state.dart';
 
+@injectable
 class PublicationActionBloc
     extends Bloc<PublicationActionEvent, PublicationActionState> {
   final IPostFacade repository;
