@@ -90,23 +90,32 @@ class _HomePageState extends State<HomePage> {
                   child: const Text('Перейти к ленте'),
                 ),
                 ElevatedButton(
+                  child: const Text('Запостить тестовую публикацию'),
                   onPressed: () async {
+                    final userId = state.maybeMap(
+                        orElse: () => UniqueId(),
+                        authenticated: (authState) => authState.currentUser.id);
+
+                    final username = state.maybeMap(
+                        orElse: () => 'Anonymous',
+                        authenticated: (authState) =>
+                            authState.currentUser.username);
+
                     final pub = Publication(
-                        id: UniqueId(),
-                        user: state.maybeMap(
-                            orElse: () =>
-                                User(id: UniqueId(), username: 'userFromTest'),
-                            authenticated: (authState) =>
-                                authState.currentUser),
-                        imageFile: File(pickedFile!.path),
+                        pubId: UniqueId(),
+                        userId: userId,
+                        username: username,
+                        imageUrl: '',
                         location: GeoLocation(Longitude(54), Latitude(52)),
                         createdDate: DateTime.now(),
                         title: 'Title of publication');
 
-                    final response = await server.createPublication(pub);
-                    print('Post response: ${response}');
+                    final response = await server.createPublication(
+                      publication: pub,
+                      image: File(pickedFile!.path),
+                    );
+                    // print('Post response: ${response}');
                   },
-                  child: const Text('Запостить тестовую публикацию'),
                 ),
               ],
             ),

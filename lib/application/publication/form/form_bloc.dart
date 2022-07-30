@@ -63,14 +63,16 @@ class PublicationFormBloc
             final user = userOption.getOrElse(() => throw ServerException());
 
             final response = await repository.createPublication(
-              Publication(
-                id: UniqueId(),
-                user: user,
-                imageFile: state.imageFile!,
+              publication: Publication(
+                pubId: UniqueId(),
+                imageUrl: '',
+                userId: user.id,
+                username: user.username,
                 location: state.location!,
                 createdDate: DateTime.now(),
                 title: state.title,
               ),
+              image: state.imageFile!,
             );
 
             response.fold(

@@ -23,19 +23,21 @@ const String dateApiName = 'createdDate';
 @Singleton(as: IPostFacade)
 class Back4AppPostFacade implements IPostFacade {
   @override
-  Future<Either<PostFailure, Unit>> createPublication(
-      Publication publication) async {
+  Future<Either<PostFailure, Unit>> createPublication({
+    required Publication publication,
+    required File image,
+  }) async {
     ParseUser currentUser = await ParseUser.currentUser() as ParseUser;
 
-    final parseFile = ParseFile(File(publication.imageFile.path));
+    final parseFile = ParseFile(File(image.path));
     await parseFile.save();
 
     final publicationToUpload = ParseObject(publicationApiClassName)
       ..set(userPointerApiName, currentUser)
-      ..set(usernameApiName, publication.user.username)
+      ..set(usernameApiName, publication.username)
       ..set(imageApiName, parseFile)
       ..set<String>(titleApiName, publication.title)
-      ..set<String>(pubIdApiName, publication.id.getOrCrash())
+      ..set<String>(pubIdApiName, publication.pubId.getOrCrash())
       ..set<Map<String, dynamic>>(locationApiName, publication.location.toMap())
       ..set<DateTime>(dateApiName, publication.createdDate);
 
@@ -51,12 +53,14 @@ class Back4AppPostFacade implements IPostFacade {
   }
 
   @override
-  Future<Either<PostFailure, Unit>> updatePublication(
-      Publication publication) async {
+  Future<Either<PostFailure, Unit>> updatePublication({
+    required Publication publication,
+    required File image,
+  }) async {
     String updatingObjectId;
 
     var query = QueryBuilder<ParseObject>(ParseObject(publicationApiClassName))
-      ..whereContains(pubIdApiName, publication.id.getOrCrash());
+      ..whereContains(pubIdApiName, publication.pubId.getOrCrash());
 
     final queryResponse = await query.query();
 
@@ -68,7 +72,7 @@ class Back4AppPostFacade implements IPostFacade {
 
     ParseUser currentUser = await ParseUser.currentUser() as ParseUser;
 
-    final parseFile = ParseFile(File(publication.imageFile.path));
+    final parseFile = ParseFile(File(image.path));
     await parseFile.save();
 
     final publicationToUpload = ParseObject(publicationApiClassName)
@@ -76,7 +80,7 @@ class Back4AppPostFacade implements IPostFacade {
       ..set(userPointerApiName, currentUser)
       ..set(imageApiName, parseFile)
       ..set<String>(titleApiName, publication.title)
-      ..set<String>(pubIdApiName, publication.id.getOrCrash())
+      ..set<String>(pubIdApiName, publication.pubId.getOrCrash())
       ..set<Map<String, dynamic>>(locationApiName, publication.location.toMap())
       ..set<DateTime>(dateApiName, publication.createdDate);
 
@@ -189,18 +193,14 @@ class Back4AppPostFacade implements IPostFacade {
 
   Publication getPublicationFromParseObject(ParseObject parseObject) {
     return Publication(
-      id: UniqueId.fromUniqueString(
+      pubId: UniqueId.fromUniqueString(
         parseObject.get(pubIdApiName).toString(),
       ),
-      user: User(
-        id: UniqueId.fromUniqueString(
-          parseObject.get(userPointerApiName).objectId,
-        ),
-        username: parseObject.get<String>(usernameApiName)!,
+      userId: UniqueId.fromUniqueString(
+        parseObject.get(userPointerApiName).objectId,
       ),
-      imageFile: File.fromUri(
-        Uri(path: parseObject.get<ParseFileBase>(imageApiName)!.url!),
-      ),
+      username: parseObject.get<String>(usernameApiName) ?? 'Name not found',
+      imageUrl: parseObject.get<ParseFileBase>(imageApiName)!.url!,
       location: GeoLocation.fromMap(
         parseObject.get<Map<String, dynamic>>(locationApiName)!.cast(),
       ),

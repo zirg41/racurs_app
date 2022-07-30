@@ -27,14 +27,14 @@ class PublicationItem extends StatelessWidget {
                 padding: const EdgeInsets.all(5),
                 child: Row(
                   children: [
-                    Text(publication.user.username),
+                    Text(publication.username),
                     Spacer(),
                     IconButton(
                       iconSize: 20,
                       onPressed: () {
                         BlocProvider.of<PublicationActionBloc>(context).add(
                           PublicationActionEvent.deletePublicationRequested(
-                              publication.id),
+                              publication.pubId),
                         );
                       },
                       icon: const Icon(Icons.delete),
@@ -43,8 +43,7 @@ class PublicationItem extends StatelessWidget {
                 ),
               ),
               // Image.file(publication.imageFile.path),
-              Image.network(publication.imageFile.path),
-
+              Image.network(publication.imageUrl),
               Padding(
                 padding: const EdgeInsets.all(5),
                 child: Text(
