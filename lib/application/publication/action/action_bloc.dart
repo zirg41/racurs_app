@@ -1,6 +1,8 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:racurs_app/application/publication/reader/reader_bloc.dart';
 
 import '../../../domain/core/unique_id.dart';
 import '../../../domain/publication/i_post_facade.dart';
@@ -20,6 +22,10 @@ class PublicationActionBloc
       await event.when(
         deletePublicationRequested: (id) async {
           final response = await repository.deletePublication(id);
+
+          // print('deleting pub id: ${id.getOrCrash()}');
+          // print('deleting pub response: $response');
+
           emit(
             response.fold(
               (failure) => PublicationActionState.deleteError(failure),
