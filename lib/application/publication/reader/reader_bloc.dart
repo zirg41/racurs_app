@@ -50,12 +50,12 @@ class PublicationReaderBloc
             PublicationReaderState.loadingError(failure),
           ),
           (pub) async {
-            final File mapImage =
-                mapImageProvider.getStaticMapImageByLocation(pub.location);
+            final String mapImageUrl =
+                mapImageProvider.getStaticMapImageUrlByLocation(pub.location);
 
             emit(
               PublicationReaderState.concretePublicationReceived(
-                  pub: pub, mapImage: mapImage),
+                  pub: pub, mapImageUrl: mapImageUrl),
             );
           },
         );

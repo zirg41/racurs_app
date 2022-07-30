@@ -19,7 +19,7 @@ import 'domain/publication/i_post_facade.dart' as _i5;
 import 'infrastructure/auth/back4app_auth_facade.dart' as _i4;
 import 'infrastructure/core/injectable_modules.dart' as _i16;
 import 'infrastructure/publication/back4app_post_facade.dart' as _i6;
-import 'infrastructure/publication/yandex_map_image.dart' as _i8;
+import 'infrastructure/publication/yandex_map_image_url.dart' as _i8;
 import 'presentation/global/theme/theme_bloc/theme_bloc.dart'
     as _i14; // ignore_for_file: unnecessary_lambdas
 

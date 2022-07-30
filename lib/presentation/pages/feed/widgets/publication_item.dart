@@ -1,10 +1,11 @@
-import 'dart:typed_data';
-
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:racurs_app/application/publication/action/action_bloc.dart';
-import 'package:racurs_app/domain/publication/publication.dart';
-import 'dart:io';
+
+import '../../../../application/publication/action/action_bloc.dart';
+import '../../../../application/publication/reader/reader_bloc.dart';
+import '../../../../domain/publication/publication.dart';
+import '../../../routes/router.gr.dart';
 
 class PublicationItem extends StatelessWidget {
   final Publication publication;
@@ -43,7 +44,16 @@ class PublicationItem extends StatelessWidget {
                 ),
               ),
               // Image.file(publication.imageFile.path),
-              Image.network(publication.imageUrl),
+              GestureDetector(
+                child: Image.network(publication.imageUrl),
+                onTap: () {
+                  // context\
+                  context.router.navigate(const ConcretePublicationRoute());
+                  context.read<PublicationReaderBloc>().add(
+                      PublicationReaderEvent.getConcretePublicationPressed(
+                          id: publication.pubId));
+                },
+              ),
               Padding(
                 padding: const EdgeInsets.all(5),
                 child: Text(

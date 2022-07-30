@@ -4,14 +4,13 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:racurs_app/application/publication/reader/reader_bloc.dart';
-import 'package:racurs_app/domain/auth/user.dart';
-import 'package:racurs_app/domain/core/unique_id.dart';
-import 'package:racurs_app/domain/publication/publication.dart';
-import 'package:racurs_app/domain/publication/value_objects.dart';
-import 'package:racurs_app/infrastructure/publication/back4app_post_facade.dart';
 
 import '../../../application/auth/auth_bloc.dart';
+import '../../../application/publication/reader/reader_bloc.dart';
+import '../../../domain/core/unique_id.dart';
+import '../../../domain/publication/publication.dart';
+import '../../../domain/publication/value_objects.dart';
+import '../../../infrastructure/publication/back4app_post_facade.dart';
 import '../../routes/router.gr.dart';
 
 class HomePage extends StatefulWidget {
@@ -106,7 +105,8 @@ class _HomePageState extends State<HomePage> {
                         userId: userId,
                         username: username,
                         imageUrl: '',
-                        location: GeoLocation(Longitude(54), Latitude(52)),
+                        location: GeoLocation(
+                            Longitude(52.931832), Latitude(50.377570)),
                         createdDate: DateTime.now(),
                         title: 'Title of publication');
 

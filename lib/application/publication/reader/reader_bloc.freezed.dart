@@ -475,7 +475,7 @@ mixin _$PublicationReaderState {
     required TResult Function() loadingInProgress,
     required TResult Function(PostFailure failure) loadingError,
     required TResult Function(List<Publication> pubs) publicationsReceived,
-    required TResult Function(Publication pub, File mapImage)
+    required TResult Function(Publication pub, String mapImageUrl)
         concretePublicationReceived,
   }) =>
       throw _privateConstructorUsedError;
@@ -485,7 +485,7 @@ mixin _$PublicationReaderState {
     TResult Function()? loadingInProgress,
     TResult Function(PostFailure failure)? loadingError,
     TResult Function(List<Publication> pubs)? publicationsReceived,
-    TResult Function(Publication pub, File mapImage)?
+    TResult Function(Publication pub, String mapImageUrl)?
         concretePublicationReceived,
   }) =>
       throw _privateConstructorUsedError;
@@ -495,7 +495,7 @@ mixin _$PublicationReaderState {
     TResult Function()? loadingInProgress,
     TResult Function(PostFailure failure)? loadingError,
     TResult Function(List<Publication> pubs)? publicationsReceived,
-    TResult Function(Publication pub, File mapImage)?
+    TResult Function(Publication pub, String mapImageUrl)?
         concretePublicationReceived,
     required TResult orElse(),
   }) =>
@@ -594,7 +594,7 @@ class _$_Initial implements _Initial {
     required TResult Function() loadingInProgress,
     required TResult Function(PostFailure failure) loadingError,
     required TResult Function(List<Publication> pubs) publicationsReceived,
-    required TResult Function(Publication pub, File mapImage)
+    required TResult Function(Publication pub, String mapImageUrl)
         concretePublicationReceived,
   }) {
     return initial();
@@ -607,7 +607,7 @@ class _$_Initial implements _Initial {
     TResult Function()? loadingInProgress,
     TResult Function(PostFailure failure)? loadingError,
     TResult Function(List<Publication> pubs)? publicationsReceived,
-    TResult Function(Publication pub, File mapImage)?
+    TResult Function(Publication pub, String mapImageUrl)?
         concretePublicationReceived,
   }) {
     return initial?.call();
@@ -620,7 +620,7 @@ class _$_Initial implements _Initial {
     TResult Function()? loadingInProgress,
     TResult Function(PostFailure failure)? loadingError,
     TResult Function(List<Publication> pubs)? publicationsReceived,
-    TResult Function(Publication pub, File mapImage)?
+    TResult Function(Publication pub, String mapImageUrl)?
         concretePublicationReceived,
     required TResult orElse(),
   }) {
@@ -722,7 +722,7 @@ class _$_Loading implements _Loading {
     required TResult Function() loadingInProgress,
     required TResult Function(PostFailure failure) loadingError,
     required TResult Function(List<Publication> pubs) publicationsReceived,
-    required TResult Function(Publication pub, File mapImage)
+    required TResult Function(Publication pub, String mapImageUrl)
         concretePublicationReceived,
   }) {
     return loadingInProgress();
@@ -735,7 +735,7 @@ class _$_Loading implements _Loading {
     TResult Function()? loadingInProgress,
     TResult Function(PostFailure failure)? loadingError,
     TResult Function(List<Publication> pubs)? publicationsReceived,
-    TResult Function(Publication pub, File mapImage)?
+    TResult Function(Publication pub, String mapImageUrl)?
         concretePublicationReceived,
   }) {
     return loadingInProgress?.call();
@@ -748,7 +748,7 @@ class _$_Loading implements _Loading {
     TResult Function()? loadingInProgress,
     TResult Function(PostFailure failure)? loadingError,
     TResult Function(List<Publication> pubs)? publicationsReceived,
-    TResult Function(Publication pub, File mapImage)?
+    TResult Function(Publication pub, String mapImageUrl)?
         concretePublicationReceived,
     required TResult orElse(),
   }) {
@@ -884,7 +884,7 @@ class _$_LoadingError implements _LoadingError {
     required TResult Function() loadingInProgress,
     required TResult Function(PostFailure failure) loadingError,
     required TResult Function(List<Publication> pubs) publicationsReceived,
-    required TResult Function(Publication pub, File mapImage)
+    required TResult Function(Publication pub, String mapImageUrl)
         concretePublicationReceived,
   }) {
     return loadingError(failure);
@@ -897,7 +897,7 @@ class _$_LoadingError implements _LoadingError {
     TResult Function()? loadingInProgress,
     TResult Function(PostFailure failure)? loadingError,
     TResult Function(List<Publication> pubs)? publicationsReceived,
-    TResult Function(Publication pub, File mapImage)?
+    TResult Function(Publication pub, String mapImageUrl)?
         concretePublicationReceived,
   }) {
     return loadingError?.call(failure);
@@ -910,7 +910,7 @@ class _$_LoadingError implements _LoadingError {
     TResult Function()? loadingInProgress,
     TResult Function(PostFailure failure)? loadingError,
     TResult Function(List<Publication> pubs)? publicationsReceived,
-    TResult Function(Publication pub, File mapImage)?
+    TResult Function(Publication pub, String mapImageUrl)?
         concretePublicationReceived,
     required TResult orElse(),
   }) {
@@ -1047,7 +1047,7 @@ class _$_PublicationsReceived implements _PublicationsReceived {
     required TResult Function() loadingInProgress,
     required TResult Function(PostFailure failure) loadingError,
     required TResult Function(List<Publication> pubs) publicationsReceived,
-    required TResult Function(Publication pub, File mapImage)
+    required TResult Function(Publication pub, String mapImageUrl)
         concretePublicationReceived,
   }) {
     return publicationsReceived(pubs);
@@ -1060,7 +1060,7 @@ class _$_PublicationsReceived implements _PublicationsReceived {
     TResult Function()? loadingInProgress,
     TResult Function(PostFailure failure)? loadingError,
     TResult Function(List<Publication> pubs)? publicationsReceived,
-    TResult Function(Publication pub, File mapImage)?
+    TResult Function(Publication pub, String mapImageUrl)?
         concretePublicationReceived,
   }) {
     return publicationsReceived?.call(pubs);
@@ -1073,7 +1073,7 @@ class _$_PublicationsReceived implements _PublicationsReceived {
     TResult Function()? loadingInProgress,
     TResult Function(PostFailure failure)? loadingError,
     TResult Function(List<Publication> pubs)? publicationsReceived,
-    TResult Function(Publication pub, File mapImage)?
+    TResult Function(Publication pub, String mapImageUrl)?
         concretePublicationReceived,
     required TResult orElse(),
   }) {
@@ -1143,7 +1143,7 @@ abstract class _$$_ConcretePublicationReceivedCopyWith<$Res> {
           _$_ConcretePublicationReceived value,
           $Res Function(_$_ConcretePublicationReceived) then) =
       __$$_ConcretePublicationReceivedCopyWithImpl<$Res>;
-  $Res call({Publication pub, File mapImage});
+  $Res call({Publication pub, String mapImageUrl});
 
   $PublicationCopyWith<$Res> get pub;
 }
@@ -1164,17 +1164,17 @@ class __$$_ConcretePublicationReceivedCopyWithImpl<$Res>
   @override
   $Res call({
     Object? pub = freezed,
-    Object? mapImage = freezed,
+    Object? mapImageUrl = freezed,
   }) {
     return _then(_$_ConcretePublicationReceived(
       pub: pub == freezed
           ? _value.pub
           : pub // ignore: cast_nullable_to_non_nullable
               as Publication,
-      mapImage: mapImage == freezed
-          ? _value.mapImage
-          : mapImage // ignore: cast_nullable_to_non_nullable
-              as File,
+      mapImageUrl: mapImageUrl == freezed
+          ? _value.mapImageUrl
+          : mapImageUrl // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 
@@ -1190,16 +1190,16 @@ class __$$_ConcretePublicationReceivedCopyWithImpl<$Res>
 
 class _$_ConcretePublicationReceived implements _ConcretePublicationReceived {
   const _$_ConcretePublicationReceived(
-      {required this.pub, required this.mapImage});
+      {required this.pub, required this.mapImageUrl});
 
   @override
   final Publication pub;
   @override
-  final File mapImage;
+  final String mapImageUrl;
 
   @override
   String toString() {
-    return 'PublicationReaderState.concretePublicationReceived(pub: $pub, mapImage: $mapImage)';
+    return 'PublicationReaderState.concretePublicationReceived(pub: $pub, mapImageUrl: $mapImageUrl)';
   }
 
   @override
@@ -1208,14 +1208,15 @@ class _$_ConcretePublicationReceived implements _ConcretePublicationReceived {
         (other.runtimeType == runtimeType &&
             other is _$_ConcretePublicationReceived &&
             const DeepCollectionEquality().equals(other.pub, pub) &&
-            const DeepCollectionEquality().equals(other.mapImage, mapImage));
+            const DeepCollectionEquality()
+                .equals(other.mapImageUrl, mapImageUrl));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(pub),
-      const DeepCollectionEquality().hash(mapImage));
+      const DeepCollectionEquality().hash(mapImageUrl));
 
   @JsonKey(ignore: true)
   @override
@@ -1230,10 +1231,10 @@ class _$_ConcretePublicationReceived implements _ConcretePublicationReceived {
     required TResult Function() loadingInProgress,
     required TResult Function(PostFailure failure) loadingError,
     required TResult Function(List<Publication> pubs) publicationsReceived,
-    required TResult Function(Publication pub, File mapImage)
+    required TResult Function(Publication pub, String mapImageUrl)
         concretePublicationReceived,
   }) {
-    return concretePublicationReceived(pub, mapImage);
+    return concretePublicationReceived(pub, mapImageUrl);
   }
 
   @override
@@ -1243,10 +1244,10 @@ class _$_ConcretePublicationReceived implements _ConcretePublicationReceived {
     TResult Function()? loadingInProgress,
     TResult Function(PostFailure failure)? loadingError,
     TResult Function(List<Publication> pubs)? publicationsReceived,
-    TResult Function(Publication pub, File mapImage)?
+    TResult Function(Publication pub, String mapImageUrl)?
         concretePublicationReceived,
   }) {
-    return concretePublicationReceived?.call(pub, mapImage);
+    return concretePublicationReceived?.call(pub, mapImageUrl);
   }
 
   @override
@@ -1256,12 +1257,12 @@ class _$_ConcretePublicationReceived implements _ConcretePublicationReceived {
     TResult Function()? loadingInProgress,
     TResult Function(PostFailure failure)? loadingError,
     TResult Function(List<Publication> pubs)? publicationsReceived,
-    TResult Function(Publication pub, File mapImage)?
+    TResult Function(Publication pub, String mapImageUrl)?
         concretePublicationReceived,
     required TResult orElse(),
   }) {
     if (concretePublicationReceived != null) {
-      return concretePublicationReceived(pub, mapImage);
+      return concretePublicationReceived(pub, mapImageUrl);
     }
     return orElse();
   }
@@ -1313,10 +1314,10 @@ class _$_ConcretePublicationReceived implements _ConcretePublicationReceived {
 abstract class _ConcretePublicationReceived implements PublicationReaderState {
   const factory _ConcretePublicationReceived(
       {required final Publication pub,
-      required final File mapImage}) = _$_ConcretePublicationReceived;
+      required final String mapImageUrl}) = _$_ConcretePublicationReceived;
 
   Publication get pub;
-  File get mapImage;
+  String get mapImageUrl;
   @JsonKey(ignore: true)
   _$$_ConcretePublicationReceivedCopyWith<_$_ConcretePublicationReceived>
       get copyWith => throw _privateConstructorUsedError;

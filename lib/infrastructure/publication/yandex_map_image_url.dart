@@ -7,8 +7,10 @@ import 'package:racurs_app/domain/publication/value_objects.dart';
 @Singleton(as: IStaticMapImageProvider)
 class YandexImageMapProvider implements IStaticMapImageProvider {
   @override
-  File getStaticMapImageByLocation(GeoLocation location) {
-    // TODO: implement getStaticMapImageByLocation
-    throw UnimplementedError();
+  String getStaticMapImageUrlByLocation(GeoLocation location) {
+    const zoom = 13;
+    final latitude = location.latitude.getOrCrash();
+    final longitude = location.longitude.getOrCrash();
+    return 'https://static-maps.yandex.ru/1.x/?ll=$latitude,$longitude&size=350,450&z=$zoom&l=map&pt=$latitude,$longitude';
   }
 }

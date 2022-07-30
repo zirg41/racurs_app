@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:racurs_app/presentation/pages/feed/feed_page.dart';
+import 'package:racurs_app/presentation/pages/publication_page/publication_page.dart';
 
 import '../pages/home/home_page.dart';
 import '../pages/auth/sign_in/sign_in_page.dart';
@@ -19,8 +20,12 @@ import '../pages/splash/splash_page.dart';
       page: SignUpPage,
       // transitionsBuilder: TransitionsBuilders.slideLeftWithFade,
     ),
-    CustomRoute(
+    AutoRoute(
       page: FeedPage,
+      // transitionsBuilder: TransitionsBuilders.slideLeftWithFade,
+    ),
+    AutoRoute(
+      page: ConcretePublicationPage,
       // transitionsBuilder: TransitionsBuilders.slideLeftWithFade,
     ),
   ],

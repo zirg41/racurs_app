@@ -169,7 +169,7 @@ class Back4AppPostFacade implements IPostFacade {
     // print('getConcretePublication() apiResponse: $apiResponse');
 
     if (apiResponse.success && apiResponse.results != null) {
-      final parseObject = apiResponse.results as ParseObject;
+      final parseObject = apiResponse.result.first as ParseObject;
       return right(getPublicationFromParseObject(parseObject));
     } else {
       // TODO add connection checker which returns noInternet PostFailure

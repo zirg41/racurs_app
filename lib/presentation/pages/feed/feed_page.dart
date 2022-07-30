@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:racurs_app/application/publication/reader/reader_bloc.dart';
-import 'package:racurs_app/presentation/pages/feed/widgets/publication.dart';
+
+import '../../../application/publication/reader/reader_bloc.dart';
+import 'widgets/publication_item.dart';
 
 class FeedPage extends StatelessWidget {
   const FeedPage({Key? key}) : super(key: key);

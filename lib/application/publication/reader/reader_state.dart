@@ -10,6 +10,6 @@ class PublicationReaderState with _$PublicationReaderState {
       List<Publication> pubs) = _PublicationsReceived;
   const factory PublicationReaderState.concretePublicationReceived({
     required Publication pub,
-    required File mapImage,
+    required String mapImageUrl,
   }) = _ConcretePublicationReceived;
 }
