@@ -4,6 +4,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:racurs_app/application/publication/reader/reader_bloc.dart';
 import 'package:racurs_app/domain/auth/user.dart';
 import 'package:racurs_app/domain/core/unique_id.dart';
 import 'package:racurs_app/domain/publication/publication.dart';
@@ -46,16 +47,16 @@ class _HomePageState extends State<HomePage> {
                 ),
                 pickedFile != null
                     ? Container(
-                        width: 250,
-                        height: 250,
+                        width: 350,
+                        height: 350,
                         decoration: BoxDecoration(
                             border: Border.all(color: Colors.blue)),
                         child: Image.file(File(
                           pickedFile!.path,
                         )))
                     : Container(
-                        width: 250,
-                        height: 250,
+                        width: 350,
+                        height: 350,
                         decoration: BoxDecoration(
                             border: Border.all(color: Colors.blue)),
                         child: const Center(
@@ -67,7 +68,7 @@ class _HomePageState extends State<HomePage> {
                     PickedFile? image = await ImagePicker().getImage(
                       source: ImageSource.gallery,
                       imageQuality: 50,
-                      maxWidth: 150,
+                      maxWidth: 350,
                     );
 
                     // print('pickedFile is null: ${image == null}');
@@ -78,6 +79,15 @@ class _HomePageState extends State<HomePage> {
                     }
                   },
                   child: const Text('Выбрать фото'),
+                ),
+                ElevatedButton(
+                  onPressed: () async {
+                    context.router.push(const FeedRoute());
+                    BlocProvider.of<PublicationReaderBloc>(context).add(
+                        const PublicationReaderEvent
+                            .getAllPublicationPressed());
+                  },
+                  child: const Text('Перейти к ленте'),
                 ),
                 ElevatedButton(
                   onPressed: () async {

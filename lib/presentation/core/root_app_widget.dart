@@ -6,6 +6,9 @@ import '../../application/auth/sign_in_form/sign_in_form_bloc.dart';
 import '../../injection.dart';
 import '../global/theme/theme_bloc/theme_bloc.dart';
 import '../routes/router.gr.dart' as router_lib;
+import '../../../application/publication/form/form_bloc.dart';
+import '../../../application/publication/reader/reader_bloc.dart';
+import '../../../application/publication/action/action_bloc.dart';
 
 class RacursApp extends StatelessWidget {
   RacursApp({Key? key}) : super(key: key);
@@ -26,6 +29,15 @@ class RacursApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => getIt<SignInFormBloc>(),
+        ),
+        BlocProvider(
+          create: (context) => getIt<PublicationFormBloc>(),
+        ),
+        BlocProvider(
+          create: (context) => getIt<PublicationReaderBloc>(),
+        ),
+        BlocProvider(
+          create: (context) => getIt<PublicationActionBloc>(),
         ),
       ],
       child: BlocBuilder<ThemeBloc, ThemeState>(
