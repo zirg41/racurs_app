@@ -53,8 +53,8 @@ class GeoLocation {
 
   factory GeoLocation.fromMap(Map<String, dynamic> map) {
     return GeoLocation(
-      Longitude(map['longitude'] as double),
-      Latitude(map['latitude'] as double),
+      Longitude((map['longitude'] as num).toDouble()),
+      Latitude((map['latitude'] as num).toDouble()),
     );
   }
 
