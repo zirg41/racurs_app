@@ -106,7 +106,9 @@ class _HomePageState extends State<HomePage> {
                         username: username,
                         imageUrl: '',
                         location: GeoLocation(
-                            Longitude(52.931832), Latitude(50.377570)),
+                          Latitude(50.377570),
+                          Longitude(52.931832),
+                        ),
                         createdDate: DateTime.now(),
                         title: 'Title of publication');
 

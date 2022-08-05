@@ -11,8 +11,8 @@ class GeoLocation {
   final Latitude latitude;
 
   GeoLocation(
-    this.longitude,
     this.latitude,
+    this.longitude,
   );
 
   GeoLocation copyWith({
@@ -20,8 +20,8 @@ class GeoLocation {
     Latitude? latitude,
   }) {
     return GeoLocation(
-      longitude ?? this.longitude,
       latitude ?? this.latitude,
+      longitude ?? this.longitude,
     );
   }
 
@@ -62,8 +62,8 @@ class GeoLocation {
 
   factory GeoLocation.fromMap(Map<String, dynamic> map) {
     return GeoLocation(
-      Longitude((map['longitude'] as num).toDouble()),
       Latitude((map['latitude'] as num).toDouble()),
+      Longitude((map['longitude'] as num).toDouble()),
     );
   }
 
