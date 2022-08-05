@@ -26,13 +26,22 @@ class GeoLocation {
   }
 
   @override
-  String toString() => 'GeoLocation: \n \t longitude: ${longitude.value.fold(
+  String toString() => 'GeoLocation: \n \t  ${latitude.value.fold(
         (failure) => null,
         (value) => value,
-      )} \n \t latitude: ${latitude.value.fold(
+      )}, ${longitude.value.fold(
         (failure) => null,
         (value) => value,
       )}';
+
+  // @override
+  // String toString() => 'GeoLocation: \n \t longitude: ${longitude.value.fold(
+  //       (failure) => null,
+  //       (value) => value,
+  //     )} \n \t latitude: ${latitude.value.fold(
+  //       (failure) => null,
+  //       (value) => value,
+  //     )}';
 
   @override
   bool operator ==(covariant GeoLocation other) {
