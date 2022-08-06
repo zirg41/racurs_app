@@ -37,6 +37,8 @@ Future<Either<GeoFailure, GeoLocation>> getGeoLocationOf(String path) async {
   late String latitudeRef;
   late List longitudeList;
   late String longitudeRef;
+  double latitudeSec;
+  double longitudeSec;
 
   for (var element in data.entries) {
     if (element.key == 'GPS GPSLatitude') {
@@ -60,9 +62,6 @@ Future<Either<GeoFailure, GeoLocation>> getGeoLocationOf(String path) async {
         ? LatitudeCardinalPoint.north
         : LatitudeCardinalPoint.south;
 
-    String latSecVal = latSecStr.substring(0, latSecStr.indexOf('/'));
-    String latSecDiv = latSecStr.substring(latSecStr.indexOf('/') + 1);
-
     final longDegStr = longitudeList[0].toString();
     final longMinStr = longitudeList[1].toString();
     final longSecStr = longitudeList[2].toString();
@@ -70,18 +69,27 @@ Future<Either<GeoFailure, GeoLocation>> getGeoLocationOf(String path) async {
         ? LongitudeCardinalPoint.east
         : LongitudeCardinalPoint.west;
 
-    String longSecVal = longSecStr.substring(0, longSecStr.indexOf('/'));
-    String longSecDiv = longSecStr.substring(longSecStr.indexOf('/') + 1);
-
     final double latitudeDeg = double.parse(latDegStr);
     final double latitudeMin = double.parse(latMinStr);
-    final double latitudeSec =
-        double.parse(latSecVal) / double.parse(latSecDiv);
+
+    if (latSecStr.contains('/')) {
+      final numerator = latSecStr.substring(0, latSecStr.indexOf('/'));
+      final denominator = latSecStr.substring(latSecStr.indexOf('/') + 1);
+      latitudeSec = double.parse(numerator) / double.parse(denominator);
+    } else {
+      latitudeSec = double.parse(latSecStr);
+    }
 
     final double longitudeDeg = double.parse(longDegStr);
     final double longitudeMin = double.parse(longMinStr);
-    final double longitudeSec =
-        double.parse(longSecVal) / double.parse(longSecDiv);
+
+    if (longSecStr.contains('/')) {
+      final numerator = longSecStr.substring(0, longSecStr.indexOf('/'));
+      final denominator = longSecStr.substring(longSecStr.indexOf('/') + 1);
+      longitudeSec = double.parse(numerator) / double.parse(denominator);
+    } else {
+      longitudeSec = double.parse(longSecStr);
+    }
 
     final geoLocation = convertFromDMSNotationToGeoLocation(
       latDegree: latitudeDeg,
