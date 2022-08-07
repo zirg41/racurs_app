@@ -19,6 +19,11 @@ final appThemeData = {
         color: const Color.fromARGB(255, 255, 255, 255),
         fontWeight: FontWeight.bold,
       ),
+      displaySmall: GoogleFonts.lato(
+        fontSize: 30,
+        color: const Color.fromARGB(255, 255, 255, 255),
+        fontWeight: FontWeight.bold,
+      ),
       headlineMedium: GoogleFonts.lato(
         fontSize: 17,
         color: const Color.fromARGB(255, 255, 255, 255),

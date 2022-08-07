@@ -19,43 +19,52 @@ class SignInPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocListener<SignInFormBloc, SignInFormState>(
-        listener: (ctx, state) {
-          state.authFailureOrSuccessOption.fold(
-            () => null,
-            (either) => either.fold(
-              (f) => showAuthFailureSnackBar(context: ctx, failure: f),
-              (_) {
-                ctx.router.replace(const TestHomeRoute());
-                ctx.read<AuthBloc>().add(const AuthEvent.authCheckReqested());
-              },
+      body: BlocConsumer<SignInFormBloc, SignInFormState>(
+        listener: (context, state) {
+          // TODO: implement listener
+        },
+        builder: (context, state) {
+          return BlocListener<SignInFormBloc, SignInFormState>(
+            listener: (ctx, state) {
+              state.authFailureOrSuccessOption.fold(
+                () => null,
+                (either) => either.fold(
+                  (f) => showAuthFailureSnackBar(context: ctx, failure: f),
+                  (_) {
+                    ctx.router.replace(const HomeRoute());
+                    ctx
+                        .read<AuthBloc>()
+                        .add(const AuthEvent.authCheckReqested());
+                  },
+                ),
+              );
+            },
+            child: Stack(
+              children: [
+                const SignInBackground(),
+                Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: ListView(
+                      children: [
+                        const RacursLogoText(),
+                        const SignInForm(),
+                        const CustomDevider(),
+                        const EitherAppleOrGoogleSignInButton(),
+                        const CustomDevider(),
+                        DontHaveAnAccountButton(
+                          pushToSignUpPageFunction: () {
+                            context.router.replace(const SignUpRoute());
+                          },
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ],
             ),
           );
         },
-        child: Stack(
-          children: [
-            const SignInBackground(),
-            Center(
-              child: Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: ListView(
-                  children: [
-                    const RacursLogoText(),
-                    const SignInForm(),
-                    const CustomDevider(),
-                    const EitherAppleOrGoogleSignInButton(),
-                    const CustomDevider(),
-                    DontHaveAnAccountButton(
-                      pushToSignUpPageFunction: () {
-                        context.router.replace(const SignUpRoute());
-                      },
-                    )
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
       ),
     );
   }

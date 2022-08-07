@@ -1,5 +1,6 @@
-import '../messages.dart';
 import 'package:flutter/material.dart';
+
+import '../messages.dart';
 
 class AlreadyHaveAnAccountButton extends StatelessWidget {
   final void Function()? pushToSignUpPageFunction;

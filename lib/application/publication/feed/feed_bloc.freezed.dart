@@ -59,8 +59,8 @@ mixin _$PublicationReaderEvent {
 
 /// @nodoc
 abstract class $PublicationReaderEventCopyWith<$Res> {
-  factory $PublicationReaderEventCopyWith(PublicationReaderEvent value,
-          $Res Function(PublicationReaderEvent) then) =
+  factory $PublicationReaderEventCopyWith(
+          FeedEvent value, $Res Function(FeedEvent) then) =
       _$PublicationReaderEventCopyWithImpl<$Res>;
 }
 
@@ -69,9 +69,9 @@ class _$PublicationReaderEventCopyWithImpl<$Res>
     implements $PublicationReaderEventCopyWith<$Res> {
   _$PublicationReaderEventCopyWithImpl(this._value, this._then);
 
-  final PublicationReaderEvent _value;
+  final FeedEvent _value;
   // ignore: unused_field
-  final $Res Function(PublicationReaderEvent) _then;
+  final $Res Function(FeedEvent) _then;
 }
 
 /// @nodoc
@@ -179,7 +179,7 @@ class _$_GetAllPublicationPressed implements _GetAllPublicationPressed {
   }
 }
 
-abstract class _GetAllPublicationPressed implements PublicationReaderEvent {
+abstract class _GetAllPublicationPressed implements FeedEvent {
   const factory _GetAllPublicationPressed() = _$_GetAllPublicationPressed;
 }
 
@@ -285,7 +285,7 @@ class _$_GetFeedPressed implements _GetFeedPressed {
   }
 }
 
-abstract class _GetFeedPressed implements PublicationReaderEvent {
+abstract class _GetFeedPressed implements FeedEvent {
   const factory _GetFeedPressed() = _$_GetFeedPressed;
 }
 

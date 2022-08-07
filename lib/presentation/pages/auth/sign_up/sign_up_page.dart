@@ -27,7 +27,7 @@ class SignUpPage extends StatelessWidget {
             (either) => either.fold(
               (f) => showAuthFailureSnackBar(context: ctx, failure: f),
               (_) {
-                ctx.router.replace(const TestHomeRoute());
+                ctx.router.replace(const HomeRoute());
                 ctx.read<AuthBloc>().add(const AuthEvent.authCheckReqested());
               },
             ),

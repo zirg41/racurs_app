@@ -95,18 +95,20 @@ class _SignInFormState extends State<SignInForm> {
                         ),
               ),
               const SizedBox(height: 20),
-              TextButton(
-                onPressed: () {
-                  context.read<SignInFormBloc>().add(
-                        const SignInFormEvent
-                            .signInWithUsernameAndPasswordPressed(),
-                      );
-                },
-                child: const Text(
-                  SIGN_IN,
-                  style: TextStyle(color: Colors.white, fontSize: 20),
+              if (!state.isSubmitting)
+                TextButton(
+                  onPressed: () {
+                    context.read<SignInFormBloc>().add(
+                          const SignInFormEvent
+                              .signInWithUsernameAndPasswordPressed(),
+                        );
+                  },
+                  child: const Text(
+                    SIGN_IN,
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                  ),
                 ),
-              ),
+              if (state.isSubmitting) CircularProgressIndicator.adaptive(),
               const SizedBox(height: 10),
             ],
           ),

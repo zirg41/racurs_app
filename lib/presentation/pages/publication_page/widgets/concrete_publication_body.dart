@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:parse_server_sdk_flutter/generated/i18n.dart';
-import 'package:racurs_app/application/publication/concrete_pub/concrete_publication_bloc.dart';
-import 'package:racurs_app/application/publication/feed/feed_bloc.dart';
-import 'package:racurs_app/domain/publication/publication.dart';
+
+import '../../../../application/publication/concrete_pub/concrete_publication_bloc.dart';
 
 class ConcretePublicationBody extends StatelessWidget {
   const ConcretePublicationBody({Key? key}) : super(key: key);

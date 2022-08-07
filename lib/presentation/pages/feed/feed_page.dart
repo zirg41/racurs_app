@@ -9,33 +9,39 @@ class FeedPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      body: BlocConsumer<FeedBloc, FeedState>(
-        listener: (context, state) {
-          // TODO: implement listener
-        },
-        builder: (context, state) {
-          return state.maybeWhen(
-            orElse: () => const Center(
-              child: Text('No State'),
-            ),
-            loadingInProgress: () {
-              return Center(
-                child: CircularProgressIndicator.adaptive(),
-              );
-            },
-            publicationsReceived: (pubs) {
-              return ListView.builder(
-                itemCount: pubs.length,
-                itemBuilder: (context, index) {
-                  return PublicationItem(publication: pubs[index]);
-                },
-              );
-            },
-          );
-        },
-      ),
+    return BlocConsumer<FeedBloc, FeedState>(
+      listener: (context, state) {
+        // TODO: implement listener
+      },
+      builder: (context, state) {
+        return state.maybeWhen(
+          orElse: () => const Center(
+            child: Text('No State'),
+          ),
+          initial: () {
+            BlocProvider.of<FeedBloc>(context).add(
+              const FeedEvent.getAllPublicationPressed(),
+            );
+            return Container();
+          },
+          loadingInProgress: () {
+            return const Center(
+              child: CircularProgressIndicator.adaptive(),
+            );
+          },
+          loadingError: (failure) {
+            return Center(child: Text('Ошибка\n$failure'));
+          },
+          publicationsReceived: (pubs) {
+            return ListView.builder(
+              itemCount: pubs.length,
+              itemBuilder: (context, index) {
+                return PublicationItem(publication: pubs[index]);
+              },
+            );
+          },
+        );
+      },
     );
   }
 }

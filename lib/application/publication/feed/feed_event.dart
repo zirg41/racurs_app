@@ -1,8 +1,8 @@
 part of 'feed_bloc.dart';
 
 @freezed
-class PublicationReaderEvent with _$PublicationReaderEvent {
-  const factory PublicationReaderEvent.getAllPublicationPressed() =
+class FeedEvent with _$PublicationReaderEvent {
+  const factory FeedEvent.getAllPublicationPressed() =
       _GetAllPublicationPressed;
-  const factory PublicationReaderEvent.getFeedPressed() = _GetFeedPressed;
+  const factory FeedEvent.getFeedPressed() = _GetFeedPressed;
 }

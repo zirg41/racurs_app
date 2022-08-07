@@ -2,9 +2,10 @@ import 'dart:io';
 
 import 'package:dartz/dartz.dart';
 import 'package:exif/exif.dart';
-import 'package:racurs_app/domain/publication/geo_failure.dart';
-import 'package:racurs_app/domain/publication/value_objects.dart';
-import 'package:racurs_app/services/dms_to_geolocation_converter.dart';
+
+import '../domain/publication/geo_failure.dart';
+import '../domain/publication/value_objects.dart';
+import 'dms_to_geolocation_converter.dart';
 
 printExifOf(String path) async {
   final fileBytes = File(path).readAsBytesSync();

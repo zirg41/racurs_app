@@ -4,15 +4,15 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:racurs_app/application/publication/form/form_bloc.dart';
-import 'package:racurs_app/services/exif_reader.dart';
 
 import '../../../application/auth/auth_bloc.dart';
 import '../../../application/publication/feed/feed_bloc.dart';
+import '../../../application/publication/form/form_bloc.dart';
 import '../../../domain/core/unique_id.dart';
 import '../../../domain/publication/publication.dart';
 import '../../../domain/publication/value_objects.dart';
 import '../../../infrastructure/publication/back4app_post_facade.dart';
+import '../../../services/exif_reader.dart';
 import '../../routes/router.gr.dart';
 
 class TestHomePage extends StatefulWidget {
@@ -88,9 +88,8 @@ class _TestHomePageState extends State<TestHomePage> {
                     ElevatedButton(
                       onPressed: () async {
                         context.router.navigate(const FeedRoute());
-                        BlocProvider.of<FeedBloc>(context).add(
-                            const PublicationReaderEvent
-                                .getAllPublicationPressed());
+                        BlocProvider.of<FeedBloc>(context)
+                            .add(const FeedEvent.getAllPublicationPressed());
                       },
                       child: const Text('Перейти к ленте'),
                     ),
