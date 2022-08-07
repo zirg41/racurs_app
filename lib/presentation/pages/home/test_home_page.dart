@@ -15,14 +15,14 @@ import '../../../domain/publication/value_objects.dart';
 import '../../../infrastructure/publication/back4app_post_facade.dart';
 import '../../routes/router.gr.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class TestHomePage extends StatefulWidget {
+  const TestHomePage({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<TestHomePage> createState() => _TestHomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _TestHomePageState extends State<TestHomePage> {
   late PickedFile? pickedFile = null;
 
   final server = Back4AppPostFacade();

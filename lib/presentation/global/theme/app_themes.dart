@@ -34,9 +34,9 @@ final appThemeData = {
     ),
     colorScheme: const ColorScheme.light().copyWith(
       brightness: Brightness.light,
-      // primary: pottyPalette['Charcoal'],
+      primary: pottyPalette['Charcoal'],
       // onBackground: const Color(0xFF121212),
-      // secondary: pottyPalette['Persian Green'],
+      secondary: pottyPalette['Persian Green'],
       // onSecondary: const Color(0xFFFFFFFF),
       // onPrimary: const Color(0xFFFFFFFF),
       // surface: const Color(0xFFFFFFFF),
