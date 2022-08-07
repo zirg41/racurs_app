@@ -11,6 +11,6 @@ class YandexImageMapProvider implements IStaticMapImageProvider {
     const zoom = 13;
     final latitude = location.latitude.getOrCrash();
     final longitude = location.longitude.getOrCrash();
-    return 'https://static-maps.yandex.ru/1.x/?ll=$latitude,$longitude&size=350,450&z=$zoom&l=map&pt=$latitude,$longitude';
+    return 'https://static-maps.yandex.ru/1.x/?ll=$longitude,$latitude&size=350,450&z=$zoom&l=map&pt=$longitude,$latitude';
   }
 }
