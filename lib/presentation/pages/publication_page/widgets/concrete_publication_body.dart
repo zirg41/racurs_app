@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:parse_server_sdk_flutter/generated/i18n.dart';
-import 'package:racurs_app/application/publication/reader/reader_bloc.dart';
+import 'package:racurs_app/application/publication/concrete_pub/concrete_publication_bloc.dart';
+import 'package:racurs_app/application/publication/feed/feed_bloc.dart';
 import 'package:racurs_app/domain/publication/publication.dart';
 
 class ConcretePublicationBody extends StatelessWidget {
@@ -9,7 +10,7 @@ class ConcretePublicationBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<PublicationReaderBloc, PublicationReaderState>(
+    return BlocConsumer<ConcretePublicationBloc, ConcretePublicationState>(
       listener: (context, state) {
         // TODO: implement listener
       },

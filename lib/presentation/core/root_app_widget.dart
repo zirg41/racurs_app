@@ -7,8 +7,9 @@ import '../../injection.dart';
 import '../global/theme/theme_bloc/theme_bloc.dart';
 import '../routes/router.gr.dart' as router_lib;
 import '../../../application/publication/form/form_bloc.dart';
-import '../../../application/publication/reader/reader_bloc.dart';
+import '../../../application/publication/feed/feed_bloc.dart';
 import '../../../application/publication/action/action_bloc.dart';
+import '../../../application/publication/concrete_pub/concrete_publication_bloc.dart';
 
 class RacursApp extends StatelessWidget {
   RacursApp({Key? key}) : super(key: key);
@@ -34,10 +35,13 @@ class RacursApp extends StatelessWidget {
           create: (context) => getIt<PublicationFormBloc>(),
         ),
         BlocProvider(
-          create: (context) => getIt<PublicationReaderBloc>(),
+          create: (context) => getIt<FeedBloc>(),
         ),
         BlocProvider(
           create: (context) => getIt<PublicationActionBloc>(),
+        ),
+        BlocProvider(
+          create: (context) => getIt<ConcretePublicationBloc>(),
         ),
       ],
       child: BlocBuilder<ThemeBloc, ThemeState>(

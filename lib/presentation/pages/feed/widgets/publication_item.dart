@@ -1,9 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:racurs_app/application/publication/concrete_pub/concrete_publication_bloc.dart';
 
 import '../../../../application/publication/action/action_bloc.dart';
-import '../../../../application/publication/reader/reader_bloc.dart';
+import '../../../../application/publication/feed/feed_bloc.dart';
 import '../../../../domain/publication/publication.dart';
 import '../../../routes/router.gr.dart';
 
@@ -48,9 +49,10 @@ class PublicationItem extends StatelessWidget {
                 child: Image.network(publication.imageUrl),
                 onTap: () {
                   // context\
-                  context.router.navigate(const ConcretePublicationRoute());
-                  context.read<PublicationReaderBloc>().add(
-                      PublicationReaderEvent.getConcretePublicationPressed(
+                  AutoRouter.of(context)
+                      .navigate(const ConcretePublicationRoute());
+                  context.read<ConcretePublicationBloc>().add(
+                      ConcretePublicationEvent.getConcretePublicationPressed(
                           id: publication.pubId));
                 },
               ),
