@@ -13,30 +13,32 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.2
-  freezed_annotation: ^2.0.3
   uuid: ^3.0.6
   dartz: ^0.10.1
-  build_runner: ^2.1.11
   freezed: ^2.0.3+1
   parse_server_sdk_flutter: ^3.1.2
   bloc: ^8.0.3
   injectable: ^1.5.3
-  injectable_generator: ^1.5.3
   flutter_bloc: ^8.0.1
   get_it: ^7.2.0
   shared_preferences: ^2.0.15
   google_fonts: ^3.0.1
   auto_route: ^4.2.1
-  auto_route_generator: ^4.2.0
   image_picker: ^0.8.5+3
   network_info_plus: ^2.1.3
   exif: ^3.1.2
   salomon_bottom_bar: ^3.3.1
+  flutter_localizations:
+    sdk: flutter
   
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
+  freezed_annotation: ^2.0.3
+  build_runner: ^2.1.11
+  injectable_generator: ^1.5.3
+  auto_route_generator: ^4.2.0
   flutter_lints: ^2.0.0
 
 flutter:
@@ -44,3 +46,4 @@ flutter:
 
   assets: 
     - lib/presentation/assets/
+    - lib/presentation/global/lang/
