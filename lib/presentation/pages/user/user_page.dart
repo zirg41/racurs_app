@@ -19,7 +19,7 @@ class UserPage extends StatelessWidget {
               ElevatedButton(
                 onPressed: () {
                   context.read<AuthBloc>().add(const AuthEvent.signedOut());
-                  AutoRouter.of(context).push(const SignInRoute());
+                  AutoRouter.of(context).replace(const SignInRoute());
                 },
                 child: const Text('Выйти'),
               ),

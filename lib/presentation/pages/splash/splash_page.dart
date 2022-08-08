@@ -19,11 +19,11 @@ class SplashPage extends StatelessWidget {
             // TODO Implement pushing to app page
 
             // AutoRouter.of(context).pushNamed(HomeRoute.name);
-            context.router.navigate(const HomeRoute());
+            context.router.replace(const HomeRoute());
           },
           unauthenticated: (_) {
             // AutoRouter.of(context).pushNamed(SignInRoute.name);
-            context.router.navigate(const SignInRoute());
+            context.router.replace(const SignInRoute());
           },
         );
       },

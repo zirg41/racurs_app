@@ -48,8 +48,7 @@ class PublicationItem extends StatelessWidget {
                 child: Image.network(publication.imageUrl),
                 onTap: () {
                   // context\
-                  AutoRouter.of(context)
-                      .navigate(const ConcretePublicationRoute());
+                  AutoRouter.of(context).push(const ConcretePublicationRoute());
                   context.read<ConcretePublicationBloc>().add(
                       ConcretePublicationEvent.getConcretePublicationPressed(
                           id: publication.pubId));

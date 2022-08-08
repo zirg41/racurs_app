@@ -87,7 +87,7 @@ class _TestHomePageState extends State<TestHomePage> {
                     ),
                     ElevatedButton(
                       onPressed: () async {
-                        context.router.navigate(const FeedRoute());
+                        context.router.push(const FeedRoute());
                         BlocProvider.of<FeedBloc>(context)
                             .add(const FeedEvent.getAllPublicationPressed());
                       },
