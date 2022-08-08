@@ -18,7 +18,6 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$PublicationFormEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
     required TResult Function(String title) titleChanged,
     required TResult Function(File image) imageChanged,
     required TResult Function(GeoLocation location) locationChanged,
@@ -27,7 +26,6 @@ mixin _$PublicationFormEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
     TResult Function(String title)? titleChanged,
     TResult Function(File image)? imageChanged,
     TResult Function(GeoLocation location)? locationChanged,
@@ -36,7 +34,6 @@ mixin _$PublicationFormEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
     TResult Function(String title)? titleChanged,
     TResult Function(File image)? imageChanged,
     TResult Function(GeoLocation location)? locationChanged,
@@ -46,7 +43,6 @@ mixin _$PublicationFormEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
     required TResult Function(_TitleChanged value) titleChanged,
     required TResult Function(_ImageChanged value) imageChanged,
     required TResult Function(_LocationChanged value) locationChanged,
@@ -56,7 +52,6 @@ mixin _$PublicationFormEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
     TResult Function(_TitleChanged value)? titleChanged,
     TResult Function(_ImageChanged value)? imageChanged,
     TResult Function(_LocationChanged value)? locationChanged,
@@ -65,7 +60,6 @@ mixin _$PublicationFormEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
     TResult Function(_TitleChanged value)? titleChanged,
     TResult Function(_ImageChanged value)? imageChanged,
     TResult Function(_LocationChanged value)? locationChanged,
@@ -90,129 +84,6 @@ class _$PublicationFormEventCopyWithImpl<$Res>
   final PublicationFormEvent _value;
   // ignore: unused_field
   final $Res Function(PublicationFormEvent) _then;
-}
-
-/// @nodoc
-abstract class _$$_StartedCopyWith<$Res> {
-  factory _$$_StartedCopyWith(
-          _$_Started value, $Res Function(_$_Started) then) =
-      __$$_StartedCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_StartedCopyWithImpl<$Res>
-    extends _$PublicationFormEventCopyWithImpl<$Res>
-    implements _$$_StartedCopyWith<$Res> {
-  __$$_StartedCopyWithImpl(_$_Started _value, $Res Function(_$_Started) _then)
-      : super(_value, (v) => _then(v as _$_Started));
-
-  @override
-  _$_Started get _value => super._value as _$_Started;
-}
-
-/// @nodoc
-
-class _$_Started implements _Started {
-  const _$_Started();
-
-  @override
-  String toString() {
-    return 'PublicationFormEvent.started()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Started);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function(String title) titleChanged,
-    required TResult Function(File image) imageChanged,
-    required TResult Function(GeoLocation location) locationChanged,
-    required TResult Function() postPublicationPressed,
-  }) {
-    return started();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function(String title)? titleChanged,
-    TResult Function(File image)? imageChanged,
-    TResult Function(GeoLocation location)? locationChanged,
-    TResult Function()? postPublicationPressed,
-  }) {
-    return started?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function(String title)? titleChanged,
-    TResult Function(File image)? imageChanged,
-    TResult Function(GeoLocation location)? locationChanged,
-    TResult Function()? postPublicationPressed,
-    required TResult orElse(),
-  }) {
-    if (started != null) {
-      return started();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-    required TResult Function(_TitleChanged value) titleChanged,
-    required TResult Function(_ImageChanged value) imageChanged,
-    required TResult Function(_LocationChanged value) locationChanged,
-    required TResult Function(_PostPublicationPressed value)
-        postPublicationPressed,
-  }) {
-    return started(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_TitleChanged value)? titleChanged,
-    TResult Function(_ImageChanged value)? imageChanged,
-    TResult Function(_LocationChanged value)? locationChanged,
-    TResult Function(_PostPublicationPressed value)? postPublicationPressed,
-  }) {
-    return started?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_TitleChanged value)? titleChanged,
-    TResult Function(_ImageChanged value)? imageChanged,
-    TResult Function(_LocationChanged value)? locationChanged,
-    TResult Function(_PostPublicationPressed value)? postPublicationPressed,
-    required TResult orElse(),
-  }) {
-    if (started != null) {
-      return started(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Started implements PublicationFormEvent {
-  const factory _Started() = _$_Started;
 }
 
 /// @nodoc
@@ -280,7 +151,6 @@ class _$_TitleChanged implements _TitleChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
     required TResult Function(String title) titleChanged,
     required TResult Function(File image) imageChanged,
     required TResult Function(GeoLocation location) locationChanged,
@@ -292,7 +162,6 @@ class _$_TitleChanged implements _TitleChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
     TResult Function(String title)? titleChanged,
     TResult Function(File image)? imageChanged,
     TResult Function(GeoLocation location)? locationChanged,
@@ -304,7 +173,6 @@ class _$_TitleChanged implements _TitleChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
     TResult Function(String title)? titleChanged,
     TResult Function(File image)? imageChanged,
     TResult Function(GeoLocation location)? locationChanged,
@@ -320,7 +188,6 @@ class _$_TitleChanged implements _TitleChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
     required TResult Function(_TitleChanged value) titleChanged,
     required TResult Function(_ImageChanged value) imageChanged,
     required TResult Function(_LocationChanged value) locationChanged,
@@ -333,7 +200,6 @@ class _$_TitleChanged implements _TitleChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
     TResult Function(_TitleChanged value)? titleChanged,
     TResult Function(_ImageChanged value)? imageChanged,
     TResult Function(_LocationChanged value)? locationChanged,
@@ -345,7 +211,6 @@ class _$_TitleChanged implements _TitleChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
     TResult Function(_TitleChanged value)? titleChanged,
     TResult Function(_ImageChanged value)? imageChanged,
     TResult Function(_LocationChanged value)? locationChanged,
@@ -433,7 +298,6 @@ class _$_ImageChanged implements _ImageChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
     required TResult Function(String title) titleChanged,
     required TResult Function(File image) imageChanged,
     required TResult Function(GeoLocation location) locationChanged,
@@ -445,7 +309,6 @@ class _$_ImageChanged implements _ImageChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
     TResult Function(String title)? titleChanged,
     TResult Function(File image)? imageChanged,
     TResult Function(GeoLocation location)? locationChanged,
@@ -457,7 +320,6 @@ class _$_ImageChanged implements _ImageChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
     TResult Function(String title)? titleChanged,
     TResult Function(File image)? imageChanged,
     TResult Function(GeoLocation location)? locationChanged,
@@ -473,7 +335,6 @@ class _$_ImageChanged implements _ImageChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
     required TResult Function(_TitleChanged value) titleChanged,
     required TResult Function(_ImageChanged value) imageChanged,
     required TResult Function(_LocationChanged value) locationChanged,
@@ -486,7 +347,6 @@ class _$_ImageChanged implements _ImageChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
     TResult Function(_TitleChanged value)? titleChanged,
     TResult Function(_ImageChanged value)? imageChanged,
     TResult Function(_LocationChanged value)? locationChanged,
@@ -498,7 +358,6 @@ class _$_ImageChanged implements _ImageChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
     TResult Function(_TitleChanged value)? titleChanged,
     TResult Function(_ImageChanged value)? imageChanged,
     TResult Function(_LocationChanged value)? locationChanged,
@@ -586,7 +445,6 @@ class _$_LocationChanged implements _LocationChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
     required TResult Function(String title) titleChanged,
     required TResult Function(File image) imageChanged,
     required TResult Function(GeoLocation location) locationChanged,
@@ -598,7 +456,6 @@ class _$_LocationChanged implements _LocationChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
     TResult Function(String title)? titleChanged,
     TResult Function(File image)? imageChanged,
     TResult Function(GeoLocation location)? locationChanged,
@@ -610,7 +467,6 @@ class _$_LocationChanged implements _LocationChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
     TResult Function(String title)? titleChanged,
     TResult Function(File image)? imageChanged,
     TResult Function(GeoLocation location)? locationChanged,
@@ -626,7 +482,6 @@ class _$_LocationChanged implements _LocationChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
     required TResult Function(_TitleChanged value) titleChanged,
     required TResult Function(_ImageChanged value) imageChanged,
     required TResult Function(_LocationChanged value) locationChanged,
@@ -639,7 +494,6 @@ class _$_LocationChanged implements _LocationChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
     TResult Function(_TitleChanged value)? titleChanged,
     TResult Function(_ImageChanged value)? imageChanged,
     TResult Function(_LocationChanged value)? locationChanged,
@@ -651,7 +505,6 @@ class _$_LocationChanged implements _LocationChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
     TResult Function(_TitleChanged value)? titleChanged,
     TResult Function(_ImageChanged value)? imageChanged,
     TResult Function(_LocationChanged value)? locationChanged,
@@ -718,7 +571,6 @@ class _$_PostPublicationPressed implements _PostPublicationPressed {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
     required TResult Function(String title) titleChanged,
     required TResult Function(File image) imageChanged,
     required TResult Function(GeoLocation location) locationChanged,
@@ -730,7 +582,6 @@ class _$_PostPublicationPressed implements _PostPublicationPressed {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
     TResult Function(String title)? titleChanged,
     TResult Function(File image)? imageChanged,
     TResult Function(GeoLocation location)? locationChanged,
@@ -742,7 +593,6 @@ class _$_PostPublicationPressed implements _PostPublicationPressed {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
     TResult Function(String title)? titleChanged,
     TResult Function(File image)? imageChanged,
     TResult Function(GeoLocation location)? locationChanged,
@@ -758,7 +608,6 @@ class _$_PostPublicationPressed implements _PostPublicationPressed {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
     required TResult Function(_TitleChanged value) titleChanged,
     required TResult Function(_ImageChanged value) imageChanged,
     required TResult Function(_LocationChanged value) locationChanged,
@@ -771,7 +620,6 @@ class _$_PostPublicationPressed implements _PostPublicationPressed {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
     TResult Function(_TitleChanged value)? titleChanged,
     TResult Function(_ImageChanged value)? imageChanged,
     TResult Function(_LocationChanged value)? locationChanged,
@@ -783,7 +631,6 @@ class _$_PostPublicationPressed implements _PostPublicationPressed {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
     TResult Function(_TitleChanged value)? titleChanged,
     TResult Function(_ImageChanged value)? imageChanged,
     TResult Function(_LocationChanged value)? locationChanged,

@@ -28,7 +28,6 @@ class PublicationFormBloc
       : super(PublicationFormState.initial()) {
     on<PublicationFormEvent>((event, emit) async {
       await event.when(
-        started: (() async {}),
         titleChanged: ((title) async {
           emit(state.copyWith(
             title: title,

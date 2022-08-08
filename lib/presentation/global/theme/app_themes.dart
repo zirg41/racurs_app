@@ -32,6 +32,10 @@ final appThemeData = {
         fontSize: 15,
         color: const Color.fromARGB(255, 255, 255, 255),
       ),
+      bodyLarge: GoogleFonts.lato(
+        fontSize: 17,
+        color: const Color.fromARGB(255, 28, 28, 28),
+      ),
     ),
     textSelectionTheme: const TextSelectionThemeData(
       cursorColor: Colors.white70,
@@ -62,14 +66,14 @@ final appThemeData = {
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(20),
         borderSide: const BorderSide(
-          color: Colors.white,
+          color: Color.fromARGB(255, 97, 97, 97),
           width: 1.0,
         ),
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(20),
         borderSide: const BorderSide(
-          color: Colors.white,
+          color: Color.fromARGB(255, 39, 39, 39),
           width: 1.0,
         ),
       ),

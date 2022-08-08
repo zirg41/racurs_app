@@ -89,11 +89,11 @@ class Router extends _i6.RootStackRouter {
 
   @override
   List<_i6.RouteConfig> get routes => [
-        _i6.RouteConfig(SplashRoute.name, path: '/splash-page'),
+        _i6.RouteConfig(SplashRoute.name, path: '/'),
         _i6.RouteConfig(TestHomeRoute.name, path: '/test-home-page'),
         _i6.RouteConfig(SignInRoute.name, path: '/sign-in-page'),
         _i6.RouteConfig(SignUpRoute.name, path: '/sign-up-page'),
-        _i6.RouteConfig(HomeRoute.name, path: '/', children: [
+        _i6.RouteConfig(HomeRoute.name, path: '/home-page', children: [
           _i6.RouteConfig(PostsRouter.name,
               path: 'posts',
               parent: HomeRoute.name,
@@ -118,7 +118,7 @@ class Router extends _i6.RootStackRouter {
 /// generated route for
 /// [_i1.SplashPage]
 class SplashRoute extends _i6.PageRouteInfo<void> {
-  const SplashRoute() : super(SplashRoute.name, path: '/splash-page');
+  const SplashRoute() : super(SplashRoute.name, path: '/');
 
   static const String name = 'SplashRoute';
 }
@@ -151,7 +151,7 @@ class SignUpRoute extends _i6.PageRouteInfo<void> {
 /// [_i5.HomePage]
 class HomeRoute extends _i6.PageRouteInfo<void> {
   const HomeRoute({List<_i6.PageRouteInfo>? children})
-      : super(HomeRoute.name, path: '/', initialChildren: children);
+      : super(HomeRoute.name, path: '/home-page', initialChildren: children);
 
   static const String name = 'HomeRoute';
 }

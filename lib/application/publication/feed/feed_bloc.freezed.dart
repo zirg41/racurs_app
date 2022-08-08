@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$PublicationReaderEvent {
+mixin _$FeedEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getAllPublicationPressed,
@@ -58,16 +58,14 @@ mixin _$PublicationReaderEvent {
 }
 
 /// @nodoc
-abstract class $PublicationReaderEventCopyWith<$Res> {
-  factory $PublicationReaderEventCopyWith(
-          FeedEvent value, $Res Function(FeedEvent) then) =
-      _$PublicationReaderEventCopyWithImpl<$Res>;
+abstract class $FeedEventCopyWith<$Res> {
+  factory $FeedEventCopyWith(FeedEvent value, $Res Function(FeedEvent) then) =
+      _$FeedEventCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$PublicationReaderEventCopyWithImpl<$Res>
-    implements $PublicationReaderEventCopyWith<$Res> {
-  _$PublicationReaderEventCopyWithImpl(this._value, this._then);
+class _$FeedEventCopyWithImpl<$Res> implements $FeedEventCopyWith<$Res> {
+  _$FeedEventCopyWithImpl(this._value, this._then);
 
   final FeedEvent _value;
   // ignore: unused_field
@@ -84,7 +82,7 @@ abstract class _$$_GetAllPublicationPressedCopyWith<$Res> {
 
 /// @nodoc
 class __$$_GetAllPublicationPressedCopyWithImpl<$Res>
-    extends _$PublicationReaderEventCopyWithImpl<$Res>
+    extends _$FeedEventCopyWithImpl<$Res>
     implements _$$_GetAllPublicationPressedCopyWith<$Res> {
   __$$_GetAllPublicationPressedCopyWithImpl(_$_GetAllPublicationPressed _value,
       $Res Function(_$_GetAllPublicationPressed) _then)
@@ -102,7 +100,7 @@ class _$_GetAllPublicationPressed implements _GetAllPublicationPressed {
 
   @override
   String toString() {
-    return 'PublicationReaderEvent.getAllPublicationPressed()';
+    return 'FeedEvent.getAllPublicationPressed()';
   }
 
   @override
@@ -192,7 +190,7 @@ abstract class _$$_GetFeedPressedCopyWith<$Res> {
 
 /// @nodoc
 class __$$_GetFeedPressedCopyWithImpl<$Res>
-    extends _$PublicationReaderEventCopyWithImpl<$Res>
+    extends _$FeedEventCopyWithImpl<$Res>
     implements _$$_GetFeedPressedCopyWith<$Res> {
   __$$_GetFeedPressedCopyWithImpl(
       _$_GetFeedPressed _value, $Res Function(_$_GetFeedPressed) _then)
@@ -209,7 +207,7 @@ class _$_GetFeedPressed implements _GetFeedPressed {
 
   @override
   String toString() {
-    return 'PublicationReaderEvent.getFeedPressed()';
+    return 'FeedEvent.getFeedPressed()';
   }
 
   @override

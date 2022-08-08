@@ -35,6 +35,13 @@ class _SignUpFormState extends State<SignUpForm> {
                   ),
                   labelText: CREATE_NICKNAME_TEXT,
                   labelStyle: contextTheme.textTheme.labelMedium,
+                  enabledBorder:
+                      contextTheme.inputDecorationTheme.enabledBorder!.copyWith(
+                    borderSide: const BorderSide(
+                      color: Colors.white,
+                      width: 1.0,
+                    ),
+                  ),
                 ),
                 autocorrect: false,
                 onChanged: (value) {
@@ -76,6 +83,13 @@ class _SignUpFormState extends State<SignUpForm> {
                     onPressed: () {
                       setState(() => _passwordVisible = !_passwordVisible);
                     },
+                  ),
+                  enabledBorder:
+                      contextTheme.inputDecorationTheme.enabledBorder!.copyWith(
+                    borderSide: const BorderSide(
+                      color: Colors.white,
+                      width: 1.0,
+                    ),
                   ),
                 ),
                 obscureText: !_passwordVisible,
@@ -119,6 +133,13 @@ class _SignUpFormState extends State<SignUpForm> {
                     onPressed: () {
                       setState(() => _passwordVisible = !_passwordVisible);
                     },
+                  ),
+                  enabledBorder:
+                      contextTheme.inputDecorationTheme.enabledBorder!.copyWith(
+                    borderSide: const BorderSide(
+                      color: Colors.white,
+                      width: 1.0,
+                    ),
                   ),
                 ),
                 obscureText: !_passwordVisible,

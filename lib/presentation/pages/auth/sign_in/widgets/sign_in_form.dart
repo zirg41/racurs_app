@@ -33,7 +33,15 @@ class _SignInFormState extends State<SignInForm> {
                   ),
                   labelText: USERNAME,
                   labelStyle: contextTheme.textTheme.labelMedium,
+                  enabledBorder:
+                      contextTheme.inputDecorationTheme.enabledBorder!.copyWith(
+                    borderSide: const BorderSide(
+                      color: Colors.white,
+                      width: 1.0,
+                    ),
+                  ),
                 ),
+
                 autocorrect: false,
                 onChanged: (value) {
                   context
@@ -73,6 +81,13 @@ class _SignInFormState extends State<SignInForm> {
                     onPressed: () {
                       setState(() => _passwordVisible = !_passwordVisible);
                     },
+                  ),
+                  enabledBorder:
+                      contextTheme.inputDecorationTheme.enabledBorder!.copyWith(
+                    borderSide: const BorderSide(
+                      color: Colors.white,
+                      width: 1.0,
+                    ),
                   ),
                 ),
                 obscureText: !_passwordVisible,
