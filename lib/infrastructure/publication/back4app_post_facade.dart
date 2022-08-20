@@ -4,21 +4,14 @@ import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 
-import '../../domain/auth/user.dart';
 import '../../domain/core/unique_id.dart';
 import '../../domain/publication/i_post_facade.dart';
 import '../../domain/publication/post_failure.dart';
 import '../../domain/publication/publication.dart';
 import '../../domain/publication/value_objects.dart';
-
-const String publicationApiClassName = 'Publication';
-const String userPointerApiName = 'user';
-const String usernameApiName = 'username';
-const String imageApiName = 'image';
-const String titleApiName = 'title';
-const String pubIdApiName = 'pubId';
-const String locationApiName = 'location';
-const String dateApiName = 'createdDate';
+import 'back4app_api_names.dart';
+import 'back4app_extensions.dart';
+import 'dtos.dart';
 
 @Singleton(as: IPostFacade)
 class Back4AppPostFacade implements IPostFacade {
@@ -27,19 +20,12 @@ class Back4AppPostFacade implements IPostFacade {
     required Publication publication,
     required File image,
   }) async {
-    ParseUser currentUser = await ParseUser.currentUser() as ParseUser;
-
     final parseFile = ParseFile(File(image.path));
+
     await parseFile.save();
 
-    final publicationToUpload = ParseObject(publicationApiClassName)
-      ..set(userPointerApiName, currentUser)
-      ..set(usernameApiName, publication.username)
-      ..set(imageApiName, parseFile)
-      ..set<String>(titleApiName, publication.title)
-      ..set<String>(pubIdApiName, publication.pubId.getOrCrash())
-      ..set<Map<String, dynamic>>(locationApiName, publication.location.toMap())
-      ..set<DateTime>(dateApiName, publication.createdDate);
+    final publicationToUpload =
+        await PublicationDTO.fromDomain(publication).toParseObject(parseFile);
 
     final apiResponse = await publicationToUpload.save();
 
@@ -70,19 +56,13 @@ class Back4AppPostFacade implements IPostFacade {
       return left(const PostFailure.updatingError());
     }
 
-    ParseUser currentUser = await ParseUser.currentUser() as ParseUser;
-
+    // TODO old ParseFile must be deleted before new one is created!!
     final parseFile = ParseFile(File(image.path));
     await parseFile.save();
 
-    final publicationToUpload = ParseObject(publicationApiClassName)
-      ..objectId = updatingObjectId
-      ..set(userPointerApiName, currentUser)
-      ..set(imageApiName, parseFile)
-      ..set<String>(titleApiName, publication.title)
-      ..set<String>(pubIdApiName, publication.pubId.getOrCrash())
-      ..set<Map<String, dynamic>>(locationApiName, publication.location.toMap())
-      ..set<DateTime>(dateApiName, publication.createdDate);
+    final publicationToUpload =
+        await PublicationDTO.fromDomain(publication).toParseObject(parseFile)
+          ..objectId = updatingObjectId;
 
     final apiResponse = await publicationToUpload.save();
 
@@ -134,17 +114,13 @@ class Back4AppPostFacade implements IPostFacade {
 
     final apiResponse = await query.query();
 
-    // print(
-    //     'getAllPublications() apiResponse: ${apiResponse.results.toString()}');
-
     if (apiResponse.success && apiResponse.results != null) {
       final parseObjects = apiResponse.results as List<ParseObject>;
-      // apiResult.map((element) => element.get(userPointerApiName).objectId);
 
       return right(
         parseObjects.map(
           (parseObject) {
-            return getPublicationFromParseObject(parseObject);
+            return parseObject.convertToPublication();
           },
         ).toList(),
       );
@@ -158,19 +134,18 @@ class Back4AppPostFacade implements IPostFacade {
   @override
   Future<Either<PostFailure, Publication>> getConcretePublication(
       UniqueId id) async {
-    var query = QueryBuilder<ParseObject>(ParseObject(publicationApiClassName))
-      ..whereEqualTo(
+    var queryObject = QueryBuilder<ParseObject>(
+      ParseObject(publicationApiClassName),
+    )..whereEqualTo(
         pubIdApiName,
         id.getOrCrash(),
       );
 
-    final apiResponse = await query.query();
-
-    // print('getConcretePublication() apiResponse: $apiResponse');
+    final apiResponse = await queryObject.query();
 
     if (apiResponse.success && apiResponse.results != null) {
       final parseObject = apiResponse.result.first as ParseObject;
-      return right(getPublicationFromParseObject(parseObject));
+      return right(parseObject.convertToPublication());
     } else {
       // TODO add connection checker which returns noInternet PostFailure
       // TODO add failure uninons for popular status codes (404, 500 ...)
@@ -189,23 +164,5 @@ class Back4AppPostFacade implements IPostFacade {
       GeoLocation location) {
     // TODO: implement getNearbyPlaces
     throw UnimplementedError();
-  }
-
-  Publication getPublicationFromParseObject(ParseObject parseObject) {
-    return Publication(
-      pubId: UniqueId.fromUniqueString(
-        parseObject.get(pubIdApiName).toString(),
-      ),
-      userId: UniqueId.fromUniqueString(
-        parseObject.get(userPointerApiName).objectId,
-      ),
-      username: parseObject.get<String>(usernameApiName) ?? 'Name not found',
-      imageUrl: parseObject.get<ParseFileBase>(imageApiName)!.url!,
-      location: GeoLocation.fromMap(
-        parseObject.get<Map<String, dynamic>>(locationApiName)!.cast(),
-      ),
-      createdDate: parseObject.get<DateTime>(dateApiName) as DateTime,
-      title: parseObject.get<String>(titleApiName) as String,
-    );
   }
 }
