@@ -1,4 +1,12 @@
 {
     "app name": "Racurs",
-    "choose_photo_button": "Choose photo"
+    "please_type_publication_discription": "Provide a discription",
+    "choose_photo_button": "Choose photo",
+    "no_internet": "No internet connection",
+    "updating_error": "Updating error",
+    "user_does_not_exist": "User does not exist",
+    "image_does_not_have_geo_info": "Image does not have geo info",
+    "post_was_successfully_created": "Publication created!",
+    "post_publication_button": "Post",
+    "server_error": "Server error. Try again later"
 }

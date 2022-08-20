@@ -33,11 +33,25 @@ class FeedPage extends StatelessWidget {
             return Center(child: Text('Ошибка\n$failure'));
           },
           publicationsReceived: (pubs) {
-            return ListView.builder(
-              itemCount: pubs.length,
-              itemBuilder: (context, index) {
-                return PublicationItem(publication: pubs[index]);
+            return RefreshIndicator(
+              onRefresh: () async {
+                context
+                    .read<FeedBloc>()
+                    .add(const FeedEvent.getAllPublicationPressed());
               },
+              child: Flex(
+                direction: Axis.vertical,
+                children: [
+                  Expanded(
+                    child: ListView.builder(
+                      itemCount: pubs.length,
+                      itemBuilder: (context, index) {
+                        return PublicationItem(publication: pubs[index]);
+                      },
+                    ),
+                  ),
+                ],
+              ),
             );
           },
         );

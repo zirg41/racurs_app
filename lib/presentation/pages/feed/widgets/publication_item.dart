@@ -16,9 +16,10 @@ class PublicationItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
       child: Card(
         color: Theme.of(context).colorScheme.surface,
+        elevation: 6,
         child: Container(
           // decoration: BoxDecoration(border: Border.all(color: Colors.black)),
           child: Column(

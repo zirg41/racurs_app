@@ -3,77 +3,119 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:racurs_app/application/publication/form/form_bloc.dart';
-import 'package:racurs_app/domain/publication/value_objects.dart';
 import 'package:racurs_app/presentation/global/app_localization.dart';
-import 'package:racurs_app/presentation/pages/create_post/widgets/choose_photo_button_empty.dart';
-import 'package:racurs_app/presentation/pages/create_post/widgets/choose_photo_button_image.dart';
-import 'package:racurs_app/presentation/pages/create_post/widgets/create_post_form.dart';
-import 'package:racurs_app/services/exif_reader.dart';
 
-class CreatePostPage extends StatefulWidget {
-  const CreatePostPage({Key? key}) : super(key: key);
+import '../../../application/publication/form/form_bloc.dart';
+import '../../../domain/publication/value_objects.dart';
+import '../../../services/exif_reader.dart';
+import '../../global/show_snack_bar.dart';
+import '../auth/widgets/auth_failure_snackbar.dart';
+import 'widgets/choose_photo_button_empty.dart';
+import 'widgets/choose_photo_button_image.dart';
+import 'widgets/create_post_form.dart';
 
-  @override
-  State<CreatePostPage> createState() => _CreatePostPageState();
-}
+class CreatePostPage extends StatelessWidget {
+  CreatePostPage({Key? key}) : super(key: key);
 
-class _CreatePostPageState extends State<CreatePostPage> {
-  XFile? pickedFile;
   GeoLocation? exifLocation;
+  final focusNode = FocusNode();
 
   @override
   Widget build(BuildContext context) {
-    final mediaQuery = MediaQuery.of(context);
+    final localization = AppLocalizations.of(context);
+    // final mediaQuery = MediaQuery.of(context);
     final contextTheme = Theme.of(context);
+    final formBloc = context.read<PublicationFormBloc>();
 
-    void saveImage() {
-      context
-          .read<PublicationFormBloc>()
-          .add(PublicationFormEvent.imageChanged(File(pickedFile!.path)));
+    void saveImage(String imagePath) {
+      formBloc.add(PublicationFormEvent.imageChanged(File(imagePath)));
     }
 
     void saveLocation() {
-      context
-          .read<PublicationFormBloc>()
-          .add(PublicationFormEvent.locationChanged(exifLocation!));
+      formBloc.add(PublicationFormEvent.locationChanged(exifLocation));
     }
 
     void chooseButtonHandler() async {
-      XFile? image = await ImagePicker().pickImage(
-        source: ImageSource.gallery,
-        imageQuality: 60,
-        maxWidth: 500,
-      );
+      // final focusScope = FocusScope.of(context);
+      if (focusNode.hasFocus) {
+        focusNode.unfocus();
+      } else {
+        XFile? image = await ImagePicker().pickImage(
+          source: ImageSource.gallery,
+          imageQuality: 60,
+          maxWidth: 500,
+        );
 
-      if (image != null) {
-        setState(() => pickedFile = image);
-        final readerResponse = await getGeoLocationOf(pickedFile!.path);
-        exifLocation = readerResponse.fold((l) => null, (r) => r);
-        saveImage();
-        saveLocation();
+        if (image != null) {
+          final readerResponse = await getGeoLocationOf(image.path);
+          exifLocation = readerResponse.fold((l) => null, (r) => r);
+          saveImage(image.path);
+          saveLocation();
+        }
       }
     }
 
-    return Column(
-      children: [
-        InkWell(
-          onTap: chooseButtonHandler,
-          child: pickedFile == null
-              ? const ChoosePhotoButtonEmpty()
-              : ChoosePhotoButtonImage(imagePath: pickedFile!.path),
-        ),
-        CreatePostForm(),
-        ElevatedButton(
-          onPressed: () {
-            //! DOES NOT WORK
-            context
-                .read<PublicationFormBloc>()
-                .add(const PublicationFormEvent.postPublicationPressed());
-          },
-          child: Text('Опубликовать'),
-        )
-      ],
+    void uploadPost(PublicationFormState state) {
+      if (state.imageFile == null) {
+        showDefaultSnackBar(
+          context: context,
+          text: localization.translate('choose_photo_button'),
+        );
+      }
+      if (state.imageFile != null && state.location == null) {
+        showDefaultSnackBar(
+          context: context,
+          text: localization.translate('image_does_not_have_geo_info'),
+        );
+      }
+      formBloc.add(
+        const PublicationFormEvent.postPublicationPressed(),
+      );
+    }
+
+    return BlocConsumer<PublicationFormBloc, PublicationFormState>(
+      listener: (context, state) async {
+        state.eitherPostFailureOrSuccess.fold(
+          () => null,
+          (a) => a.fold(
+            (failure) {
+              showAuthFailureSnackBar(context: context, failure: failure);
+            },
+            (_) {
+              formBloc.add(const PublicationFormEvent.resetState());
+              showDefaultSnackBar(
+                context: context,
+                text: localization.translate('post_was_successfully_created'),
+              );
+            },
+          ),
+        );
+      },
+      builder: (context, state) {
+        return ListView(
+          children: [
+            InkWell(
+              onTap: chooseButtonHandler,
+              child: state.imageFile == null
+                  ? const ChoosePhotoButtonEmpty()
+                  : ChoosePhotoButtonImage(imagePath: state.imageFile!.path),
+            ),
+            CreatePostForm(focusNode: focusNode),
+            if (!state.isUploading)
+              Center(
+                child: OutlinedButton(
+                  style: contextTheme.outlinedButtonTheme.style,
+                  onPressed: () => uploadPost(state),
+                  child: Text(
+                    localization.translate('post_publication_button'),
+                    style: contextTheme.textTheme.bodyMedium,
+                  ),
+                ),
+              ),
+            if (state.isUploading) const CircularProgressIndicator.adaptive(),
+          ],
+        );
+      },
     );
   }
 }

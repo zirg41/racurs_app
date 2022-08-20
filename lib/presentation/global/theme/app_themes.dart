@@ -57,7 +57,13 @@ final appThemeData = {
       // error: const Color(0xFFB00020),
     ),
     outlinedButtonTheme: OutlinedButtonThemeData(
-      style: OutlinedButton.styleFrom(),
+      style: OutlinedButton.styleFrom(
+        textStyle: TextStyle(
+          // color: const Color.fromARGB(255, 63, 11, 169),
+          color: Color.fromARGB(255, 237, 12, 76),
+          fontFamily: GoogleFonts.lato().fontFamily,
+        ),
+      ),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(),

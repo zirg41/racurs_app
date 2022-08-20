@@ -1,5 +1,12 @@
 {
     "app name": "Racurs",
     "please_type_publication_discription": "Введите описание",
-    "choose_photo_button": "Выбрать фото"
+    "choose_photo_button": "Выбрать фотографию",
+    "no_internet": "Нет интернет-соединения",
+    "updating_error": "Ошибка при загрузке",
+    "user_does_not_exist": "Данного пользователя не существует",
+    "image_does_not_have_geo_info": "Фотография не содержит геоданных",
+    "post_was_successfully_created": "Публикация создана",
+    "post_publication_button": "Опубликовать",
+    "server_error": "Ошибка со стороны сервера. Повторите позже"
 }

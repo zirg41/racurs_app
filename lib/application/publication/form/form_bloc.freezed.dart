@@ -19,24 +19,27 @@ mixin _$PublicationFormEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String title) titleChanged,
+    required TResult Function() resetState,
     required TResult Function(File image) imageChanged,
-    required TResult Function(GeoLocation location) locationChanged,
+    required TResult Function(GeoLocation? location) locationChanged,
     required TResult Function() postPublicationPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String title)? titleChanged,
+    TResult Function()? resetState,
     TResult Function(File image)? imageChanged,
-    TResult Function(GeoLocation location)? locationChanged,
+    TResult Function(GeoLocation? location)? locationChanged,
     TResult Function()? postPublicationPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String title)? titleChanged,
+    TResult Function()? resetState,
     TResult Function(File image)? imageChanged,
-    TResult Function(GeoLocation location)? locationChanged,
+    TResult Function(GeoLocation? location)? locationChanged,
     TResult Function()? postPublicationPressed,
     required TResult orElse(),
   }) =>
@@ -44,6 +47,7 @@ mixin _$PublicationFormEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_TitleChanged value) titleChanged,
+    required TResult Function(_ResetState value) resetState,
     required TResult Function(_ImageChanged value) imageChanged,
     required TResult Function(_LocationChanged value) locationChanged,
     required TResult Function(_PostPublicationPressed value)
@@ -53,6 +57,7 @@ mixin _$PublicationFormEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_TitleChanged value)? titleChanged,
+    TResult Function(_ResetState value)? resetState,
     TResult Function(_ImageChanged value)? imageChanged,
     TResult Function(_LocationChanged value)? locationChanged,
     TResult Function(_PostPublicationPressed value)? postPublicationPressed,
@@ -61,6 +66,7 @@ mixin _$PublicationFormEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_TitleChanged value)? titleChanged,
+    TResult Function(_ResetState value)? resetState,
     TResult Function(_ImageChanged value)? imageChanged,
     TResult Function(_LocationChanged value)? locationChanged,
     TResult Function(_PostPublicationPressed value)? postPublicationPressed,
@@ -152,8 +158,9 @@ class _$_TitleChanged implements _TitleChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String title) titleChanged,
+    required TResult Function() resetState,
     required TResult Function(File image) imageChanged,
-    required TResult Function(GeoLocation location) locationChanged,
+    required TResult Function(GeoLocation? location) locationChanged,
     required TResult Function() postPublicationPressed,
   }) {
     return titleChanged(title);
@@ -163,8 +170,9 @@ class _$_TitleChanged implements _TitleChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String title)? titleChanged,
+    TResult Function()? resetState,
     TResult Function(File image)? imageChanged,
-    TResult Function(GeoLocation location)? locationChanged,
+    TResult Function(GeoLocation? location)? locationChanged,
     TResult Function()? postPublicationPressed,
   }) {
     return titleChanged?.call(title);
@@ -174,8 +182,9 @@ class _$_TitleChanged implements _TitleChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String title)? titleChanged,
+    TResult Function()? resetState,
     TResult Function(File image)? imageChanged,
-    TResult Function(GeoLocation location)? locationChanged,
+    TResult Function(GeoLocation? location)? locationChanged,
     TResult Function()? postPublicationPressed,
     required TResult orElse(),
   }) {
@@ -189,6 +198,7 @@ class _$_TitleChanged implements _TitleChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_TitleChanged value) titleChanged,
+    required TResult Function(_ResetState value) resetState,
     required TResult Function(_ImageChanged value) imageChanged,
     required TResult Function(_LocationChanged value) locationChanged,
     required TResult Function(_PostPublicationPressed value)
@@ -201,6 +211,7 @@ class _$_TitleChanged implements _TitleChanged {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_TitleChanged value)? titleChanged,
+    TResult Function(_ResetState value)? resetState,
     TResult Function(_ImageChanged value)? imageChanged,
     TResult Function(_LocationChanged value)? locationChanged,
     TResult Function(_PostPublicationPressed value)? postPublicationPressed,
@@ -212,6 +223,7 @@ class _$_TitleChanged implements _TitleChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_TitleChanged value)? titleChanged,
+    TResult Function(_ResetState value)? resetState,
     TResult Function(_ImageChanged value)? imageChanged,
     TResult Function(_LocationChanged value)? locationChanged,
     TResult Function(_PostPublicationPressed value)? postPublicationPressed,
@@ -231,6 +243,130 @@ abstract class _TitleChanged implements PublicationFormEvent {
   @JsonKey(ignore: true)
   _$$_TitleChangedCopyWith<_$_TitleChanged> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_ResetStateCopyWith<$Res> {
+  factory _$$_ResetStateCopyWith(
+          _$_ResetState value, $Res Function(_$_ResetState) then) =
+      __$$_ResetStateCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_ResetStateCopyWithImpl<$Res>
+    extends _$PublicationFormEventCopyWithImpl<$Res>
+    implements _$$_ResetStateCopyWith<$Res> {
+  __$$_ResetStateCopyWithImpl(
+      _$_ResetState _value, $Res Function(_$_ResetState) _then)
+      : super(_value, (v) => _then(v as _$_ResetState));
+
+  @override
+  _$_ResetState get _value => super._value as _$_ResetState;
+}
+
+/// @nodoc
+
+class _$_ResetState implements _ResetState {
+  const _$_ResetState();
+
+  @override
+  String toString() {
+    return 'PublicationFormEvent.resetState()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_ResetState);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String title) titleChanged,
+    required TResult Function() resetState,
+    required TResult Function(File image) imageChanged,
+    required TResult Function(GeoLocation? location) locationChanged,
+    required TResult Function() postPublicationPressed,
+  }) {
+    return resetState();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String title)? titleChanged,
+    TResult Function()? resetState,
+    TResult Function(File image)? imageChanged,
+    TResult Function(GeoLocation? location)? locationChanged,
+    TResult Function()? postPublicationPressed,
+  }) {
+    return resetState?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String title)? titleChanged,
+    TResult Function()? resetState,
+    TResult Function(File image)? imageChanged,
+    TResult Function(GeoLocation? location)? locationChanged,
+    TResult Function()? postPublicationPressed,
+    required TResult orElse(),
+  }) {
+    if (resetState != null) {
+      return resetState();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_TitleChanged value) titleChanged,
+    required TResult Function(_ResetState value) resetState,
+    required TResult Function(_ImageChanged value) imageChanged,
+    required TResult Function(_LocationChanged value) locationChanged,
+    required TResult Function(_PostPublicationPressed value)
+        postPublicationPressed,
+  }) {
+    return resetState(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_TitleChanged value)? titleChanged,
+    TResult Function(_ResetState value)? resetState,
+    TResult Function(_ImageChanged value)? imageChanged,
+    TResult Function(_LocationChanged value)? locationChanged,
+    TResult Function(_PostPublicationPressed value)? postPublicationPressed,
+  }) {
+    return resetState?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_TitleChanged value)? titleChanged,
+    TResult Function(_ResetState value)? resetState,
+    TResult Function(_ImageChanged value)? imageChanged,
+    TResult Function(_LocationChanged value)? locationChanged,
+    TResult Function(_PostPublicationPressed value)? postPublicationPressed,
+    required TResult orElse(),
+  }) {
+    if (resetState != null) {
+      return resetState(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ResetState implements PublicationFormEvent {
+  const factory _ResetState() = _$_ResetState;
 }
 
 /// @nodoc
@@ -299,8 +435,9 @@ class _$_ImageChanged implements _ImageChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String title) titleChanged,
+    required TResult Function() resetState,
     required TResult Function(File image) imageChanged,
-    required TResult Function(GeoLocation location) locationChanged,
+    required TResult Function(GeoLocation? location) locationChanged,
     required TResult Function() postPublicationPressed,
   }) {
     return imageChanged(image);
@@ -310,8 +447,9 @@ class _$_ImageChanged implements _ImageChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String title)? titleChanged,
+    TResult Function()? resetState,
     TResult Function(File image)? imageChanged,
-    TResult Function(GeoLocation location)? locationChanged,
+    TResult Function(GeoLocation? location)? locationChanged,
     TResult Function()? postPublicationPressed,
   }) {
     return imageChanged?.call(image);
@@ -321,8 +459,9 @@ class _$_ImageChanged implements _ImageChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String title)? titleChanged,
+    TResult Function()? resetState,
     TResult Function(File image)? imageChanged,
-    TResult Function(GeoLocation location)? locationChanged,
+    TResult Function(GeoLocation? location)? locationChanged,
     TResult Function()? postPublicationPressed,
     required TResult orElse(),
   }) {
@@ -336,6 +475,7 @@ class _$_ImageChanged implements _ImageChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_TitleChanged value) titleChanged,
+    required TResult Function(_ResetState value) resetState,
     required TResult Function(_ImageChanged value) imageChanged,
     required TResult Function(_LocationChanged value) locationChanged,
     required TResult Function(_PostPublicationPressed value)
@@ -348,6 +488,7 @@ class _$_ImageChanged implements _ImageChanged {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_TitleChanged value)? titleChanged,
+    TResult Function(_ResetState value)? resetState,
     TResult Function(_ImageChanged value)? imageChanged,
     TResult Function(_LocationChanged value)? locationChanged,
     TResult Function(_PostPublicationPressed value)? postPublicationPressed,
@@ -359,6 +500,7 @@ class _$_ImageChanged implements _ImageChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_TitleChanged value)? titleChanged,
+    TResult Function(_ResetState value)? resetState,
     TResult Function(_ImageChanged value)? imageChanged,
     TResult Function(_LocationChanged value)? locationChanged,
     TResult Function(_PostPublicationPressed value)? postPublicationPressed,
@@ -385,7 +527,7 @@ abstract class _$$_LocationChangedCopyWith<$Res> {
   factory _$$_LocationChangedCopyWith(
           _$_LocationChanged value, $Res Function(_$_LocationChanged) then) =
       __$$_LocationChangedCopyWithImpl<$Res>;
-  $Res call({GeoLocation location});
+  $Res call({GeoLocation? location});
 }
 
 /// @nodoc
@@ -407,7 +549,7 @@ class __$$_LocationChangedCopyWithImpl<$Res>
       location == freezed
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
-              as GeoLocation,
+              as GeoLocation?,
     ));
   }
 }
@@ -418,7 +560,7 @@ class _$_LocationChanged implements _LocationChanged {
   const _$_LocationChanged(this.location);
 
   @override
-  final GeoLocation location;
+  final GeoLocation? location;
 
   @override
   String toString() {
@@ -446,8 +588,9 @@ class _$_LocationChanged implements _LocationChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String title) titleChanged,
+    required TResult Function() resetState,
     required TResult Function(File image) imageChanged,
-    required TResult Function(GeoLocation location) locationChanged,
+    required TResult Function(GeoLocation? location) locationChanged,
     required TResult Function() postPublicationPressed,
   }) {
     return locationChanged(location);
@@ -457,8 +600,9 @@ class _$_LocationChanged implements _LocationChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String title)? titleChanged,
+    TResult Function()? resetState,
     TResult Function(File image)? imageChanged,
-    TResult Function(GeoLocation location)? locationChanged,
+    TResult Function(GeoLocation? location)? locationChanged,
     TResult Function()? postPublicationPressed,
   }) {
     return locationChanged?.call(location);
@@ -468,8 +612,9 @@ class _$_LocationChanged implements _LocationChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String title)? titleChanged,
+    TResult Function()? resetState,
     TResult Function(File image)? imageChanged,
-    TResult Function(GeoLocation location)? locationChanged,
+    TResult Function(GeoLocation? location)? locationChanged,
     TResult Function()? postPublicationPressed,
     required TResult orElse(),
   }) {
@@ -483,6 +628,7 @@ class _$_LocationChanged implements _LocationChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_TitleChanged value) titleChanged,
+    required TResult Function(_ResetState value) resetState,
     required TResult Function(_ImageChanged value) imageChanged,
     required TResult Function(_LocationChanged value) locationChanged,
     required TResult Function(_PostPublicationPressed value)
@@ -495,6 +641,7 @@ class _$_LocationChanged implements _LocationChanged {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_TitleChanged value)? titleChanged,
+    TResult Function(_ResetState value)? resetState,
     TResult Function(_ImageChanged value)? imageChanged,
     TResult Function(_LocationChanged value)? locationChanged,
     TResult Function(_PostPublicationPressed value)? postPublicationPressed,
@@ -506,6 +653,7 @@ class _$_LocationChanged implements _LocationChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_TitleChanged value)? titleChanged,
+    TResult Function(_ResetState value)? resetState,
     TResult Function(_ImageChanged value)? imageChanged,
     TResult Function(_LocationChanged value)? locationChanged,
     TResult Function(_PostPublicationPressed value)? postPublicationPressed,
@@ -519,10 +667,10 @@ class _$_LocationChanged implements _LocationChanged {
 }
 
 abstract class _LocationChanged implements PublicationFormEvent {
-  const factory _LocationChanged(final GeoLocation location) =
+  const factory _LocationChanged(final GeoLocation? location) =
       _$_LocationChanged;
 
-  GeoLocation get location;
+  GeoLocation? get location;
   @JsonKey(ignore: true)
   _$$_LocationChangedCopyWith<_$_LocationChanged> get copyWith =>
       throw _privateConstructorUsedError;
@@ -572,8 +720,9 @@ class _$_PostPublicationPressed implements _PostPublicationPressed {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String title) titleChanged,
+    required TResult Function() resetState,
     required TResult Function(File image) imageChanged,
-    required TResult Function(GeoLocation location) locationChanged,
+    required TResult Function(GeoLocation? location) locationChanged,
     required TResult Function() postPublicationPressed,
   }) {
     return postPublicationPressed();
@@ -583,8 +732,9 @@ class _$_PostPublicationPressed implements _PostPublicationPressed {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String title)? titleChanged,
+    TResult Function()? resetState,
     TResult Function(File image)? imageChanged,
-    TResult Function(GeoLocation location)? locationChanged,
+    TResult Function(GeoLocation? location)? locationChanged,
     TResult Function()? postPublicationPressed,
   }) {
     return postPublicationPressed?.call();
@@ -594,8 +744,9 @@ class _$_PostPublicationPressed implements _PostPublicationPressed {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String title)? titleChanged,
+    TResult Function()? resetState,
     TResult Function(File image)? imageChanged,
-    TResult Function(GeoLocation location)? locationChanged,
+    TResult Function(GeoLocation? location)? locationChanged,
     TResult Function()? postPublicationPressed,
     required TResult orElse(),
   }) {
@@ -609,6 +760,7 @@ class _$_PostPublicationPressed implements _PostPublicationPressed {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_TitleChanged value) titleChanged,
+    required TResult Function(_ResetState value) resetState,
     required TResult Function(_ImageChanged value) imageChanged,
     required TResult Function(_LocationChanged value) locationChanged,
     required TResult Function(_PostPublicationPressed value)
@@ -621,6 +773,7 @@ class _$_PostPublicationPressed implements _PostPublicationPressed {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_TitleChanged value)? titleChanged,
+    TResult Function(_ResetState value)? resetState,
     TResult Function(_ImageChanged value)? imageChanged,
     TResult Function(_LocationChanged value)? locationChanged,
     TResult Function(_PostPublicationPressed value)? postPublicationPressed,
@@ -632,6 +785,7 @@ class _$_PostPublicationPressed implements _PostPublicationPressed {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_TitleChanged value)? titleChanged,
+    TResult Function(_ResetState value)? resetState,
     TResult Function(_ImageChanged value)? imageChanged,
     TResult Function(_LocationChanged value)? locationChanged,
     TResult Function(_PostPublicationPressed value)? postPublicationPressed,
@@ -799,7 +953,7 @@ class _$_PublicationFormState implements _PublicationFormState {
 
   @override
   String toString() {
-    return 'PublicationFormState(imageFile: $imageFile, location: $location, title: $title, isUploading: $isUploading, eitherPostFailureOrSuccess: $eitherPostFailureOrSuccess)';
+    return 'PublicationFormState(\nimageFile: $imageFile,\n location: $location,\n title: $title,\n isUploading: $isUploading,\n eitherPostFailureOrSuccess: $eitherPostFailureOrSuccess\n)';
   }
 
   @override

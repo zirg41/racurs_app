@@ -25,12 +25,12 @@ class HomePage extends StatelessWidget {
             AutoLeadingButton(color: contextTheme.colorScheme.onBackground),
         backgroundColor: contextTheme.colorScheme.background,
       ),
-      routes: const [
-        PostsRouter(),
-        FavoritesRouter(),
-        SearchRouter(),
+      routes: [
+        const PostsRouter(),
+        const FavoritesRouter(),
+        const SearchRouter(),
         CreatePostRouter(),
-        UserPageRouter(),
+        const UserPageRouter(),
       ],
       bottomNavigationBuilder: (context, tabsRouter) {
         return BottomNavigationBar(

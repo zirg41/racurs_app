@@ -70,8 +70,10 @@ class Router extends _i6.RootStackRouter {
           routeData: routeData, child: const _i8.SearchPage());
     },
     CreatePostRouter.name: (routeData) {
+      final args = routeData.argsAs<CreatePostRouterArgs>(
+          orElse: () => const CreatePostRouterArgs());
       return _i6.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i9.CreatePostPage());
+          routeData: routeData, child: _i9.CreatePostPage(key: args.key));
     },
     UserPageRouter.name: (routeData) {
       return _i6.MaterialPageX<dynamic>(
@@ -183,10 +185,23 @@ class SearchRouter extends _i6.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i9.CreatePostPage]
-class CreatePostRouter extends _i6.PageRouteInfo<void> {
-  const CreatePostRouter() : super(CreatePostRouter.name, path: 'create_post');
+class CreatePostRouter extends _i6.PageRouteInfo<CreatePostRouterArgs> {
+  CreatePostRouter({_i13.Key? key})
+      : super(CreatePostRouter.name,
+            path: 'create_post', args: CreatePostRouterArgs(key: key));
 
   static const String name = 'CreatePostRouter';
+}
+
+class CreatePostRouterArgs {
+  const CreatePostRouterArgs({this.key});
+
+  final _i13.Key? key;
+
+  @override
+  String toString() {
+    return 'CreatePostRouterArgs{key: $key}';
+  }
 }
 
 /// generated route for
