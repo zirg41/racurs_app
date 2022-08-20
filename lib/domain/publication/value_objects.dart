@@ -15,10 +15,10 @@ class GeoLocation {
     this.longitude,
   );
 
-  GeoLocation copyWith({
-    Longitude? longitude,
+  GeoLocation copyWith(
     Latitude? latitude,
-  }) {
+    Longitude? longitude,
+  ) {
     return GeoLocation(
       latitude ?? this.latitude,
       longitude ?? this.longitude,
@@ -44,10 +44,14 @@ class GeoLocation {
   //     )}';
 
   @override
-  bool operator ==(covariant GeoLocation other) {
+  bool operator ==(covariant Object other) {
     if (identical(this, other)) return true;
-
-    return other.longitude == longitude && other.latitude == latitude;
+    try {
+      return (other as GeoLocation).longitude == longitude &&
+          (other).latitude == latitude;
+    } catch (e) {
+      return false;
+    }
   }
 
   @override
