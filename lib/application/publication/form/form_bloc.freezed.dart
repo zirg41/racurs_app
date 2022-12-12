@@ -953,7 +953,7 @@ class _$_PublicationFormState implements _PublicationFormState {
 
   @override
   String toString() {
-    return 'PublicationFormState(\nimageFile: $imageFile,\n location: $location,\n title: $title,\n isUploading: $isUploading,\n eitherPostFailureOrSuccess: $eitherPostFailureOrSuccess\n)';
+    return 'PublicationFormState(imageFile: $imageFile, location: $location, title: $title, isUploading: $isUploading, eitherPostFailureOrSuccess: $eitherPostFailureOrSuccess)';
   }
 
   @override

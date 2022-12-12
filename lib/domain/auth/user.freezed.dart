@@ -18,6 +18,13 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$User {
   UniqueId get id => throw _privateConstructorUsedError;
   String get username => throw _privateConstructorUsedError;
+  String? get firstName => throw _privateConstructorUsedError;
+  String? get lastName => throw _privateConstructorUsedError;
+  String get avatarUrl => throw _privateConstructorUsedError;
+  String? get bio => throw _privateConstructorUsedError;
+  String? get email => throw _privateConstructorUsedError;
+  List<String>? get subscriptions => throw _privateConstructorUsedError;
+  List<String>? get subscribers => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $UserCopyWith<User> get copyWith => throw _privateConstructorUsedError;
@@ -27,7 +34,16 @@ mixin _$User {
 abstract class $UserCopyWith<$Res> {
   factory $UserCopyWith(User value, $Res Function(User) then) =
       _$UserCopyWithImpl<$Res>;
-  $Res call({UniqueId id, String username});
+  $Res call(
+      {UniqueId id,
+      String username,
+      String? firstName,
+      String? lastName,
+      String avatarUrl,
+      String? bio,
+      String? email,
+      List<String>? subscriptions,
+      List<String>? subscribers});
 }
 
 /// @nodoc
@@ -42,6 +58,13 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
   $Res call({
     Object? id = freezed,
     Object? username = freezed,
+    Object? firstName = freezed,
+    Object? lastName = freezed,
+    Object? avatarUrl = freezed,
+    Object? bio = freezed,
+    Object? email = freezed,
+    Object? subscriptions = freezed,
+    Object? subscribers = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -52,6 +75,34 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String,
+      firstName: firstName == freezed
+          ? _value.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      lastName: lastName == freezed
+          ? _value.lastName
+          : lastName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      avatarUrl: avatarUrl == freezed
+          ? _value.avatarUrl
+          : avatarUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      bio: bio == freezed
+          ? _value.bio
+          : bio // ignore: cast_nullable_to_non_nullable
+              as String?,
+      email: email == freezed
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String?,
+      subscriptions: subscriptions == freezed
+          ? _value.subscriptions
+          : subscriptions // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      subscribers: subscribers == freezed
+          ? _value.subscribers
+          : subscribers // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
     ));
   }
 }
@@ -61,7 +112,16 @@ abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
   factory _$$_UserCopyWith(_$_User value, $Res Function(_$_User) then) =
       __$$_UserCopyWithImpl<$Res>;
   @override
-  $Res call({UniqueId id, String username});
+  $Res call(
+      {UniqueId id,
+      String username,
+      String? firstName,
+      String? lastName,
+      String avatarUrl,
+      String? bio,
+      String? email,
+      List<String>? subscriptions,
+      List<String>? subscribers});
 }
 
 /// @nodoc
@@ -77,6 +137,13 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? username = freezed,
+    Object? firstName = freezed,
+    Object? lastName = freezed,
+    Object? avatarUrl = freezed,
+    Object? bio = freezed,
+    Object? email = freezed,
+    Object? subscriptions = freezed,
+    Object? subscribers = freezed,
   }) {
     return _then(_$_User(
       id: id == freezed
@@ -87,6 +154,34 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String,
+      firstName: firstName == freezed
+          ? _value.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      lastName: lastName == freezed
+          ? _value.lastName
+          : lastName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      avatarUrl: avatarUrl == freezed
+          ? _value.avatarUrl
+          : avatarUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      bio: bio == freezed
+          ? _value.bio
+          : bio // ignore: cast_nullable_to_non_nullable
+              as String?,
+      email: email == freezed
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String?,
+      subscriptions: subscriptions == freezed
+          ? _value._subscriptions
+          : subscriptions // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      subscribers: subscribers == freezed
+          ? _value._subscribers
+          : subscribers // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
     ));
   }
 }
@@ -94,16 +189,54 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_User implements _User {
-  const _$_User({required this.id, required this.username});
+  const _$_User(
+      {required this.id,
+      required this.username,
+      required this.firstName,
+      required this.lastName,
+      required this.avatarUrl,
+      required this.bio,
+      required this.email,
+      required final List<String>? subscriptions,
+      required final List<String>? subscribers})
+      : _subscriptions = subscriptions,
+        _subscribers = subscribers;
 
   @override
   final UniqueId id;
   @override
   final String username;
+  @override
+  final String? firstName;
+  @override
+  final String? lastName;
+  @override
+  final String avatarUrl;
+  @override
+  final String? bio;
+  @override
+  final String? email;
+  final List<String>? _subscriptions;
+  @override
+  List<String>? get subscriptions {
+    final value = _subscriptions;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<String>? _subscribers;
+  @override
+  List<String>? get subscribers {
+    final value = _subscribers;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
-    return 'User(id: $id, username: $username)';
+    return 'User(id: $id, username: $username, firstName: $firstName, lastName: $lastName, avatarUrl: $avatarUrl, bio: $bio, email: $email, subscriptions: $subscriptions, subscribers: $subscribers)';
   }
 
   @override
@@ -112,14 +245,30 @@ class _$_User implements _User {
         (other.runtimeType == runtimeType &&
             other is _$_User &&
             const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.username, username));
+            const DeepCollectionEquality().equals(other.username, username) &&
+            const DeepCollectionEquality().equals(other.firstName, firstName) &&
+            const DeepCollectionEquality().equals(other.lastName, lastName) &&
+            const DeepCollectionEquality().equals(other.avatarUrl, avatarUrl) &&
+            const DeepCollectionEquality().equals(other.bio, bio) &&
+            const DeepCollectionEquality().equals(other.email, email) &&
+            const DeepCollectionEquality()
+                .equals(other._subscriptions, _subscriptions) &&
+            const DeepCollectionEquality()
+                .equals(other._subscribers, _subscribers));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(username));
+      const DeepCollectionEquality().hash(username),
+      const DeepCollectionEquality().hash(firstName),
+      const DeepCollectionEquality().hash(lastName),
+      const DeepCollectionEquality().hash(avatarUrl),
+      const DeepCollectionEquality().hash(bio),
+      const DeepCollectionEquality().hash(email),
+      const DeepCollectionEquality().hash(_subscriptions),
+      const DeepCollectionEquality().hash(_subscribers));
 
   @JsonKey(ignore: true)
   @override
@@ -129,12 +278,34 @@ class _$_User implements _User {
 
 abstract class _User implements User {
   const factory _User(
-      {required final UniqueId id, required final String username}) = _$_User;
+      {required final UniqueId id,
+      required final String username,
+      required final String? firstName,
+      required final String? lastName,
+      required final String avatarUrl,
+      required final String? bio,
+      required final String? email,
+      required final List<String>? subscriptions,
+      required final List<String>? subscribers}) = _$_User;
 
   @override
   UniqueId get id;
   @override
   String get username;
+  @override
+  String? get firstName;
+  @override
+  String? get lastName;
+  @override
+  String get avatarUrl;
+  @override
+  String? get bio;
+  @override
+  String? get email;
+  @override
+  List<String>? get subscriptions;
+  @override
+  List<String>? get subscribers;
   @override
   @JsonKey(ignore: true)
   _$$_UserCopyWith<_$_User> get copyWith => throw _privateConstructorUsedError;
