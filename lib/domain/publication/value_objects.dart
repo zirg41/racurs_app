@@ -11,34 +11,47 @@ class GeoLocation {
   final Latitude latitude;
 
   GeoLocation(
-    this.longitude,
     this.latitude,
+    this.longitude,
   );
 
-  GeoLocation copyWith({
-    Longitude? longitude,
+  GeoLocation copyWith(
     Latitude? latitude,
-  }) {
+    Longitude? longitude,
+  ) {
     return GeoLocation(
-      longitude ?? this.longitude,
       latitude ?? this.latitude,
+      longitude ?? this.longitude,
     );
   }
 
   @override
-  String toString() => 'GeoLocation: \n \t longitude: ${longitude.value.fold(
+  String toString() => 'GeoLocation: \n \t  ${latitude.value.fold(
         (failure) => null,
         (value) => value,
-      )} \n \t latitude: ${latitude.value.fold(
+      )}, ${longitude.value.fold(
         (failure) => null,
         (value) => value,
       )}';
 
-  @override
-  bool operator ==(covariant GeoLocation other) {
-    if (identical(this, other)) return true;
+  // @override
+  // String toString() => 'GeoLocation: \n \t longitude: ${longitude.value.fold(
+  //       (failure) => null,
+  //       (value) => value,
+  //     )} \n \t latitude: ${latitude.value.fold(
+  //       (failure) => null,
+  //       (value) => value,
+  //     )}';
 
-    return other.longitude == longitude && other.latitude == latitude;
+  @override
+  bool operator ==(covariant Object other) {
+    if (identical(this, other)) return true;
+    try {
+      return (other as GeoLocation).longitude == longitude &&
+          (other).latitude == latitude;
+    } catch (e) {
+      return false;
+    }
   }
 
   @override
@@ -53,8 +66,8 @@ class GeoLocation {
 
   factory GeoLocation.fromMap(Map<String, dynamic> map) {
     return GeoLocation(
-      Longitude((map['longitude'] as num).toDouble()),
       Latitude((map['latitude'] as num).toDouble()),
+      Longitude((map['longitude'] as num).toDouble()),
     );
   }
 

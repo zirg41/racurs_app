@@ -17,8 +17,8 @@ void main() {
   final testJson = json.encode(testMap);
 
   final validLocation = GeoLocation(
-    Longitude(tlong),
     Latitude(tlat),
+    Longitude(tlong),
   );
 
   group(
@@ -38,8 +38,8 @@ void main() {
           const tlatInvalid = 154.93;
 
           final invalidLocation = GeoLocation(
-            Longitude(tlongInvalid),
             Latitude(tlatInvalid),
+            Longitude(tlongInvalid),
           );
 
           expect(invalidLocation.latitude.isValid(), false);
@@ -79,8 +79,8 @@ void main() {
         "contain null value in map if coordinate is not valid",
         () {
           final invalidLocation = GeoLocation(
-            Longitude(194.91),
             Latitude(154.93),
+            Longitude(194.91),
           );
 
           final mapFromLocation = invalidLocation.toMap();
@@ -94,8 +94,8 @@ void main() {
           final jsonWithNull = json.encode(mapWithNull);
 
           final invalidLocation = GeoLocation(
-            Longitude(194.91),
             Latitude(154.93),
+            Longitude(194.91),
           );
 
           final jsonFromLocation = invalidLocation.toJson();

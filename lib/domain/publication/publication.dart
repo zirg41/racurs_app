@@ -11,11 +11,26 @@ part 'publication.freezed.dart';
 @freezed
 abstract class Publication with _$Publication {
   const factory Publication({
-    required UniqueId id,
-    required User user,
-    required File imageFile,
+    required UniqueId pubId,
+    required UniqueId userId,
+    required String username,
+    required String imageUrl,
     required GeoLocation location,
     required DateTime createdDate,
     required String title,
   }) = _Publication;
 }
+
+
+
+// @freezed
+// abstract class Publication with _$Publication {
+//   const factory Publication({
+//     required UniqueId id,
+//     required User user,
+//     required File imageFile,
+//     required GeoLocation location,
+//     required DateTime createdDate,
+//     required String title,
+//   }) = _Publication;
+// }

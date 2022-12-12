@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:racurs_app/presentation/global/app_localization.dart';
 
 import '../../../application/auth/auth_bloc.dart';
 import '../../application/auth/sign_in_form/sign_in_form_bloc.dart';
@@ -7,8 +9,9 @@ import '../../injection.dart';
 import '../global/theme/theme_bloc/theme_bloc.dart';
 import '../routes/router.gr.dart' as router_lib;
 import '../../../application/publication/form/form_bloc.dart';
-import '../../../application/publication/reader/reader_bloc.dart';
+import '../../../application/publication/feed/feed_bloc.dart';
 import '../../../application/publication/action/action_bloc.dart';
+import '../../../application/publication/concrete_pub/concrete_publication_bloc.dart';
 
 class RacursApp extends StatelessWidget {
   RacursApp({Key? key}) : super(key: key);
@@ -34,10 +37,13 @@ class RacursApp extends StatelessWidget {
           create: (context) => getIt<PublicationFormBloc>(),
         ),
         BlocProvider(
-          create: (context) => getIt<PublicationReaderBloc>(),
+          create: (context) => getIt<FeedBloc>(),
         ),
         BlocProvider(
           create: (context) => getIt<PublicationActionBloc>(),
+        ),
+        BlocProvider(
+          create: (context) => getIt<ConcretePublicationBloc>(),
         ),
       ],
       child: BlocBuilder<ThemeBloc, ThemeState>(
@@ -48,6 +54,29 @@ class RacursApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             title: 'Material App',
             theme: themeState.themeData,
+            supportedLocales: const [
+              Locale('ru', 'RU'),
+              Locale('en', 'US'),
+            ],
+            localizationsDelegates: const [
+              AppLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+            ],
+            localeListResolutionCallback: (locales, supportedLocales) {},
+            localeResolutionCallback: (locale, supportedLocales) {
+              if (locale == null) {
+                return supportedLocales.first;
+              }
+              for (var supportedLocale in supportedLocales) {
+                if (supportedLocale.languageCode == locale.languageCode &&
+                    supportedLocale.countryCode == locale.countryCode) {
+                  return supportedLocale;
+                }
+              }
+              return supportedLocales.first;
+            },
           );
         },
       ),

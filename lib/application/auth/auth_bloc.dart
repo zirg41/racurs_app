@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
-import '../../domain/auth/user.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../domain/auth/i_auth_facade.dart';
+import '../../domain/auth/user.dart';
 
 part 'auth_bloc.freezed.dart';
 part 'auth_event.dart';

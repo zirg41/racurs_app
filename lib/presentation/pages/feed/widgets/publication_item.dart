@@ -1,10 +1,11 @@
-import 'dart:typed_data';
-
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:racurs_app/application/publication/action/action_bloc.dart';
-import 'package:racurs_app/domain/publication/publication.dart';
-import 'dart:io';
+
+import '../../../../application/publication/action/action_bloc.dart';
+import '../../../../application/publication/concrete_pub/concrete_publication_bloc.dart';
+import '../../../../domain/publication/publication.dart';
+import '../../../routes/router.gr.dart';
 
 class PublicationItem extends StatelessWidget {
   final Publication publication;
@@ -15,9 +16,10 @@ class PublicationItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
       child: Card(
         color: Theme.of(context).colorScheme.surface,
+        elevation: 6,
         child: Container(
           // decoration: BoxDecoration(border: Border.all(color: Colors.black)),
           child: Column(
@@ -27,14 +29,14 @@ class PublicationItem extends StatelessWidget {
                 padding: const EdgeInsets.all(5),
                 child: Row(
                   children: [
-                    Text(publication.user.username),
+                    Text(publication.username),
                     Spacer(),
                     IconButton(
                       iconSize: 20,
                       onPressed: () {
                         BlocProvider.of<PublicationActionBloc>(context).add(
                           PublicationActionEvent.deletePublicationRequested(
-                              publication.id),
+                              publication.pubId),
                         );
                       },
                       icon: const Icon(Icons.delete),
@@ -43,8 +45,16 @@ class PublicationItem extends StatelessWidget {
                 ),
               ),
               // Image.file(publication.imageFile.path),
-              Image.network(publication.imageFile.path),
-
+              GestureDetector(
+                child: Image.network(publication.imageUrl),
+                onTap: () {
+                  // context\
+                  AutoRouter.of(context).push(const ConcretePublicationRoute());
+                  context.read<ConcretePublicationBloc>().add(
+                      ConcretePublicationEvent.getConcretePublicationPressed(
+                          id: publication.pubId));
+                },
+              ),
               Padding(
                 padding: const EdgeInsets.all(5),
                 child: Text(

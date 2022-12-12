@@ -1,6 +1,8 @@
-import '../messages.dart';
-import 'package:flutter/material.dart';
 import 'dart:io' show Platform;
+
+import 'package:flutter/material.dart';
+
+import '../messages.dart';
 
 class EitherAppleOrGoogleSignInButton extends StatelessWidget {
   const EitherAppleOrGoogleSignInButton({Key? key}) : super(key: key);

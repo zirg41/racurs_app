@@ -19,6 +19,11 @@ final appThemeData = {
         color: const Color.fromARGB(255, 255, 255, 255),
         fontWeight: FontWeight.bold,
       ),
+      displaySmall: GoogleFonts.lato(
+        fontSize: 30,
+        color: const Color.fromARGB(255, 255, 255, 255),
+        fontWeight: FontWeight.bold,
+      ),
       headlineMedium: GoogleFonts.lato(
         fontSize: 17,
         color: const Color.fromARGB(255, 255, 255, 255),
@@ -27,6 +32,10 @@ final appThemeData = {
         fontSize: 15,
         color: const Color.fromARGB(255, 255, 255, 255),
       ),
+      bodyLarge: GoogleFonts.lato(
+        fontSize: 17,
+        color: const Color.fromARGB(255, 28, 28, 28),
+      ),
     ),
     textSelectionTheme: const TextSelectionThemeData(
       cursorColor: Colors.white70,
@@ -34,9 +43,9 @@ final appThemeData = {
     ),
     colorScheme: const ColorScheme.light().copyWith(
       brightness: Brightness.light,
-      // primary: pottyPalette['Charcoal'],
+      primary: pottyPalette['Charcoal'],
       // onBackground: const Color(0xFF121212),
-      // secondary: pottyPalette['Persian Green'],
+      secondary: pottyPalette['Persian Green'],
       // onSecondary: const Color(0xFFFFFFFF),
       // onPrimary: const Color(0xFFFFFFFF),
       // surface: const Color(0xFFFFFFFF),
@@ -48,7 +57,13 @@ final appThemeData = {
       // error: const Color(0xFFB00020),
     ),
     outlinedButtonTheme: OutlinedButtonThemeData(
-      style: OutlinedButton.styleFrom(),
+      style: OutlinedButton.styleFrom(
+        textStyle: TextStyle(
+          // color: const Color.fromARGB(255, 63, 11, 169),
+          color: Color.fromARGB(255, 237, 12, 76),
+          fontFamily: GoogleFonts.lato().fontFamily,
+        ),
+      ),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(),
@@ -57,14 +72,14 @@ final appThemeData = {
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(20),
         borderSide: const BorderSide(
-          color: Colors.white,
+          color: Color.fromARGB(255, 97, 97, 97),
           width: 1.0,
         ),
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(20),
         borderSide: const BorderSide(
-          color: Colors.white,
+          color: Color.fromARGB(255, 39, 39, 39),
           width: 1.0,
         ),
       ),

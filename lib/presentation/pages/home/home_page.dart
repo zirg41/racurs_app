@@ -1,117 +1,163 @@
-import 'dart:io';
-
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:racurs_app/application/publication/reader/reader_bloc.dart';
-import 'package:racurs_app/domain/auth/user.dart';
-import 'package:racurs_app/domain/core/unique_id.dart';
-import 'package:racurs_app/domain/publication/publication.dart';
-import 'package:racurs_app/domain/publication/value_objects.dart';
-import 'package:racurs_app/infrastructure/publication/back4app_post_facade.dart';
 
-import '../../../application/auth/auth_bloc.dart';
 import '../../routes/router.gr.dart';
+import '../auth/messages.dart';
+// import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  late PickedFile? pickedFile = null;
-
-  final server = Back4AppPostFacade();
-  @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AuthBloc, AuthState>(
-      builder: (context, state) {
-        return Scaffold(
-          body: Center(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Привет, ${state.maybeMap(orElse: () => null, authenticated: (authState) => authState.currentUser.username)}',
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    context.read<AuthBloc>().add(const AuthEvent.signedOut());
-                    context.router.push(const SignInRoute());
-                  },
-                  child: const Text('Выйти'),
-                ),
-                pickedFile != null
-                    ? Container(
-                        width: 350,
-                        height: 350,
-                        decoration: BoxDecoration(
-                            border: Border.all(color: Colors.blue)),
-                        child: Image.file(File(
-                          pickedFile!.path,
-                        )))
-                    : Container(
-                        width: 350,
-                        height: 350,
-                        decoration: BoxDecoration(
-                            border: Border.all(color: Colors.blue)),
-                        child: const Center(
-                          child: Text('Фото не выбрано'),
-                        ),
-                      ),
-                ElevatedButton(
-                  onPressed: () async {
-                    PickedFile? image = await ImagePicker().getImage(
-                      source: ImageSource.gallery,
-                      imageQuality: 50,
-                      maxWidth: 350,
-                    );
-
-                    // print('pickedFile is null: ${image == null}');
-                    if (image != null) {
-                      setState(() {
-                        pickedFile = image;
-                      });
-                    }
-                  },
-                  child: const Text('Выбрать фото'),
-                ),
-                ElevatedButton(
-                  onPressed: () async {
-                    context.router.push(const FeedRoute());
-                    BlocProvider.of<PublicationReaderBloc>(context).add(
-                        const PublicationReaderEvent
-                            .getAllPublicationPressed());
-                  },
-                  child: const Text('Перейти к ленте'),
-                ),
-                ElevatedButton(
-                  onPressed: () async {
-                    final pub = Publication(
-                        id: UniqueId(),
-                        user: state.maybeMap(
-                            orElse: () =>
-                                User(id: UniqueId(), username: 'userFromTest'),
-                            authenticated: (authState) =>
-                                authState.currentUser),
-                        imageFile: File(pickedFile!.path),
-                        location: GeoLocation(Longitude(54), Latitude(52)),
-                        createdDate: DateTime.now(),
-                        title: 'Title of publication');
-
-                    final response = await server.createPublication(pub);
-                    print('Post response: ${response}');
-                  },
-                  child: const Text('Запостить тестовую публикацию'),
-                ),
-              ],
+    final contextTheme = Theme.of(context);
+    return AutoTabsScaffold(
+      backgroundColor: contextTheme.colorScheme.background,
+      appBarBuilder: (context, tabsRouter) => AppBar(
+        elevation: 0,
+        title: Text(
+          APP_LOGO_NAME,
+          style: contextTheme.textTheme.displaySmall!
+              .copyWith(color: Colors.black),
+        ),
+        centerTitle: true,
+        leading:
+            AutoLeadingButton(color: contextTheme.colorScheme.onBackground),
+        backgroundColor: contextTheme.colorScheme.background,
+      ),
+      routes: [
+        const PostsRouter(),
+        const FavoritesRouter(),
+        const SearchRouter(),
+        CreatePostRouter(),
+        const UserPageRouter(),
+      ],
+      bottomNavigationBuilder: (context, tabsRouter) {
+        return BottomNavigationBar(
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          currentIndex: tabsRouter.activeIndex,
+          onTap: (value) => tabsRouter.setActiveIndex(value),
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.home_outlined,
+                color: contextTheme.colorScheme.primary,
+              ),
+              activeIcon: Icon(
+                Icons.home,
+                color: contextTheme.colorScheme.secondary,
+              ),
+              label: 'home',
             ),
-          ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.star_border,
+                color: contextTheme.colorScheme.primary,
+              ),
+              activeIcon: Icon(
+                Icons.star,
+                color: contextTheme.colorScheme.secondary,
+              ),
+              label: 'favorites',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.search,
+                color: contextTheme.colorScheme.primary,
+              ),
+              activeIcon: Icon(
+                Icons.search,
+                color: contextTheme.colorScheme.secondary,
+              ),
+              label: 'search',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.add,
+                color: contextTheme.colorScheme.primary,
+              ),
+              activeIcon: Icon(
+                Icons.add,
+                color: contextTheme.colorScheme.secondary,
+              ),
+              label: 'add',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.person_outline,
+                color: contextTheme.colorScheme.primary,
+              ),
+              activeIcon: Icon(
+                Icons.person,
+                color: contextTheme.colorScheme.secondary,
+              ),
+              label: 'person',
+            ),
+          ],
         );
+        // return SalomonBottomBar(
+        //   currentIndex: tabsRouter.activeIndex,
+        //   margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 40),
+        //   onTap: tabsRouter.setActiveIndex,
+        //   items: [
+        //     SalomonBottomBarItem(
+        //       icon: Icon(
+        //         Icons.home_outlined,
+        //         color: contextTheme.colorScheme.primary,
+        //       ),
+        //       activeIcon: Icon(
+        //         Icons.home,
+        //         color: contextTheme.colorScheme.secondary,
+        //       ),
+        //       title: const SizedBox.shrink(),
+        //     ),
+        //     SalomonBottomBarItem(
+        //       icon: Icon(
+        //         Icons.star_border,
+        //         color: contextTheme.colorScheme.primary,
+        //       ),
+        //       activeIcon: Icon(
+        //         Icons.star,
+        //         color: contextTheme.colorScheme.secondary,
+        //       ),
+        //       title: const SizedBox.shrink(),
+        //     ),
+        //     SalomonBottomBarItem(
+        //       icon: Icon(
+        //         Icons.search,
+        //         color: contextTheme.colorScheme.primary,
+        //       ),
+        //       activeIcon: Icon(
+        //         Icons.search,
+        //         color: contextTheme.colorScheme.secondary,
+        //       ),
+        //       title: const SizedBox.shrink(),
+        //     ),
+        //     SalomonBottomBarItem(
+        //       icon: Icon(
+        //         Icons.add,
+        //         color: contextTheme.colorScheme.primary,
+        //       ),
+        //       activeIcon: Icon(
+        //         Icons.add,
+        //         color: contextTheme.colorScheme.secondary,
+        //       ),
+        //       title: const SizedBox.shrink(),
+        //     ),
+        //     SalomonBottomBarItem(
+        //       icon: Icon(
+        //         Icons.person_outline,
+        //         color: contextTheme.colorScheme.primary,
+        //       ),
+        //       activeIcon: Icon(
+        //         Icons.person,
+        //         color: contextTheme.colorScheme.secondary,
+        //       ),
+        //       title: const SizedBox.shrink(),
+        //     ),
+        //   ],
+        // );
       },
     );
   }

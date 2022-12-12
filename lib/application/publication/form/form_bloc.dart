@@ -28,7 +28,9 @@ class PublicationFormBloc
       : super(PublicationFormState.initial()) {
     on<PublicationFormEvent>((event, emit) async {
       await event.when(
-        started: (() async {}),
+        resetState: () {
+          emit(PublicationFormState.initial());
+        },
         titleChanged: ((title) async {
           emit(state.copyWith(
             title: title,
@@ -62,33 +64,39 @@ class PublicationFormBloc
           } else {
             final user = userOption.getOrElse(() => throw ServerException());
 
-            final response = await repository.createPublication(
-              Publication(
-                id: UniqueId(),
-                user: user,
-                imageFile: state.imageFile!,
-                location: state.location!,
-                createdDate: DateTime.now(),
-                title: state.title,
-              ),
-            );
-
-            response.fold(
-              (postFailure) => emit(
-                state.copyWith(
-                  isUploading: false,
-                  eitherPostFailureOrSuccess: some(left(postFailure)),
+            if (state.location != null) {
+              final response = await repository.createPublication(
+                publication: Publication(
+                  pubId: UniqueId(),
+                  imageUrl: '',
+                  userId: user.id,
+                  username: user.username,
+                  location: state.location!,
+                  createdDate: DateTime.now(),
+                  title: state.title,
                 ),
-              ),
-              (unit) => emit(
-                state.copyWith(
-                  isUploading: false,
-                  eitherPostFailureOrSuccess: some(
-                    right(unit),
+                image: state.imageFile!,
+              );
+
+              response.fold(
+                (postFailure) => emit(
+                  state.copyWith(
+                    isUploading: false,
+                    eitherPostFailureOrSuccess: some(left(postFailure)),
                   ),
                 ),
-              ),
-            );
+                (unit) => emit(
+                  state.copyWith(
+                    isUploading: false,
+                    eitherPostFailureOrSuccess: some(
+                      right(unit),
+                    ),
+                  ),
+                ),
+              );
+            } else {
+              emit(state.copyWith(isUploading: false));
+            }
           }
         }),
       );

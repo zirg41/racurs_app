@@ -16,9 +16,10 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$Publication {
-  UniqueId get id => throw _privateConstructorUsedError;
-  User get user => throw _privateConstructorUsedError;
-  File get imageFile => throw _privateConstructorUsedError;
+  UniqueId get pubId => throw _privateConstructorUsedError;
+  UniqueId get userId => throw _privateConstructorUsedError;
+  String get username => throw _privateConstructorUsedError;
+  String get imageUrl => throw _privateConstructorUsedError;
   GeoLocation get location => throw _privateConstructorUsedError;
   DateTime get createdDate => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
@@ -34,14 +35,13 @@ abstract class $PublicationCopyWith<$Res> {
           Publication value, $Res Function(Publication) then) =
       _$PublicationCopyWithImpl<$Res>;
   $Res call(
-      {UniqueId id,
-      User user,
-      File imageFile,
+      {UniqueId pubId,
+      UniqueId userId,
+      String username,
+      String imageUrl,
       GeoLocation location,
       DateTime createdDate,
       String title});
-
-  $UserCopyWith<$Res> get user;
 }
 
 /// @nodoc
@@ -54,26 +54,31 @@ class _$PublicationCopyWithImpl<$Res> implements $PublicationCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? id = freezed,
-    Object? user = freezed,
-    Object? imageFile = freezed,
+    Object? pubId = freezed,
+    Object? userId = freezed,
+    Object? username = freezed,
+    Object? imageUrl = freezed,
     Object? location = freezed,
     Object? createdDate = freezed,
     Object? title = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
+      pubId: pubId == freezed
+          ? _value.pubId
+          : pubId // ignore: cast_nullable_to_non_nullable
               as UniqueId,
-      user: user == freezed
-          ? _value.user
-          : user // ignore: cast_nullable_to_non_nullable
-              as User,
-      imageFile: imageFile == freezed
-          ? _value.imageFile
-          : imageFile // ignore: cast_nullable_to_non_nullable
-              as File,
+      userId: userId == freezed
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as UniqueId,
+      username: username == freezed
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
+              as String,
+      imageUrl: imageUrl == freezed
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
+              as String,
       location: location == freezed
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
@@ -88,13 +93,6 @@ class _$PublicationCopyWithImpl<$Res> implements $PublicationCopyWith<$Res> {
               as String,
     ));
   }
-
-  @override
-  $UserCopyWith<$Res> get user {
-    return $UserCopyWith<$Res>(_value.user, (value) {
-      return _then(_value.copyWith(user: value));
-    });
-  }
 }
 
 /// @nodoc
@@ -105,15 +103,13 @@ abstract class _$$_PublicationCopyWith<$Res>
       __$$_PublicationCopyWithImpl<$Res>;
   @override
   $Res call(
-      {UniqueId id,
-      User user,
-      File imageFile,
+      {UniqueId pubId,
+      UniqueId userId,
+      String username,
+      String imageUrl,
       GeoLocation location,
       DateTime createdDate,
       String title});
-
-  @override
-  $UserCopyWith<$Res> get user;
 }
 
 /// @nodoc
@@ -128,26 +124,31 @@ class __$$_PublicationCopyWithImpl<$Res> extends _$PublicationCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? id = freezed,
-    Object? user = freezed,
-    Object? imageFile = freezed,
+    Object? pubId = freezed,
+    Object? userId = freezed,
+    Object? username = freezed,
+    Object? imageUrl = freezed,
     Object? location = freezed,
     Object? createdDate = freezed,
     Object? title = freezed,
   }) {
     return _then(_$_Publication(
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
+      pubId: pubId == freezed
+          ? _value.pubId
+          : pubId // ignore: cast_nullable_to_non_nullable
               as UniqueId,
-      user: user == freezed
-          ? _value.user
-          : user // ignore: cast_nullable_to_non_nullable
-              as User,
-      imageFile: imageFile == freezed
-          ? _value.imageFile
-          : imageFile // ignore: cast_nullable_to_non_nullable
-              as File,
+      userId: userId == freezed
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as UniqueId,
+      username: username == freezed
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
+              as String,
+      imageUrl: imageUrl == freezed
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
+              as String,
       location: location == freezed
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
@@ -168,19 +169,22 @@ class __$$_PublicationCopyWithImpl<$Res> extends _$PublicationCopyWithImpl<$Res>
 
 class _$_Publication implements _Publication {
   const _$_Publication(
-      {required this.id,
-      required this.user,
-      required this.imageFile,
+      {required this.pubId,
+      required this.userId,
+      required this.username,
+      required this.imageUrl,
       required this.location,
       required this.createdDate,
       required this.title});
 
   @override
-  final UniqueId id;
+  final UniqueId pubId;
   @override
-  final User user;
+  final UniqueId userId;
   @override
-  final File imageFile;
+  final String username;
+  @override
+  final String imageUrl;
   @override
   final GeoLocation location;
   @override
@@ -190,7 +194,7 @@ class _$_Publication implements _Publication {
 
   @override
   String toString() {
-    return 'Publication(id: $id, user: $user, imageFile: $imageFile, location: $location, createdDate: $createdDate, title: $title)';
+    return 'Publication(pubId: $pubId, userId: $userId, username: $username, imageUrl: $imageUrl, location: $location, createdDate: $createdDate, title: $title)';
   }
 
   @override
@@ -198,9 +202,10 @@ class _$_Publication implements _Publication {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Publication &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.user, user) &&
-            const DeepCollectionEquality().equals(other.imageFile, imageFile) &&
+            const DeepCollectionEquality().equals(other.pubId, pubId) &&
+            const DeepCollectionEquality().equals(other.userId, userId) &&
+            const DeepCollectionEquality().equals(other.username, username) &&
+            const DeepCollectionEquality().equals(other.imageUrl, imageUrl) &&
             const DeepCollectionEquality().equals(other.location, location) &&
             const DeepCollectionEquality()
                 .equals(other.createdDate, createdDate) &&
@@ -210,9 +215,10 @@ class _$_Publication implements _Publication {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(user),
-      const DeepCollectionEquality().hash(imageFile),
+      const DeepCollectionEquality().hash(pubId),
+      const DeepCollectionEquality().hash(userId),
+      const DeepCollectionEquality().hash(username),
+      const DeepCollectionEquality().hash(imageUrl),
       const DeepCollectionEquality().hash(location),
       const DeepCollectionEquality().hash(createdDate),
       const DeepCollectionEquality().hash(title));
@@ -225,19 +231,22 @@ class _$_Publication implements _Publication {
 
 abstract class _Publication implements Publication {
   const factory _Publication(
-      {required final UniqueId id,
-      required final User user,
-      required final File imageFile,
+      {required final UniqueId pubId,
+      required final UniqueId userId,
+      required final String username,
+      required final String imageUrl,
       required final GeoLocation location,
       required final DateTime createdDate,
       required final String title}) = _$_Publication;
 
   @override
-  UniqueId get id;
+  UniqueId get pubId;
   @override
-  User get user;
+  UniqueId get userId;
   @override
-  File get imageFile;
+  String get username;
+  @override
+  String get imageUrl;
   @override
   GeoLocation get location;
   @override

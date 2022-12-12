@@ -30,7 +30,6 @@ class Back4AppAuthFacade implements IAuthFacade {
     );
     final response =
         await user.signUp(allowWithoutEmail: email == null ? true : false);
-    print('method from back4app was invoked and got respponse: $response');
     if (response.success) {
       return right(unit);
     } else {

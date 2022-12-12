@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:racurs_app/presentation/pages/auth/messages.dart';
+import '../messages.dart';
 
 class RacursLogoText extends StatelessWidget {
   const RacursLogoText({Key? key}) : super(key: key);

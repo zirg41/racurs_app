@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:racurs_app/presentation/pages/auth/messages.dart';
+import '../messages.dart';
 
 void showAuthFailureSnackBar({
   required BuildContext context,
