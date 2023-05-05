@@ -22,5 +22,6 @@ ______
 - createPublication(Publication pub, File image): Response
 - updatePublication(Publication pub, File image): Response
 - deletePublication(String pubId): Response
-- getFeed(String userId): List<Publication>
+- getFeed(String userId): List< Publication>
+- getNearbyPlaces(Map<String, dynamic> location: List< Publication>
 

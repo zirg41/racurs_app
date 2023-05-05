@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../application/publication/form/form_bloc.dart';
-import '../../../global/app_localization.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 final postTitleTextController = TextEditingController();
 
@@ -12,7 +12,7 @@ class CreatePostForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final localization = AppLocalizations.of(context);
+    final localization = AppLocalizations.of(context)!;
     final formBloc = BlocProvider.of<PublicationFormBloc>(context);
     return BlocListener<PublicationFormBloc, PublicationFormState>(
       listener: (context, state) {
@@ -37,8 +37,7 @@ class CreatePostForm extends StatelessWidget {
             maxLines: 4,
             cursorColor: Colors.black,
             decoration: InputDecoration(
-              labelText:
-                  localization.translate('please_type_publication_discription'),
+              labelText: localization.please_type_publication_discription,
             ),
           ),
         ),

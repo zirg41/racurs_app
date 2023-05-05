@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:racurs_app/presentation/global/app_localization.dart';
+import 'package:racurs_app/presentation/global/l10n/l10n.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../application/auth/auth_bloc.dart';
 import '../../application/auth/sign_in_form/sign_in_form_bloc.dart';
@@ -54,29 +55,14 @@ class RacursApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             title: 'Material App',
             theme: themeState.themeData,
-            supportedLocales: const [
-              Locale('ru', 'RU'),
-              Locale('en', 'US'),
-            ],
+            supportedLocales: L10n.all,
             localizationsDelegates: const [
               AppLocalizations.delegate,
               GlobalCupertinoLocalizations.delegate,
               GlobalMaterialLocalizations.delegate,
               GlobalWidgetsLocalizations.delegate,
             ],
-            localeListResolutionCallback: (locales, supportedLocales) {},
-            localeResolutionCallback: (locale, supportedLocales) {
-              if (locale == null) {
-                return supportedLocales.first;
-              }
-              for (var supportedLocale in supportedLocales) {
-                if (supportedLocale.languageCode == locale.languageCode &&
-                    supportedLocale.countryCode == locale.countryCode) {
-                  return supportedLocale;
-                }
-              }
-              return supportedLocales.first;
-            },
+            locale: const Locale('ru'),
           );
         },
       ),

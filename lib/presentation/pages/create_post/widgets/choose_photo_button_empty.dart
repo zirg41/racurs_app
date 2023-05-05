@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../global/app_localization.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 const double imageHeightRatio = 0.3;
 
@@ -17,7 +17,7 @@ class ChoosePhotoButtonEmpty extends StatelessWidget {
       width: double.infinity,
       child: Center(
         child: Text(
-          AppLocalizations.of(context).translate('choose_photo_button'),
+          AppLocalizations.of(context)!.choose_photo_button,
           style: contextTheme.textTheme.bodyLarge,
         ),
       ),
