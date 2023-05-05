@@ -3,8 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
-// import 'package:racurs_app/presentation/global/app_localization.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:racurs_app/presentation/global/app_localization.dart';
 import '../../../application/publication/form/form_bloc.dart';
 import '../../../domain/publication/value_objects.dart';
 import '../../../services/exif_reader.dart';
@@ -59,7 +58,7 @@ class CreatePostPage extends StatelessWidget {
       if (state.imageFile == null) {
         showDefaultSnackBar(
           context: context,
-          text: localization!.choose_photo_button,
+          text: localization.translate('choose_photo_button'),
         );
       }
       if (state.imageFile != null && state.location == null) {
